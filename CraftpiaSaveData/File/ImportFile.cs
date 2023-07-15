@@ -11,18 +11,8 @@ namespace CraftpiaViewSaveData.File
 {
     public static class ImportFile
     {
-        //public CraftpiaParams Import(string filepath)
         public static byte[] Import(string filepath)
         {
-
-            ////"C:\test\1.txt"をShift-JISコードとして開く
-            //using (System.IO.StreamReader sr = new System.IO.StreamReader(@filepath, System.Text.Encoding.GetEncoding("shift_jis")))
-            //{
-            //    //内容をすべて読み込む
-            //    string s = sr.ReadToEnd();
-            //    return ConvertJson(s, savePath);
-            //}
-
             //バイナリのまま取る
             using (System.IO.FileStream fs = new System.IO.FileStream(filepath, System.IO.FileMode.Open, System.IO.FileAccess.Read))
             {
@@ -86,17 +76,11 @@ namespace CraftpiaViewSaveData.File
             var kagicnt = 0;
             var kakkocnt = 0;
             bool commaflg = false;
-            string tmpname = "", elemname = "";
+            string tmpValue = "", elemname = "";
             int listindex = 0;
 
             for (int idx = startListIndex.First(); idx < endIndex; idx++)
             {
-                if (idx % 65536 < 4)
-                {
-                    //64kbごとに謎の空白が4byte入っているので飛ばす
-                    continue;
-                }
-
                 //次の◯◯Listに来た...状態リセット
                 if (startListIndex[listindex + 1] == idx)
                 {
@@ -104,12 +88,16 @@ namespace CraftpiaViewSaveData.File
                     kagicnt = 0;
                     kakkocnt = 0;
                     commaflg = false;
-                    tmpname = elemname = "";
+                    tmpValue = elemname = "";
                     layername.Clear();
                     listindex++;
                 }
 
-
+                if (idx % 65536 < 4)
+                {
+                    //64kbごとに謎の空白が4byte入っているので飛ばす
+                    continue;
+                }
                 var b = bytedata[idx];
                 //制御文字は飛ばす
                 if (b < 32 || b > 126)
@@ -120,51 +108,47 @@ namespace CraftpiaViewSaveData.File
                 switch ((char)b)
                 {
                     case '{':
-                        if (elemname == ""　&& ((char)b).ToString() != ":")
+                        if (elemname == ""　&& ((char)bytedata[idx-1]).ToString() != ":")
                             layername.Push((kagicnt, kakkocnt, "*"));//名前なし{}が複数の時対策({}配列)
                         //一層深く
                         kakkocnt++;
                         tmpindex = idx + 1;
-                        //if (kagiflg) kagikakkoflg = true;
-                        tmpname = ""; //名前クリア
+                        tmpValue = ""; //名前クリア
                         break;
                     case '}'://tmp確定
-                        if (layername.Peek().kakko == kakkocnt && tmpname != "") //コレクション最後の,省略}だった場合のみ内容確定処理
+                        if (layername.Peek().kakko == kakkocnt && tmpValue != "") //コレクション最後の,省略}だった場合のみ内容確定処理
                         {
-                            cparams.Add(tmpindex, new CraftpiaParams(tmpindex, string.Join("-", layername.Reverse().Select(p => p.key)), 0, tmpname));
-                            elemname = tmpname = "";
+                            cparams.Add(tmpindex, new CraftpiaParams(tmpindex, string.Join("-", layername.Reverse().Select(p => p.key)), 0, tmpValue));
+                            elemname = tmpValue = "";
                             tmpindex = idx + 1; //次のidx    
                             layername.Pop();
                         }
                         kakkocnt--;
-                        //if (kagiflg) kagikakkoflg = false;
                         //一層浅く             
                         layername.Pop();
                         break;
                     case ':':
                         break;
                     case ',':
-                        //if (kagiflg && !kagikakkoflg) //[の中身の場合(その中にある{内}ではない)は配列なので、そのまま保存する
-                        if (tmpname != "" && layername.Peek().kagi != kagicnt)
+                        //[の中身の場合(その中にある{内}ではない)は配列なので、そのまま保存する
+                        if (tmpValue != "" && layername.Peek().kagi != kagicnt)
                         {
-                            tmpname += ",";
+                            tmpValue += ",";
                             continue;
                         }
-                        if (tmpname == "")
+                        if (tmpValue == "")
                         {
                             tmpindex = idx + 1; //次のidx  
                             continue;//(}や]直後の,はとばす
                         }
                         //内容確定
-                        cparams.Add(tmpindex, new CraftpiaParams(tmpindex, string.Join("-", layername.Reverse().Select(p => p.key)), 0, tmpname));
+                        cparams.Add(tmpindex, new CraftpiaParams(tmpindex, string.Join("-", layername.Reverse().Select(p => p.key)), 0, tmpValue));
                         layername.Pop();
-                        elemname = tmpname = "";
+                        elemname = tmpValue = "";
                         tmpindex = idx + 1; //次のidx  
                         break;
                     case '[':
                         kagicnt++;
-                        //kagikakkoflg = false;
-                        //kagiflg = true;//[の配列フラグon
                         tmpindex = idx + 1;
                         break;
                     case ']':
@@ -174,11 +158,9 @@ namespace CraftpiaViewSaveData.File
                         {
                             if (layername.Peek().key == "*")
                                 layername.Pop();
-                            cparams.Add(tmpindex, new CraftpiaParams(tmpindex, string.Join("-", layername.Reverse().Select(p => p.key)), 0, tmpname));
-                            elemname = tmpname = "";
-                            tmpindex = idx + 1; //次のidx    
-                            //kagiflg = false;
-                            //kagikakkoflg = false;
+                            cparams.Add(tmpindex, new CraftpiaParams(tmpindex, string.Join("-", layername.Reverse().Select(p => p.key)), 0, tmpValue));
+                            elemname = tmpValue = "";
+                            tmpindex = idx + 1; //次のidx
                             layername.Pop();
                         }
                         kagicnt--;
@@ -192,18 +174,17 @@ namespace CraftpiaViewSaveData.File
                             //名称確定
                             layername.Push((kagicnt, kakkocnt, elemname));
                             elemname = "";
-                            tmpname = "";
+                            tmpValue = "";
                         }
                         break;
                     default: //その他内容またはキー名称
                         if (commaflg)
                             elemname += ((char)b).ToString();
                         else
-                            tmpname += ((char)b).ToString();
+                            tmpValue += ((char)b).ToString();
                         break;
                 }
             }
-            //不要なバイナリをカットしてjsonファイルにできないか？
 
             return cparams;
         }
