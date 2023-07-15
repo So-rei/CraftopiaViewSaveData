@@ -1,0 +1,36 @@
+﻿#パラメータの名前をここにセットしていく
+#"#"から始まる列はコメントで無視する
+#List親名("value"の直下の◯◯Listとなのつくもの).各パラメータ名　と記載する
+#exeと同じフォルダに置くこと
+
+#キャラクター
+GUID ユニークID?
+charaMakeData 見た目データ
+plStatusSaveData.count トップページでキャラ選択する時の表示順?
+plStatusSaveData.Health 現HP/MAXHP
+plStatusSaveData.Mana 現Mana/MAXMana
+plStatusSaveData.Satiety 不明
+plStatusSaveData.Money 所持金額
+plStatusSaveData.SkillPoint 未使用スキルポイント
+plStatusSaveData.EnchantPoint (*現在未使用?)未使用エンチャントポイント
+plStatusSaveData.hpIncreaseCount 石板のHP増加値
+plStatusSaveData.mpIncreaseCount 石板のMP増加値
+plStatusSaveData.stIncreaseCount 石板のスタミナ増加値
+plStatusSaveData.spIncreaseCount 石板のスキルポイント増加値
+plStatusSaveData.Level 現レベル。経験値と矛盾する値を入れた場合、経験値の方で再計算される
+plStatusSaveData.Exp 現経験値。9999で大体Lv48相当
+plStatusSaveData.lastFreeSkillReset (*現在未使用?)スキルリセットが有料だったときのスキルリセットフラグ
+
+#アイテム
+equipmentList.itemId 所持しているアイテムのId
+equipmentList.itemLevel 所持しているアイテムのレベル（＋●●）
+equipmentList.enchantIds エンチャント(4種類、カンマ区切り）
+equipmentList.saveLock 鍵つきアイテムかどうか
+equipmentList.dataVersion 遺産フラグ。0=遺産,1=シームレス版で入手
+equipmentList.bulletNum 不明
+equipmentList.bulletId 不明
+equipmentList.proficient 装備品の場合、熟練度
+equipmentList.petID 不明
+equipmentList.count 個数
+equipmentList.assignedHotkeySlot ホットキースロット装備位置(ページ1,ページ2,ページ3)
+equipmentList.assignedEquipSlot 装備位置
