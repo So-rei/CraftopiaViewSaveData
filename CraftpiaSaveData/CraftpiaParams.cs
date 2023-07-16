@@ -10,29 +10,26 @@ namespace CraftpiaViewSaveData
     public class CraftpiaParams
     {
         public int index { get; private set; }//何文字目にあったか
-        public List<string> keys { get; private set; } //項目の名称
-        public string listName { get; private set; }//項目がどのリストに属する項目であるか
-
+        public string name { get; private set; } //名称(名前なしの場合もある)
+        public List<CraftpiaParams> innerParams { get; private set; }        //内容が入れ子や配列の場合
+        public bool isArray { get; private set; }                            //内容が配列[]の場合True,入れ子{}の場合False
         public int x { get; set; }//"itemInBox"などの場合、アイテムの何番目なのかのインデックス
-        public string value { get; set; } //入っている内容(変更したときはここに上書き)
-        public int oldlength { get; private set; }//入っていた内容の長さ
+        public string value { get; set; } //内容が値の場合
+        public int oldlength { get; set; }//内容が値の場合、入っていた内容の長さ
 
-        public CraftpiaParams(int index, string key, int x, string value)
+        public CraftpiaParams(int _index, string _name, string value = "", bool _isArray = false)
         {
-            this.index = index;
-            this.keys = key.Split('-').Select(p => p.Trim('"').Trim(',').Trim('"')).ToList();
-            this.x = x;
-            this.value = value;
-            this.oldlength = value.Length;
+            this.index = _index;
+            this.name = _name;
+            this.innerParams = new List<CraftpiaParams>();
+            this.isArray = _isArray;
+            this.x = -1;
+        }
 
-            foreach (var k in keys)
-            {
-                if (CommonConst.listname.ToList().LastIndexOf(k) != -1)
-                {
-                    this.listName = k;
-                    break;
-                }
-            }
+        public override string ToString()
+        {
+            string s = name + "," + x.ToString() + "," + value.ToString();
+            return s;
         }
     }
 }

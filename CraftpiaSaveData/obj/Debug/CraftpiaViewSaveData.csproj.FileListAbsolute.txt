@@ -1,0 +1,12 @@
+D:\Programming\CraftpiaViewSaveData\CraftpiaSaveData\obj\Debug\CraftpiaViewSaveData.csproj.AssemblyReference.cache
+D:\Programming\CraftpiaViewSaveData\CraftpiaSaveData\obj\Debug\CraftpiaViewSaveData.csproj.SuggestedBindingRedirects.cache
+D:\Programming\CraftpiaViewSaveData\CraftpiaSaveData\obj\Debug\CraftpiaViewSaveData.MainForm.resources
+D:\Programming\CraftpiaViewSaveData\CraftpiaSaveData\obj\Debug\CraftpiaViewSaveData.TestForm.resources
+D:\Programming\CraftpiaViewSaveData\CraftpiaSaveData\obj\Debug\CraftpiaViewSaveData.Properties.Resources.resources
+D:\Programming\CraftpiaViewSaveData\CraftpiaSaveData\obj\Debug\CraftpiaViewSaveData.csproj.GenerateResource.cache
+D:\Programming\CraftpiaViewSaveData\CraftpiaSaveData\obj\Debug\CraftpiaViewSaveData.csproj.CoreCompileInputs.cache
+D:\Programming\CraftpiaViewSaveData\CraftpiaSaveData\bin\Debug\CraftpiaViewSaveData.exe.config
+D:\Programming\CraftpiaViewSaveData\CraftpiaSaveData\bin\Debug\CraftpiaViewSaveData.exe
+D:\Programming\CraftpiaViewSaveData\CraftpiaSaveData\bin\Debug\CraftpiaViewSaveData.pdb
+D:\Programming\CraftpiaViewSaveData\CraftpiaSaveData\obj\Debug\CraftpiaViewSaveData.exe
+D:\Programming\CraftpiaViewSaveData\CraftpiaSaveData\obj\Debug\CraftpiaViewSaveData.pdb

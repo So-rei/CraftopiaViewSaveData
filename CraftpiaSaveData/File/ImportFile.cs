@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -33,8 +34,9 @@ namespace CraftpiaViewSaveData.File
             //飛ばした中身は「◯◯List、◯◯List、・・・キャラデータ」の順で並んでるっぽい?
             int bc = bytedata.Count();
             int tmpstart = 0;
-            var startListIndex = new List<int>();
-            var endIndex = 0;
+            var startListIndex = new Dictionary<int, (int index, string listname)>();
+            int listindex = 0;
+            var endIndex = bc;
             for (int i = 11000; i < 12288; i++)
             {
                 if (bytedata[i] == (byte)0)
@@ -50,270 +52,160 @@ namespace CraftpiaViewSaveData.File
                     int idx = i;
                     while (bytedata[idx - 1] != '"')
                         idx--;
-                    startListIndex.Add(idx - 1);
+                    startListIndex.Add(listindex, (idx - 1, new string(bytedata.Skip(idx).Take(4 + i - idx).Select(p => (char)p).ToArray())));
+                    listindex++;
                 }
             }
             for (int i = bc - 1024; i > 0; i--)
             {
                 if (bytedata[i] == Convert.ToByte('P') && new string(bytedata.Skip(i).Take(10).Select(p => (char)p).ToArray()) == "PlayerSave")
                 {
-                    startListIndex.Add(i);
-                    break;
-                }
-            }
-            for (int i = startListIndex.Last(); i < bc; i++)
-            {
-                if (bytedata[i] == (byte)0)
-                {
-                    endIndex = i;
+                    startListIndex.Add(listindex, (i, "PlayerSave"));
+                    for (int j = i; j < bc; j++)
+                    {
+                        if (bytedata[j] == (byte)0)
+                        {
+                            endIndex = j;
+                            break;
+                        }
+                    }
                     break;
                 }
             }
 
-            var cparams = new Dictionary<int, CraftpiaParams>();
-            var layername = new Stack<(int kagi,int kakko,string key) >(); //[の層、{の層、キー
+            //一番上のツリー
+            var mainTree = new CraftpiaParams(0, "MOM");
+            //各"◯◯List"のツリー
+            int listi = 1;
+            //List以下
+            var pParams = new Stack<List<CraftpiaParams>>();
+            pParams.Push(new List<CraftpiaParams>() { new CraftpiaParams(startListIndex.First().Value.index, "mom-0") });
             var tmpindex = -1;
-            var kagicnt = 0;
-            var kakkocnt = 0;
             bool commaflg = false;
-            string tmpValue = "", elemname = "";
-            int listindex = 0;
+            string tmpValue = "", elemname = ""; //内容,項目名
 
-            for (int idx = startListIndex.First(); idx < endIndex; idx++)
+            for (int idx = startListIndex.First().Value.index; idx < endIndex; idx++)
             {
-                //次の◯◯Listに来た...状態リセット
-                if (startListIndex[listindex + 1] == idx)
+                //次の◯◯Listに来た
+                //前のList確定したので保存,状態リセット,次のListの準備
+                if (startListIndex[listi].index == idx)
                 {
                     tmpindex = -1;
-                    kagicnt = 0;
-                    kakkocnt = 0;
                     commaflg = false;
                     tmpValue = elemname = "";
-                    layername.Clear();
-                    listindex++;
+
+                    var childParam = pParams.Pop().First(); //List直下は必ず１個
+                    mainTree.innerParams.Add(childParam);
+                    pParams.Push(new List<CraftpiaParams>() { new CraftpiaParams(startListIndex.First().Value.index, "mom-" + listi.ToString()) });
+                    listi++;
                 }
 
-                if (idx % 65536 < 4)
-                {
-                    //64kbごとに謎の空白が4byte入っているので飛ばす
-                    continue;
-                }
+                if (idx % 65536 < 4) continue;  //64kbごとに謎の空白が4byte入っているので飛ばす
                 var b = bytedata[idx];
-                //制御文字は飛ばす
-                if (b < 32 || b > 126)
-                {
-                    continue;
-                }
+                if (b < 32 || b > 126) continue; //制御文字は飛ばす
 
                 switch ((char)b)
                 {
-                    case '{':
-                        if (elemname == ""　&& ((char)bytedata[idx-1]).ToString() != ":")
-                            layername.Push((kagicnt, kakkocnt, "*"));//名前なし{}が複数の時対策({}配列)
-                        //一層深く
-                        kakkocnt++;
-                        tmpindex = idx + 1;
-                        tmpValue = ""; //名前クリア
-                        break;
-                    case '}'://tmp確定
-                        if (layername.Peek().kakko == kakkocnt && tmpValue != "") //コレクション最後の,省略}だった場合のみ内容確定処理
+                    case '{': //Param一層追加
                         {
-                            cparams.Add(tmpindex, new CraftpiaParams(tmpindex, string.Join("-", layername.Reverse().Select(p => p.key)), 0, tmpValue));
-                            elemname = tmpValue = "";
-                            tmpindex = idx + 1; //次のidx    
-                            layername.Pop();
-                        }
-                        kakkocnt--;
-                        //一層浅く             
-                        layername.Pop();
-                        break;
-                    case ':':
-                        break;
-                    case ',':
-                        //[の中身の場合(その中にある{内}ではない)は配列なので、そのまま保存する
-                        if (tmpValue != "" && layername.Peek().kagi != kagicnt)
-                        {
-                            tmpValue += ",";
-                            continue;
-                        }
-                        if (tmpValue == "")
-                        {
+                            var ne = new CraftpiaParams(tmpindex, elemname, tmpValue);
+                            pParams.Push(new List<CraftpiaParams>() { ne });
                             tmpindex = idx + 1; //次のidx  
-                            continue;//(}や]直後の,はとばす
-                        }
-                        //内容確定
-                        cparams.Add(tmpindex, new CraftpiaParams(tmpindex, string.Join("-", layername.Reverse().Select(p => p.key)), 0, tmpValue));
-                        layername.Pop();
-                        elemname = tmpValue = "";
-                        tmpindex = idx + 1; //次のidx  
-                        break;
-                    case '[':
-                        kagicnt++;
-                        tmpindex = idx + 1;
-                        break;
-                    case ']':
-                        //[配列のときは内容確定
-                        //if (kagiflg)
-                        if (layername.Peek().kagi == kagicnt) //コレクション最後の]だった場合のみ内容確定処理
-                        {
-                            if (layername.Peek().key == "*")
-                                layername.Pop();
-                            cparams.Add(tmpindex, new CraftpiaParams(tmpindex, string.Join("-", layername.Reverse().Select(p => p.key)), 0, tmpValue));
                             elemname = tmpValue = "";
-                            tmpindex = idx + 1; //次のidx
-                            layername.Pop();
+                            break;
                         }
-                        kagicnt--;
-                        //layername.Pop();
-                        break;
+                    case '}': //直前のParamsが確定、一層減
+                        {
+                            if (pParams.Peek().Count() == 1 && tmpValue != "") //コレクション最後の,省略}だった場合のみ、中身の確定処理
+                            {
+                                var bf = pParams.Pop();
+                                bf.Last().value = tmpValue;
+                                bf.Last().oldlength = tmpValue.Length;
+                                pParams.Peek().Last().innerParams.AddRange(bf);
+                            }
+                            //一層浅く    
+                            var bf2 = pParams.Pop();
+                            pParams.Peek().Last().innerParams.AddRange(bf2);
+                            tmpindex = idx + 1; //次のidx    
+                            elemname = tmpValue = "";
+                            break;
+                        }
+                    case ':': //名称確定
+                        {
+                            var ne = new CraftpiaParams(tmpindex, elemname, tmpValue);
+                            pParams.Push(new List<CraftpiaParams>() { ne });
+                            tmpindex = idx + 1; //次のidx  
+                            elemname = tmpValue = "";
+                            break;
+                        }
+                    case ',':
+                        {
+                            //配列[]の中の,である
+                            if (pParams.Peek().Last().isArray)
+                            {
+                                //[{～},{～}]　の","は特に何もしない
+                                //if ((char)bytedata[idx - 1] == '}') continue;
+                                //if (tmpValue == "") continue;
+
+                                //配列内の名前なし項目の場合は、paramsが生成されていないので、独立で作成する
+                                var ne = new CraftpiaParams(tmpindex, elemname, tmpValue);
+                                pParams.Peek().Last().innerParams.Add(ne);
+                            }
+                            else
+                            {
+                                //直前の項目の値が確定
+                                var bf3 = pParams.Pop();
+                                bf3.Last().value = tmpValue;
+                                pParams.Peek().Last().innerParams.AddRange(bf3);
+                            }
+                            tmpindex = idx + 1; //次のidx  
+                            elemname = tmpValue = "";
+                            break;
+                        }
+                    case '[': //Param一層追加(array)
+                        {
+                            var ne = new CraftpiaParams(tmpindex, elemname, tmpValue, true);
+                            pParams.Push(new List<CraftpiaParams>() { ne });
+                            tmpindex = idx + 1; //次のidx  
+                            elemname = tmpValue = "";
+                            break;
+                        }
+                    case ']': //直前のParamsが確定、一層減
+                        {
+                            if (pParams.Peek().Count() == 1 && tmpValue != "") //コレクション最後の]だった場合のみ、中身の確定処理
+                            {
+                                var bf = pParams.Pop();
+                                bf.Last().value = tmpValue;
+                                bf.Last().oldlength = tmpValue.Length;
+                                pParams.Peek().Last().innerParams.AddRange(bf);
+                            }
+                            //一層浅く    
+                            var bf4 = pParams.Pop();
+                            pParams.Peek().Last().innerParams.AddRange(bf4);
+                            tmpindex = idx + 1; //次のidx    
+                            elemname = tmpValue = "";
+                            break;
+                        }
                     case '"':
-                        commaflg = !commaflg;
-                        Console.WriteLine(idx);
-                        if (!commaflg)
                         {
-                            //名称確定
-                            layername.Push((kagicnt, kakkocnt, elemname));
-                            elemname = "";
-                            tmpValue = "";
+                            commaflg = !commaflg;
+                            break;
                         }
-                        break;
                     default: //その他内容またはキー名称
-                        if (commaflg)
-                            elemname += ((char)b).ToString();
-                        else
-                            tmpValue += ((char)b).ToString();
-                        break;
+                        {
+                            if (commaflg)
+                                elemname += ((char)b).ToString();
+                            else
+                                tmpValue += ((char)b).ToString();
+                            break;
+                        }
                 }
             }
 
-            return cparams;
-        }
-        public static Dictionary<int, CraftpiaParams> GetList20230712(byte[] bytedata, string savePath)
-        {
-            //string savePath = $@"{Path.GetDirectoryName(filepath)}\{Path.GetFileNameWithoutExtension(filepath)}.json";
+            //最後のキャラデータをAdd
+            mainTree.innerParams.Add(pParams.Pop().First());
 
-            //最初の情報は除く
-            //「PlayerSave」の手前と「Ingame」の手前のデータがなんか壊れてるっぽい?ので飛ばすフラグを作る
-            var skipflg = new List<int>();//奇数個目～偶数個目までが壊れてるゾーン
-            skipflg.Add(0);
-            int bc = bytedata.Count();
-            for (int i = 0; i < bc; i++)
-            {
-                if (i % 65536 < 4)
-                {
-                    //64kbごとに謎の空白が4byte入っているので飛ばす
-                    continue;
-                }
-                //制御文字
-                if (skipflg.Count() % 2 == 0 && (bytedata[i] < 32 || bytedata[i] > 126))
-                {
-                    skipflg.Add(i);
-                }
-                if (bytedata[i] == Convert.ToByte('P'))
-                {
-                    if (i < bc - 11 && new string(bytedata.Skip(i).Take(11).Select(p => (char)p).ToArray()) == "PlayerSave{")
-                        skipflg.Add(i + 11);
-                }
-                if (bytedata[i] == Convert.ToByte('I'))
-                {
-                    if (i < bc - 6 && new string(bytedata.Skip(i).Take(6).Select(p => (char)p).ToArray()) == "InGame")
-                        skipflg.Add(i + 6);
-                }
-            }
-
-            int skip_flg_idx = 0;
-
-            var cparams = new Dictionary<int, CraftpiaParams>();
-            var layername = new Stack<string>();
-            var tmpname = "";
-            var tmpindex = -1;
-            bool kagiflg = false, kagikakkoflg = false;
-            for (int idx = 0; idx < bc; idx++)
-            {
-                if (idx % 65536 < 4)
-                {
-                    //64kbごとに謎の空白が4byte入っているので飛ばす
-                    continue;
-                }
-                if (skipflg[skip_flg_idx] <= idx)
-                {
-                    if (skip_flg_idx == skipflg.Count() - 1) break;
-                    idx++;
-                    tmpname = "";
-                    kagiflg = false;
-                    idx = skipflg[skip_flg_idx + 1] - 1;
-                    layername.Clear();
-                    tmpindex = idx + 1;
-                    skip_flg_idx += 2;
-                    continue;
-                }
-                var b = bytedata[idx];
-
-                switch ((char)b)
-                {
-                    case '{':
-                        //一層深く
-                        tmpindex = idx + 1;
-                        if (kagiflg) kagikakkoflg = true;
-                        break;
-                    case '}'://tmp確定
-                        if (kagiflg) kagikakkoflg = false;
-                        if (tmpname != "") //コレクション最後の}だった場合は内容確定
-                        {
-                            cparams.Add(tmpindex, new CraftpiaParams(tmpindex, string.Join("-", layername.Reverse().Select(p => p)), 0, tmpname));
-                            tmpname = "";
-                            tmpindex = idx + 1; //次のidx    
-                        }
-                        //一層浅く             
-                        layername.Pop();
-                        break;
-                    case ':':
-                        //名称確定
-                        layername.Push(tmpname);
-                        tmpname = "";
-                        break;
-                    case ',':
-                        if (kagiflg && !kagikakkoflg) //[の中身の場合(その中にある{内}ではない)は配列なので、そのまま保存する
-                        {
-                            tmpname += ",";
-                            continue;
-                        }  
-                        if (tmpname == "")
-                        {
-                            tmpindex = idx + 1; //次のidx  
-                            continue;//(}や]直後の,はとばす
-                        }
-                        //内容確定
-                        cparams.Add(tmpindex, new CraftpiaParams(tmpindex, string.Join("-", layername.Reverse().Select(p => p)), 0, tmpname));
-                        layername.Pop();
-                        tmpname = "";
-                        tmpindex = idx + 1; //次のidx  
-                        break;
-                    case '[':
-                        kagikakkoflg = false;
-                        kagiflg = true;//[の配列フラグon
-                        tmpindex = idx + 1;
-                        break;
-                    case ']':
-                        //[配列のときは内容確定
-                        if (kagiflg)
-                        {
-                            cparams.Add(tmpindex, new CraftpiaParams(tmpindex, string.Join("-", layername.Reverse().Select(p => p)), 0, tmpname));
-                            tmpname = "";
-                            tmpindex = idx + 1; //次のidx    
-                            kagiflg = false;
-                            kagikakkoflg = false;
-                        }
-                        layername.Pop();
-                        break;
-                    default: //その他内容またはキー名称
-                        tmpname += ((char)b).ToString();
-                        break;
-                }
-            }
-            //不要なバイナリをカットしてjsonファイルにできないか？
-
-            return cparams;
+            return null;
         }
     }
 }

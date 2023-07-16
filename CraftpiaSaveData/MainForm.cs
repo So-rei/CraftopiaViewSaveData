@@ -40,7 +40,7 @@ namespace CraftpiaViewSaveData
         private void panel1_DragDrop(object sender, DragEventArgs e)
         {
             var files = (string[])e.Data.GetData(DataFormats.FileDrop, false);
-            var ocss = files.Where(f => Path.GetExtension(f) == ".db");
+            var ocss = files.Where(f => Path.GetExtension(f) == ".db" || Path.GetExtension(f) == ".json");
             if (ocss.Count() != 1) return;
 
             originalData = ImportFile.Import(ocss.First());
@@ -52,49 +52,49 @@ namespace CraftpiaViewSaveData
             dgv1.Rows.Clear();
             var viewlist = GetResourceFile.GetFile();
             int row = 0;
-            foreach (var data in convertData)
-            {
-                //以下の構造である
-                //value -- {charaMakeData,plStatusSaveData,inventorySaveData}
-                //inventorySaveData -- {equipmentList,buildingList,consumptionList,personalChestList,petList,materialList,petChestList}
-                //                      └-- itemInBox -- {(item,count) * 最大4枠}
-                var lastkey = data.Value.keys.Last();
-                string keystr = String.Join(",", data.Value.keys);
+            //foreach (var data in convertData)
+            //{
+            //    //以下の構造である
+            //    //value -- {charaMakeData,plStatusSaveData,inventorySaveData}
+            //    //inventorySaveData -- {equipmentList,buildingList,consumptionList,personalChestList,petList,materialList,petChestList}
+            //    //                      └-- itemInBox -- {(item,count) * 最大4枠}
+            //    var lastkey = data.Value.keys.Last();
+            //    string keystr = String.Join(",", data.Value.keys);
 
-                dgv1.Rows.Add();
-                dgv1.Rows[row].Cells[(int)rowindex.CategoryName].Value = "-";
-                dgv1.Rows[row].Cells[(int)rowindex.DetailName].Value = lastkey;
-                dgv1.Rows[row].Cells[(int)rowindex.FullName].Value = keystr;
+            //    dgv1.Rows.Add();
+            //    dgv1.Rows[row].Cells[(int)rowindex.CategoryName].Value = "-";
+            //    dgv1.Rows[row].Cells[(int)rowindex.DetailName].Value = lastkey;
+            //    dgv1.Rows[row].Cells[(int)rowindex.FullName].Value = keystr;
 
-                //名称をtxtから取得
-                if (viewlist.ContainsKey(data.Value.listName + "." + lastkey))
-                {
-                    dgv1.Rows[row].Cells[(int)rowindex.DetailName_Ja].Value = viewlist[data.Value.listName + "." + lastkey];
-                }
-                //アイテム系の場合
-                if (data.Value.listName != null && data.Value.listName != "")
-                {
-                    //カテゴリ名称
-                    dgv1.Rows[row].Cells[0].Value = CommonConst.listnameja[CommonConst.listname.ToList().IndexOf(data.Value.listName)];
+            //    //名称をtxtから取得
+            //    if (viewlist.ContainsKey(data.Value.listName + "." + lastkey))
+            //    {
+            //        dgv1.Rows[row].Cells[(int)rowindex.DetailName_Ja].Value = viewlist[data.Value.listName + "." + lastkey];
+            //    }
+            //    //アイテム系の場合
+            //    if (data.Value.listName != null && data.Value.listName != "")
+            //    {
+            //        //カテゴリ名称
+            //        dgv1.Rows[row].Cells[0].Value = CommonConst.listnameja[CommonConst.listname.ToList().IndexOf(data.Value.listName)];
 
-                    //何個目のアイテムか,Noを発番
-                    if (itemIndexCount[data.Value.listName].ContainsKey(keystr))
-                    {
-                        itemIndexCount[data.Value.listName][keystr]++;
-                    }
-                    else
-                    {
-                        itemIndexCount[data.Value.listName].Add(keystr, 1);
-                    }
-                    dgv1.Rows[row].Cells[(int)rowindex.Numbering].Value = itemIndexCount[data.Value.listName][keystr];
-                    data.Value.x = itemIndexCount[data.Value.listName][keystr];
-                }
+            //        //何個目のアイテムか,Noを発番
+            //        if (itemIndexCount[data.Value.listName].ContainsKey(keystr))
+            //        {
+            //            itemIndexCount[data.Value.listName][keystr]++;
+            //        }
+            //        else
+            //        {
+            //            itemIndexCount[data.Value.listName].Add(keystr, 1);
+            //        }
+            //        dgv1.Rows[row].Cells[(int)rowindex.Numbering].Value = itemIndexCount[data.Value.listName][keystr];
+            //        data.Value.x = itemIndexCount[data.Value.listName][keystr];
+            //    }
 
-                dgv1.Rows[row].Cells[(int)rowindex.Value].Value = data.Value.value; //値
-                dgv1.Rows[row].Cells[(int)rowindex.Index].Value = data.Value.index; //index
-                dgv1.Rows[row].Cells[(int)rowindex.HexIndex].Value = Convert.ToString(data.Value.index, 16); //index0x
-                row++;
-            }
+            //    dgv1.Rows[row].Cells[(int)rowindex.Value].Value = data.Value.value; //値
+            //    dgv1.Rows[row].Cells[(int)rowindex.Index].Value = data.Value.index; //index
+            //    dgv1.Rows[row].Cells[(int)rowindex.HexIndex].Value = Convert.ToString(data.Value.index, 16); //index0x
+            //    row++;
+            //}
         }
         #endregion
         #region "アイテム詳細関係"
