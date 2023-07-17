@@ -21,7 +21,7 @@ namespace CraftpiaViewSaveData
     public partial class MainForm : Form
     {
         byte[] originalData;
-        Dictionary<int, CraftpiaParams> convertData;
+        CraftpiaParams convertData;
 
         public MainForm()
         {
