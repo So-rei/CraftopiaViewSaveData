@@ -39,13 +39,6 @@ namespace CraftpiaViewSaveData
             if (ocss.Count() != 1) return;
 
             originalData = ImportFile.Import(ocss.First());
-            convertData = ImportFile.GetList(originalData, ocss.First());
-
-            //dgvにセットしていく...
-            var numberingdic = new Dictionary<string, int>();//アイテム等のときのindexふり用dictionary
-            dgv1.Rows.Clear();
-            var viewlist = GetResourceFile.GetFile();
-            int row = 0;
         }
     }
 }

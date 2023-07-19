@@ -22,6 +22,7 @@ namespace CraftpiaViewSaveData
     {
         byte[] originalData;
         CraftpiaParams convertData;
+        Dictionary<string, CraftpiaParams> eachData;
 
         public MainForm()
         {
@@ -45,56 +46,58 @@ namespace CraftpiaViewSaveData
 
             originalData = ImportFile.Import(ocss.First());
             convertData = ImportFile.GetList(originalData, ocss.First());
+            eachData = convertData.GetChildParams();
 
             //dgvにセットしていく...
-            var itemIndexCount = new Dictionary<string, Dictionary<string,int>>();//アイテム等のときのindexふり用dictionary
-            CommonConst.listname.ToList().ForEach(p => itemIndexCount.Add(p, new Dictionary<string, int>()));
+            //以下の構造である
+            //value -- {charaMakeData,plStatusSaveData,inventorySaveData}
+            //inventorySaveData -- {equipmentList,buildingList,consumptionList,personalChestList,petList,materialList,petChestList}
+            //                      └-- itemInBox -- {(item,count) * 最大4枠}
             dgv1.Rows.Clear();
+
             var viewlist = GetResourceFile.GetFile();
             int row = 0;
-            //foreach (var data in convertData)
-            //{
-            //    //以下の構造である
-            //    //value -- {charaMakeData,plStatusSaveData,inventorySaveData}
-            //    //inventorySaveData -- {equipmentList,buildingList,consumptionList,personalChestList,petList,materialList,petChestList}
-            //    //                      └-- itemInBox -- {(item,count) * 最大4枠}
-            //    var lastkey = data.Value.keys.Last();
-            //    string keystr = String.Join(",", data.Value.keys);
+            foreach (var data in eachData)
+            {
+                var dataTree = data.Key.Split('-').ToList();
 
-            //    dgv1.Rows.Add();
-            //    dgv1.Rows[row].Cells[(int)rowindex.CategoryName].Value = "-";
-            //    dgv1.Rows[row].Cells[(int)rowindex.DetailName].Value = lastkey;
-            //    dgv1.Rows[row].Cells[(int)rowindex.FullName].Value = keystr;
+                dgv1.Rows.Add();
+                dgv1.Rows[row].Cells[(int)rowindex.CategoryName].Value = dataTree[2];
+                dgv1.Rows[row].Cells[(int)rowindex.DetailName].Value = data.Value.name;
+                dgv1.Rows[row].Cells[(int)rowindex.FullName].Value = data.Key;
 
-            //    //名称をtxtから取得
-            //    if (viewlist.ContainsKey(data.Value.listName + "." + lastkey))
-            //    {
-            //        dgv1.Rows[row].Cells[(int)rowindex.DetailName_Ja].Value = viewlist[data.Value.listName + "." + lastkey];
-            //    }
-            //    //アイテム系の場合
-            //    if (data.Value.listName != null && data.Value.listName != "")
-            //    {
-            //        //カテゴリ名称
-            //        dgv1.Rows[row].Cells[0].Value = CommonConst.listnameja[CommonConst.listname.ToList().IndexOf(data.Value.listName)];
+                //名称をtxtから取得
+                foreach (var v in viewlist)
+                {
+                    int idx = -1;
+                    bool ismatch = true;
+                    foreach (var k in v.Key.Split('.'))
+                    {
+                        if (idx >= dataTree.IndexOf(k))
+                        {
+                            ismatch = false;
+                            break;
+                        }
+                    }
+                    if (ismatch)
+                    {
+                        dgv1.Rows[row].Cells[(int)rowindex.DetailName_Ja].Value = viewlist[v.Key];
+                    }
+                }
+                //何個目のアイテムか,Noを発番
+                var no_str = "";
+                foreach (var d in dataTree)
+                {
+                    if (int.TryParse(d, out int i) && i != 1)
+                        no_str += "-" + i.ToString();
+                }
+                dgv1.Rows[row].Cells[(int)rowindex.Numbering].Value = no_str == "" ? "1" : no_str;
 
-            //        //何個目のアイテムか,Noを発番
-            //        if (itemIndexCount[data.Value.listName].ContainsKey(keystr))
-            //        {
-            //            itemIndexCount[data.Value.listName][keystr]++;
-            //        }
-            //        else
-            //        {
-            //            itemIndexCount[data.Value.listName].Add(keystr, 1);
-            //        }
-            //        dgv1.Rows[row].Cells[(int)rowindex.Numbering].Value = itemIndexCount[data.Value.listName][keystr];
-            //        data.Value.x = itemIndexCount[data.Value.listName][keystr];
-            //    }
-
-            //    dgv1.Rows[row].Cells[(int)rowindex.Value].Value = data.Value.value; //値
-            //    dgv1.Rows[row].Cells[(int)rowindex.Index].Value = data.Value.index; //index
-            //    dgv1.Rows[row].Cells[(int)rowindex.HexIndex].Value = Convert.ToString(data.Value.index, 16); //index0x
-            //    row++;
-            //}
+                dgv1.Rows[row].Cells[(int)rowindex.Value].Value = data.Value.value; //値
+                dgv1.Rows[row].Cells[(int)rowindex.Index].Value = data.Value.index; //index
+                dgv1.Rows[row].Cells[(int)rowindex.HexIndex].Value = Convert.ToString(data.Value.index, 16); //index0x
+                row++;
+            }
         }
         #endregion
         #region "アイテム詳細関係"
