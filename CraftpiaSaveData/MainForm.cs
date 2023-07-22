@@ -20,7 +20,7 @@ namespace CraftpiaViewSaveData
 {
     public partial class MainForm : Form
     {
-        byte[] originalData;
+        List<ClassDb> originalData;
         CraftpiaParams convertData;
         Dictionary<string, CraftpiaParams> eachData;
 
@@ -44,8 +44,10 @@ namespace CraftpiaViewSaveData
             var ocss = files.Where(f => Path.GetExtension(f) == ".db" || Path.GetExtension(f) == ".json");
             if (ocss.Count() != 1) return;
 
-            originalData = ImportFile.Import(ocss.First());
-            convertData = ImportFile.GetList(originalData, ocss.First());
+            //originalData = ImportFile.Import(ocss.First());
+            //convertData = ImportFile.GetList(originalData, ocss.First());
+            originalData = CrudDb.Read(ocss.First());
+            convertData = StrToCraftpiaParams.GetList(originalData.Where(p => p.id == PPSave_ID_InGame).First().value, ocss.First());
             eachData = convertData.GetChildParams();
 
             //dgvにセットしていく...
@@ -88,10 +90,10 @@ namespace CraftpiaViewSaveData
                 var no_str = "";
                 foreach (var d in dataTree)
                 {
-                    if (int.TryParse(d, out int i) && i != 1)
+                    if (int.TryParse(d, out int i))
                         no_str += "-" + i.ToString();
                 }
-                dgv1.Rows[row].Cells[(int)rowindex.Numbering].Value = no_str == "" ? "1" : no_str;
+                dgv1.Rows[row].Cells[(int)rowindex.Numbering].Value = no_str == "" ? "1" : no_str.TrimStart('-');
 
                 dgv1.Rows[row].Cells[(int)rowindex.Value].Value = data.Value.value; //値
                 dgv1.Rows[row].Cells[(int)rowindex.Index].Value = data.Value.index; //index

@@ -48,13 +48,21 @@ namespace CraftpiaViewSaveData
                     string keyname = targetParam.name + "-" + dic.Key;
                     if (treecountdic.TryGetValue(keyname, out int cnt))
                     {
+                        //ナンバリングなしだった前回データをナンバリング1に変更
+                        if (cnt == 1)
+                        {
+                            ret.Add(targetParam.name + "-1-" + dic.Key, ret[keyname]);
+                            ret.Remove(keyname);
+                        }
+
+                        //今きた値を追加
                         ret.Add(targetParam.name + "-" + (cnt + 1).ToString() + "-" + dic.Key, dic.Value);
                         treecountdic[keyname]++;
                     }
                     else
                     {
                         treecountdic.Add(keyname, 1);
-                        ret.Add(targetParam.name + "-1-" + dic.Key, dic.Value);
+                        ret.Add(keyname, dic.Value);
                     }
                 }
             }
