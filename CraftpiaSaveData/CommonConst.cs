@@ -10,8 +10,28 @@ namespace CraftpiaViewSaveData
     public static class CommonConst
     {
         //アイテムの種別と名称
-        public static string[] listname = { "equipmentList", "buildingList", "consumptionList", "personalChestList", "petList", "materialList", "petChestList", "importantList" };
-        public static string[] listnameja = { "装備", "建物", "食べ物", "クラウドストレージ", "ペット", "素材", "ペットストレージ", "大切なもの" };
+        public enum itemListName
+        {
+            equipmentList,
+            buildingList, 
+            consumptionList,
+            personalChestList,
+            petList,
+            materialList,
+            petChestList,
+            importantList
+        }
+        public enum itemListNameJa
+        {
+            装備,
+            建物,
+            食べ物,
+            クラウドストレージ,
+            ペット,
+            素材,
+            ペットストレージ,
+            大切なもの
+        }
 
         //DBのテーブル名
         public const string CraftpiaTableName = "Entity";
