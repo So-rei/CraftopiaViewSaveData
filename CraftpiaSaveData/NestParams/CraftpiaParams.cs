@@ -9,22 +9,23 @@ namespace CraftpiaViewSaveData.NestParams
 {
     public class CraftpiaParams
     {
-        public int index { get; private set; }//何文字目にあったか
-        public string name { get; set; } //名称(名前なしの場合もある)
-        public List<CraftpiaParams> innerParams { get; set; }        //内容が入れ子や配列の場合
-        public bool isArray { get; set; }                            //内容が配列[]の場合True,入れ子{}の場合False
-        public int x { get; set; }//"itemInBox"などの場合、アイテムの何番目なのかのインデックス
-        public string value { get; set; } //内容が値の場合
-        public int oldlength { get; set; }//内容が値の場合、入っていた内容の長さ
+        public int index { get; private set; }                      //何文字目にあったか
+        public string name { get; set; }                            //名称(名前なしの場合もある)
+        public List<CraftpiaParams> innerParams { get; set; }       //内容が入れ子や配列の場合
+        public bool isArray { get; set; }                           //内容が配列[]の場合True,入れ子{}の場合False
+        public int x { get; set; }                                  //"itemInBox"など、おなじ項目名で中身が複数ある場合、アイテムの何番目なのかのインデックス
+        public string value { get; set; }                           //内容が値の場合
+        public int oldlength { get; private set; }                  //内容が値の場合、入っていた内容の長さ
 
         public CraftpiaParams(int _index, string _name, string _value = "", bool _isArray = false)
         {
             this.index = _index;
             this.name = _name;
             this.value = _value;
+            this.oldlength = value.Length;
             this.innerParams = new List<CraftpiaParams>();
             this.isArray = _isArray;
-            this.x = -1;
+            this.x = 1;
         }
 
         public override string ToString()

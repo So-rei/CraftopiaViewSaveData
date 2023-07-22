@@ -31,14 +31,8 @@ namespace CraftpiaViewSaveData.NestParams
                     {
                         case '{': //Param一層追加
                             {
-                                if (true) //名前なし{}はオブジェクト作る
-                                //if (tmpValue == "") //名前なし{}はオブジェクト作る
-                                {
-                                    var ne = new CraftpiaParams(tmpindex, elemname, tmpValue);
-                                    pParams.Push(ne);
-                                }
-                                else
-                                    pParams.Peek().name = tmpValue;
+                                var ne = new CraftpiaParams(tmpindex, elemname, tmpValue);
+                                pParams.Push(ne);
 
                                 tmpindex = idx + 1; //次のidx  
                                 elemname = tmpValue = "";
@@ -53,6 +47,11 @@ namespace CraftpiaViewSaveData.NestParams
                                 }
                                 //一層浅く    
                                 var bf2 = pParams.Pop();
+
+                                // 同じ名称のものがあったら、xを加算する
+                                int samecount = pParams.Peek().innerParams.Count(p => p.name == bf2.name);
+                                bf2.x += samecount;
+
                                 pParams.Peek().innerParams.Add(bf2);
                                 tmpindex = idx + 1; //次のidx    
                                 elemname = tmpValue = "";
@@ -60,10 +59,6 @@ namespace CraftpiaViewSaveData.NestParams
                             }
                         case ':': //名称確定
                             {
-                                //var ne = new CraftpiaParams(tmpindex, elemname, tmpValue);
-                                //pParams.Push(ne);
-                                //tmpindex = idx + 1; //次のidx  
-                                //elemname = tmpValue = "";
                                 break;
                             }
                         case ',':

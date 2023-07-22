@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Files\GetResourceFile.cs" />
+    <Compile Include="NestParams\GetListItems.cs" />
     <Compile Include="NestParams\StrToCraftpiaParams.cs" />
     <Compile Include="Db\CrudDb.cs" />
     <Compile Include="Db\ClassDb.cs" />
