@@ -40,36 +40,18 @@ namespace CraftpiaViewSaveData.NestParams
                 targetParam = this;
 
             var ret = new Dictionary<string, CraftpiaParams>();
-            var treecountdic = new Dictionary<string, int>(); //同じ構造を見つけた時、そのナンバリング用
             foreach (var p1 in targetParam.innerParams)
             {
                 var c2 = GetChildParams(p1);
                 foreach (var dic in c2)
                 {
-                    string keyname = targetParam.name + "-" + dic.Key;
-                    if (treecountdic.TryGetValue(keyname, out int cnt))
-                    {
-                        //ナンバリングなしだった前回データをナンバリング1に変更
-                        if (cnt == 1)
-                        {
-                            ret.Add(targetParam.name + "-1-" + dic.Key, ret[keyname]);
-                            ret.Remove(keyname);
-                        }
-
-                        //今きた値を追加
-                        ret.Add(targetParam.name + "-" + (cnt + 1).ToString() + "-" + dic.Key, dic.Value);
-                        treecountdic[keyname]++;
-                    }
-                    else
-                    {
-                        treecountdic.Add(keyname, 1);
-                        ret.Add(keyname, dic.Value);
-                    }
+                    string keyname = targetParam.name + "_" + targetParam .x + "-" +dic.Key;
+                    ret.Add(keyname, dic.Value);
                 }
             }
 
             if (ret.Count() == 0)
-                ret.Add(targetParam.name, targetParam);
+                ret.Add(targetParam.name + "_" + targetParam.x, targetParam);
 
             return ret;
         }

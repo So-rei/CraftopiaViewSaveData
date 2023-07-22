@@ -68,7 +68,12 @@ namespace CraftpiaViewSaveData.NestParams
                                     if (pParams.Peek().isArray)
                                     {
                                         //配列内の名前なし項目の場合は、paramsが生成されていないので、独立で作成する
-                                        var ne = new CraftpiaParams(tmpindex, "", tmpValue);
+                                        var ne = new CraftpiaParams(tmpindex, "ary", tmpValue);
+
+                                        // 同じ名称のものがあったら、xを加算する
+                                        int samecount = pParams.Peek().innerParams.Count(p => p.name == "ary");
+                                        ne.x += samecount;
+
                                         pParams.Peek().innerParams.Add(ne);
                                     }
                                     else if (elemname != "")
@@ -95,11 +100,17 @@ namespace CraftpiaViewSaveData.NestParams
                             {
                                 if (tmpValue != "") //コレクション最後の]だった場合のみ、paramsが生成されていないので、独立で作成する
                                 {
-                                    var ne = new CraftpiaParams(tmpindex, elemname, tmpValue);
+                                    var ne = new CraftpiaParams(tmpindex, "ary", tmpValue);
+
+                                    // 同じ名称のものがあったら、xを加算する
+                                    int samecount = pParams.Peek().innerParams.Count(p => p.name == "ary");
+                                    ne.x += samecount;
+
                                     pParams.Peek().innerParams.Add(ne);
                                 }
                                 //一層浅く    
                                 var bf2 = pParams.Pop();
+
                                 pParams.Peek().innerParams.Add(bf2);
                                 tmpindex = idx + 1; //次のidx    
                                 elemname = tmpValue = "";
