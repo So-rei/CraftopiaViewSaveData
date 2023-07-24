@@ -1,15 +1,18 @@
-﻿using System;
+﻿using CraftpiaViewSaveData.CPTree;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static CraftpiaViewSaveData.CommonConst;
 
 namespace CraftpiaViewSaveData.NestParams
 {
-    public class StrToCraftpiaParams
+    public static class ConvertCraftpiaParams
     {
-        public static CraftpiaParams GetList(string value, string savePath)
+        public static CraftpiaParams JsonStrToCraftpiaParams(string value, string savePath)
         {
             //jsonファイル to 入れ子クラス
             int bc = value.Count();
@@ -145,6 +148,87 @@ namespace CraftpiaViewSaveData.NestParams
             }
 
             return pParams.Last();
+        }
+
+        /// <summary>
+        /// json文字列から取ったCraftpiaParamsをデータ構造にはめ込む
+        /// ※アイテム系統のみ
+        /// </summary>
+        /// <param name="cparams"></param>
+        /// <returns></returns>
+        public static List<_CPInventorySaveData> CraftpiaParamsToCPTree(CraftpiaParams cparams)
+        {
+            var inventoryparams = cparams.innerParams[0].innerParams.First();
+            if (inventoryparams.name != CommonConst.inventorySaveData) return null;
+
+            var ret = new _CPInventorySaveData();
+            foreach (var child in inventoryparams.innerParams)
+            {
+                if (!ret.paramsList.TryGetValue(child.name, out var cpx)) continue;
+                if (!child.TryGetChildParams(out var cc)) continue;
+
+                foreach (var items in cc)
+                {
+                    var itemInBox = new CPItemInBox();
+
+                    foreach (var _iteminbox in items)
+                    {
+                        var itemInBoxValue = new CPItemInBoxValue();
+                        foreach (var _iteminboxvalue in _iteminbox)
+                        {
+                            //item,count,assignedHotkeySlot,assignedEquipSlot の順
+
+                            //item詳細
+                            foreach (var _item in _iteminboxvalue.innerParams[0])
+                            {
+                                switch (_item.name)
+                                {
+                                    case "itemId":
+                                        itemInBoxValue.item.itemId = Convert.ToInt32(_item.value);
+                                        break;
+                                    case "itemLevel":
+                                        itemInBoxValue.item.itemLevel = Convert.ToInt32(_item.value);
+                                        break;
+                                    case "enchantIds":
+                                        itemInBoxValue.item.enchantIds = Array.ConvertAll(_item.Select(p => p.value).ToArray(), e => (int)Convert.ChangeType(e, typeof(int)));
+                                        break;
+                                    case "proficient":
+                                        itemInBoxValue.item.proficient = Convert.ToDouble(_item.value);
+                                        break;
+                                    case "petID":
+                                        itemInBoxValue.item.petID = Convert.ToInt32(_item.value);
+                                        break;
+                                    case "saveLock":
+                                        itemInBoxValue.item.saveLock = Convert.ToBoolean(_item.value);
+                                        break;
+                                    case "bulletNum":
+                                        itemInBoxValue.item.bulletNum = Convert.ToInt32(_item.value);
+                                        break;
+                                    case "bulletId":
+                                        itemInBoxValue.item.bulletId = Convert.ToInt32(_item.value);
+                                        break;
+                                    case "dataVersion":
+                                        itemInBoxValue.item.dataVersion = Convert.ToInt32(_item.value);
+                                        break;
+                                }
+                            }
+                            itemInBoxValue.count = Convert.ToInt32(_iteminboxvalue.innerParams[1].value);
+
+                            //assignedHotkeySlotは装備系のみ
+                            if (child.name == itemListName.equipmentList.ToString())
+                            {
+                                itemInBoxValue.assignedHotkeySlot = Array.ConvertAll(_iteminboxvalue.innerParams[2].Select(p => p.value).ToArray(), e => (int)Convert.ChangeType(e, typeof(int)));
+                            }
+                            itemInBoxValue.assignedEquipSlot = Convert.ToInt32(_iteminboxvalue.innerParams[3].value);
+                        }
+                        itemInBox.Value.Add(itemInBoxValue);
+                    }
+
+                    cpx.Value.Add(itemInBox);
+                }
+            }
+
+            return ret;
         }
     }
 }

@@ -8,11 +8,14 @@ namespace CraftpiaViewSaveData.CPTree
 {
     public class CPXList
     {
-        public List<CPItemInBox> Value { get; set; }
+        public List<CPItemInBox> Value { get; set; } = new List<CPItemInBox>();
 
         public string ListName { get; private set; }
 
-        public CPXList(string _listname) => ListName = _listname;
+        public CPXList(string _listname)
+        {
+            ListName = _listname;
+        }
 
         public override string ToString()
         {

@@ -14,6 +14,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static CraftpiaViewSaveData.CommonConst;
+using static CraftpiaViewSaveData.NestParams.ConvertCraftpiaParams;
 using CraftpiaViewSaveData.NestParams;
 using CraftpiaViewSaveData.File;
 
@@ -48,8 +49,10 @@ namespace CraftpiaViewSaveData
             //originalData = ImportFile.Import(ocss.First());
             //convertData = ImportFile.GetList(originalData, ocss.First());
             originalData = CrudDb.Read(ocss.First());
-            convertData = StrToCraftpiaParams.GetList(originalData.Where(p => p.id == PPSave_ID_InGame).First().value, ocss.First());
-            eachData = convertData.GetChildParams();
+            convertData = ConvertCraftpiaParams.JsonStrToCraftpiaParams(originalData.Where(p => p.id == PPSave_ID_InGame).First().value, ocss.First());
+            CraftpiaParamsToCPTree(convertData);
+
+            eachData = convertData.GetChildParamsString();
 
             //dgvにセットしていく...
             //以下の構造である

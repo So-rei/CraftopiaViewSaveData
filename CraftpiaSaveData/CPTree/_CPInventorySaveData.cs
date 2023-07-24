@@ -8,19 +8,20 @@ namespace CraftpiaViewSaveData.CPTree
 {
     public class _CPInventorySaveData
     {
-        public List<CPXList> paramsList;
+        public Dictionary<string, CPXList> paramsList;
 
         public _CPInventorySaveData()
         {
+            paramsList = new Dictionary<string, CPXList>();
             foreach (string s in Enum.GetNames(typeof(CommonConst.itemListName)))
             {
-                paramsList.Add(new CPXList(s));
+                paramsList.Add(s, new CPXList(s));
             }
         }
 
         public override string ToString()
         {
-            string ret = "\"inventorySaveData\":{";
+            string ret = "\"" + CommonConst.inventorySaveData + "\":{";
             foreach (var li in paramsList)
             {
                 ret += li.ToString() + ",";

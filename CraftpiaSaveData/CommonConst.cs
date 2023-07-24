@@ -9,6 +9,7 @@ namespace CraftpiaViewSaveData
 {
     public static class CommonConst
     {
+        public const string inventorySaveData = "inventorySaveData";
         //アイテムの種別と名称
         public enum itemListName
         {

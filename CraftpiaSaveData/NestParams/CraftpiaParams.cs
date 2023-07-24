@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Windows.Forms;
 
 namespace CraftpiaViewSaveData.NestParams
 {
-    public class CraftpiaParams
+    public class CraftpiaParams : IEnumerable<CraftpiaParams>
     {
         public int index { get; private set; }                      //何文字目にあったか
         public string name { get; set; }                            //名称(名前なしの場合もある)
@@ -34,7 +35,13 @@ namespace CraftpiaViewSaveData.NestParams
             return s;
         }
 
-        public Dictionary<string, CraftpiaParams> GetChildParams(CraftpiaParams targetParam = null)
+        public bool TryGetChildParams(out List<CraftpiaParams> childParams)
+        {
+            childParams = this.innerParams;
+            return this.innerParams != null;
+        }
+
+        public Dictionary<string, CraftpiaParams> GetChildParamsString(CraftpiaParams targetParam = null)
         {
             if (targetParam == null)
                 targetParam = this;
@@ -42,7 +49,7 @@ namespace CraftpiaViewSaveData.NestParams
             var ret = new Dictionary<string, CraftpiaParams>();
             foreach (var p1 in targetParam.innerParams)
             {
-                var c2 = GetChildParams(p1);
+                var c2 = GetChildParamsString(p1);
                 foreach (var dic in c2)
                 {
                     string keyname = targetParam.name + "_" + targetParam .x + "-" +dic.Key;
@@ -54,6 +61,17 @@ namespace CraftpiaViewSaveData.NestParams
                 ret.Add(targetParam.name + "_" + targetParam.x, targetParam);
 
             return ret;
+        }
+
+        public IEnumerator<CraftpiaParams> GetEnumerator()
+        {
+            foreach (var p in innerParams)
+                yield return p;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            yield return this.innerParams;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace CraftpiaViewSaveData.CPTree
 {
     public class CPItemInBox
     {
-        public List<CPItemInBoxValue> Value { get; set; }
+        public List<CPItemInBoxValue> Value { get; set; } = new List<CPItemInBoxValue>();
 
         public override string ToString()
         {
