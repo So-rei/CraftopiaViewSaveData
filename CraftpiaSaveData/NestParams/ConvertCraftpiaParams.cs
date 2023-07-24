@@ -156,7 +156,7 @@ namespace CraftpiaViewSaveData.NestParams
         /// </summary>
         /// <param name="cparams"></param>
         /// <returns></returns>
-        public static List<_CPInventorySaveData> CraftpiaParamsToCPTree(CraftpiaParams cparams)
+        public static _CPInventorySaveData CraftpiaParamsToCPTree(CraftpiaParams cparams)
         {
             var inventoryparams = cparams.innerParams[0].innerParams.First();
             if (inventoryparams.name != CommonConst.inventorySaveData) return null;

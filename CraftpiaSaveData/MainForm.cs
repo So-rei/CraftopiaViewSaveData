@@ -17,6 +17,7 @@ using static CraftpiaViewSaveData.CommonConst;
 using static CraftpiaViewSaveData.NestParams.ConvertCraftpiaParams;
 using CraftpiaViewSaveData.NestParams;
 using CraftpiaViewSaveData.File;
+using CraftpiaViewSaveData.CPTree;
 
 namespace CraftpiaViewSaveData
 {
@@ -24,6 +25,7 @@ namespace CraftpiaViewSaveData
     {
         List<ClassDb> originalData;
         CraftpiaParams convertData;
+        _CPInventorySaveData CPInventorySaveData;
 
         public MainForm()
         {
@@ -49,7 +51,7 @@ namespace CraftpiaViewSaveData
             //convertData = ImportFile.GetList(originalData, ocss.First());
             originalData = CrudDb.Read(ocss.First());
             convertData = ConvertCraftpiaParams.JsonStrToCraftpiaParams(originalData.Where(p => p.id == PPSave_ID_InGame).First().value, ocss.First());
-            CraftpiaParamsToCPTree(convertData);
+            CPInventorySaveData = CraftpiaParamsToCPTree(convertData);
 
 #if DEBUG
             HiddenViewString();
@@ -120,16 +122,39 @@ namespace CraftpiaViewSaveData
                                   .Where(p => System.Text.RegularExpressions.Regex.IsMatch(p.Name, "^p1_.*", RegexOptions.Singleline))
                                   .OrderBy(q => q.TabIndex).ToArray();
 
-            var name = ((Panel)sender).Name;
-            var categoryIndex = 1;
-            var itemIndex = Convert.ToInt32(name.Split('_').Last());
+            var itemIndex = Convert.ToInt32(new string((((Panel)sender).Name).Skip(3).ToArray()));
+            var categoryName = itemListName.equipmentList.ToString();
 
-            DisplayItemDetail(categoryIndex, itemIndex);
+            DisplayItemDetail(categoryName, itemIndex);
         }
 
-        void DisplayItemDetail(int categoryIndex, int itemindex)
+        void DisplayItemDetail(string categoryName, int itemindex)
         {
+            if (CPInventorySaveData == null)
+            {
+                MessageBox.Show("セーブデータがセットされていません。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
+            var target = CPInventorySaveData.paramsList[categoryName].Value[itemindex];
+            textItemId.Text = target.Value[0].item.itemId.ToString();
+            textItemLevel.Text = target.Value[0].item.itemLevel.ToString();
+            textEnchantIds1_1.Text = target.Value[0].item.enchantIds[0].ToString();
+            textEnchantIds1_2.Text = target.Value[0].item.enchantIds[1].ToString();
+            textEnchantIds1_3.Text = target.Value[0].item.enchantIds[2].ToString();
+            textEnchantIds1_4.Text = target.Value[0].item.enchantIds[3].ToString();
+            textProficient.Text = target.Value[0].item.proficient.ToString();
+            textPetID.Text = target.Value[0].item.petID.ToString();
+            chkSaveLock.Checked = target.Value[0].item.saveLock;
+            textBulletNum.Text = target.Value[0].item.bulletNum.ToString();
+            textBulletId.Text = target.Value[0].item.bulletId.ToString();
+            chkDataVersion.Checked = target.Value[0].item.dataVersion == 0;
+
+            textCount.Text = target.Value[0].count.ToString();
+            textAssignedHotkeySlot1.Text = target.Value[0].assignedHotkeySlot[0].ToString();
+            textAssignedHotkeySlot2.Text = target.Value[0].assignedHotkeySlot[1].ToString();
+            textAssignedHotkeySlot3.Text = target.Value[0].assignedHotkeySlot[2].ToString();
+            textAssignedEquipSlot.Text = target.Value[0].assignedEquipSlot.ToString();
         }
         #endregion
     }
