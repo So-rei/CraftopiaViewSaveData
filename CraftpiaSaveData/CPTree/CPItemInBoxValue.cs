@@ -10,7 +10,7 @@ namespace CraftpiaViewSaveData.CPTree
     {
         public CPItem item { get; set; } = new CPItem();
         public int count { get; set; }
-        public int[] assignedHotkeySlot { get; set; } = new int[3] { -1, -1, -1 }; //装備系のときのみ
+        public int[] assignedHotkeySlot { get; set; } = new int[3] { 0, 0, 0 }; //装備系のときのみ
         public int assignedEquipSlot { get; set; }
 
         public override string ToString()

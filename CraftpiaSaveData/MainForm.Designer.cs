@@ -143,7 +143,7 @@
             this.panel1.Controls.Add(this.ConvertOcs2Json_Label);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1168, 127);
+            this.panel1.Size = new System.Drawing.Size(645, 273);
             this.panel1.TabIndex = 0;
             this.panel1.DragDrop += new System.Windows.Forms.DragEventHandler(this.panel1_DragDrop);
             this.panel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.panel1_DragEnter);
@@ -153,7 +153,7 @@
             this.ConvertOcs2Json_Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ConvertOcs2Json_Label.AutoSize = true;
             this.ConvertOcs2Json_Label.Font = new System.Drawing.Font("MS UI Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.ConvertOcs2Json_Label.Location = new System.Drawing.Point(409, 35);
+            this.ConvertOcs2Json_Label.Location = new System.Drawing.Point(77, 120);
             this.ConvertOcs2Json_Label.Name = "ConvertOcs2Json_Label";
             this.ConvertOcs2Json_Label.Size = new System.Drawing.Size(453, 40);
             this.ConvertOcs2Json_Label.TabIndex = 1;
@@ -256,7 +256,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(12, 142);
+            this.label2.Location = new System.Drawing.Point(663, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(166, 21);
             this.label2.TabIndex = 5;
@@ -296,9 +296,9 @@
             this.panelEquipment.Controls.Add(this.p1_2);
             this.panelEquipment.Controls.Add(this.p1_1);
             this.panelEquipment.Controls.Add(this.装備);
-            this.panelEquipment.Location = new System.Drawing.Point(12, 451);
+            this.panelEquipment.Location = new System.Drawing.Point(12, 291);
             this.panelEquipment.Name = "panelEquipment";
-            this.panelEquipment.Size = new System.Drawing.Size(674, 249);
+            this.panelEquipment.Size = new System.Drawing.Size(645, 249);
             this.panelEquipment.TabIndex = 17;
             // 
             // p1_20
@@ -835,7 +835,7 @@
             // chkDataVersion
             // 
             this.chkDataVersion.AutoSize = true;
-            this.chkDataVersion.Location = new System.Drawing.Point(391, 3);
+            this.chkDataVersion.Location = new System.Drawing.Point(367, 3);
             this.chkDataVersion.Name = "chkDataVersion";
             this.chkDataVersion.Size = new System.Drawing.Size(48, 16);
             this.chkDataVersion.TabIndex = 35;
@@ -885,7 +885,7 @@
             // chkSaveLock
             // 
             this.chkSaveLock.AutoSize = true;
-            this.chkSaveLock.Location = new System.Drawing.Point(391, 32);
+            this.chkSaveLock.Location = new System.Drawing.Point(367, 32);
             this.chkSaveLock.Name = "chkSaveLock";
             this.chkSaveLock.Size = new System.Drawing.Size(94, 16);
             this.chkSaveLock.TabIndex = 42;
@@ -978,14 +978,14 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(692, 166);
+            this.panel2.Location = new System.Drawing.Point(676, 47);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(488, 534);
+            this.panel2.Size = new System.Drawing.Size(488, 493);
             this.panel2.TabIndex = 20;
             // 
             // textAssignedEquipSlot
             // 
-            this.textAssignedEquipSlot.Location = new System.Drawing.Point(268, 483);
+            this.textAssignedEquipSlot.Location = new System.Drawing.Point(267, 456);
             this.textAssignedEquipSlot.Name = "textAssignedEquipSlot";
             this.textAssignedEquipSlot.Size = new System.Drawing.Size(26, 19);
             this.textAssignedEquipSlot.TabIndex = 55;
@@ -994,7 +994,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label19.Location = new System.Drawing.Point(11, 486);
+            this.label19.Location = new System.Drawing.Point(10, 459);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(75, 16);
             this.label19.TabIndex = 54;
@@ -1003,21 +1003,21 @@
             // 
             // textAssignedHotkeySlot2
             // 
-            this.textAssignedHotkeySlot2.Location = new System.Drawing.Point(303, 444);
+            this.textAssignedHotkeySlot2.Location = new System.Drawing.Point(302, 417);
             this.textAssignedHotkeySlot2.Name = "textAssignedHotkeySlot2";
             this.textAssignedHotkeySlot2.Size = new System.Drawing.Size(26, 19);
             this.textAssignedHotkeySlot2.TabIndex = 53;
             // 
             // textAssignedHotkeySlot3
             // 
-            this.textAssignedHotkeySlot3.Location = new System.Drawing.Point(335, 444);
+            this.textAssignedHotkeySlot3.Location = new System.Drawing.Point(334, 417);
             this.textAssignedHotkeySlot3.Name = "textAssignedHotkeySlot3";
             this.textAssignedHotkeySlot3.Size = new System.Drawing.Size(26, 19);
             this.textAssignedHotkeySlot3.TabIndex = 52;
             // 
             // textAssignedHotkeySlot1
             // 
-            this.textAssignedHotkeySlot1.Location = new System.Drawing.Point(271, 444);
+            this.textAssignedHotkeySlot1.Location = new System.Drawing.Point(270, 417);
             this.textAssignedHotkeySlot1.Name = "textAssignedHotkeySlot1";
             this.textAssignedHotkeySlot1.Size = new System.Drawing.Size(26, 19);
             this.textAssignedHotkeySlot1.TabIndex = 51;
@@ -1026,7 +1026,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label18.Location = new System.Drawing.Point(10, 444);
+            this.label18.Location = new System.Drawing.Point(9, 417);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(221, 16);
             this.label18.TabIndex = 50;
@@ -1037,7 +1037,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label17.Location = new System.Drawing.Point(11, 404);
+            this.label17.Location = new System.Drawing.Point(10, 377);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(41, 16);
             this.label17.TabIndex = 49;
@@ -1046,7 +1046,7 @@
             // 
             // textCount
             // 
-            this.textCount.Location = new System.Drawing.Point(268, 405);
+            this.textCount.Location = new System.Drawing.Point(267, 378);
             this.textCount.Name = "textCount";
             this.textCount.Size = new System.Drawing.Size(58, 19);
             this.textCount.TabIndex = 48;
