@@ -41,10 +41,11 @@ namespace CraftpiaViewSaveData
         public MainForm()
         {
             InitializeComponent();
-            ComboBoxSet();
+            EnchantComboBoxSet();
+            ItemComboBoxSet();
         }
 
-        void ComboBoxSet()
+        void EnchantComboBoxSet()
         {
             List<ComboBoxItemSet> clist = new List<ComboBoxItemSet>();
 
@@ -66,6 +67,20 @@ namespace CraftpiaViewSaveData
             cboEnchant4.DataSource = new List<ComboBoxItemSet>(clist);
             cboEnchant4.DisplayMember = "ItemDisp";
             cboEnchant4.ValueMember = "ItemValue";
+        }
+        void ItemComboBoxSet()
+        {
+            List<ComboBoxItemSet> clist = new List<ComboBoxItemSet>();
+
+            var itemParams = GetResourceFile.GetFile("ItemParams.txt");
+            foreach (var d in itemParams)
+            {
+                clist.Add(new ComboBoxItemSet(d.Key, d.Value));
+            }
+
+            cboItem.DataSource = clist;
+            cboItem.DisplayMember = "ItemDisp";
+            cboItem.ValueMember = "ItemValue";
         }
 
         #region "データ取得関係"
@@ -131,6 +146,10 @@ namespace CraftpiaViewSaveData
 #endif
 
         #region "アイテム詳細関係"
+        private void label1_Click(object sender, EventArgs e)
+        {
+            DisplayItemDetail(itemListName.equipmentList.ToString(), 1, 1);
+        }
 
         private void panelEquipment_content_Click(object sender, EventArgs e)
         {
@@ -173,12 +192,14 @@ namespace CraftpiaViewSaveData
             textAssignedHotkeySlot3.Text = target.Value[0].assignedHotkeySlot[2].ToString();
             textAssignedEquipSlot.Text = target.Value[0].assignedEquipSlot.ToString();
 
-            // 初期値セット
+            // コンボボックス連動
+            cboItem.SelectedValue = target.Value[0].item.itemId;
             cboEnchant1.SelectedValue = target.Value[0].item.enchantIds[0];
             cboEnchant2.SelectedValue = target.Value[0].item.enchantIds[1];
             cboEnchant3.SelectedValue = target.Value[0].item.enchantIds[2];
             cboEnchant4.SelectedValue = target.Value[0].item.enchantIds[3];
         }
         #endregion
+
     }
 }

@@ -235,11 +235,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 15);
+            this.label1.Location = new System.Drawing.Point(10, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 24);
             this.label1.TabIndex = 4;
             this.label1.Text = "ここを\r\nクリック\r\n";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // 装備
             // 
