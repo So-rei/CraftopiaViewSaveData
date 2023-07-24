@@ -24,7 +24,6 @@ namespace CraftpiaViewSaveData
     {
         List<ClassDb> originalData;
         CraftpiaParams convertData;
-        Dictionary<string, CraftpiaParams> eachData;
 
         public MainForm()
         {
@@ -52,18 +51,23 @@ namespace CraftpiaViewSaveData
             convertData = ConvertCraftpiaParams.JsonStrToCraftpiaParams(originalData.Where(p => p.id == PPSave_ID_InGame).First().value, ocss.First());
             CraftpiaParamsToCPTree(convertData);
 
-            eachData = convertData.GetChildParamsString();
+#if DEBUG
+            HiddenViewString();
+#endif
+        }
+        #endregion
 
+#if DEBUG
+        //画面で確認用
+        private void HiddenViewString()
+        {
             //dgvにセットしていく...
-            //以下の構造である
-            //value -- {charaMakeData,plStatusSaveData,inventorySaveData}
-            //inventorySaveData -- {equipmentList,buildingList,consumptionList,personalChestList,petList,materialList,petChestList}
-            //                      └-- itemInBox -- {(item,count) * 最大4枠}
+            Dictionary<string, CraftpiaParams> hiddenViewString = convertData.GetChildParamsString();
             dgv1.Rows.Clear();
 
             var viewlist = GetResourceFile.GetFile();
             int row = 0;
-            foreach (var data in eachData)
+            foreach (var data in hiddenViewString)
             {
                 var dataTree = data.Key.Split('-').ToList();
 
@@ -105,7 +109,8 @@ namespace CraftpiaViewSaveData
                 row++;
             }
         }
-        #endregion
+#endif
+
         #region "アイテム詳細関係"
 
         private void panelEquipment_content_Click(object sender, EventArgs e)
