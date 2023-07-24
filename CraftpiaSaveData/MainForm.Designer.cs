@@ -42,9 +42,7 @@
             this.indexh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.p1_1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.装備 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.panelEquipment = new System.Windows.Forms.Panel();
             this.p1_20 = new System.Windows.Forms.Panel();
             this.p1_30 = new System.Windows.Forms.Panel();
             this.p1_29 = new System.Windows.Forms.Panel();
@@ -125,15 +123,26 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.textCount = new System.Windows.Forms.TextBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panelEquipment = new System.Windows.Forms.Panel();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.p1_1.SuspendLayout();
-            this.panelEquipment.SuspendLayout();
             this.p1_27.SuspendLayout();
             this.panel4.SuspendLayout();
             this.p1_26.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.p1_18.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.panelEquipment.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -171,10 +180,10 @@
             this.値,
             this.index,
             this.indexh});
-            this.dgv1.Location = new System.Drawing.Point(19, 706);
+            this.dgv1.Location = new System.Drawing.Point(204, 32);
             this.dgv1.Name = "dgv1";
             this.dgv1.RowTemplate.Height = 21;
-            this.dgv1.Size = new System.Drawing.Size(1161, 115);
+            this.dgv1.Size = new System.Drawing.Size(510, 97);
             this.dgv1.TabIndex = 1;
             // 
             // 属性名
@@ -226,7 +235,7 @@
             // 
             this.p1_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.p1_1.Controls.Add(this.label1);
-            this.p1_1.Location = new System.Drawing.Point(20, 59);
+            this.p1_1.Location = new System.Drawing.Point(20, 13);
             this.p1_1.Name = "p1_1";
             this.p1_1.Size = new System.Drawing.Size(55, 55);
             this.p1_1.TabIndex = 2;
@@ -242,16 +251,6 @@
             this.label1.Text = "ここを\r\nクリック\r\n";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // 装備
-            // 
-            this.装備.AutoSize = true;
-            this.装備.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.装備.Location = new System.Drawing.Point(3, 13);
-            this.装備.Name = "装備";
-            this.装備.Size = new System.Drawing.Size(122, 21);
-            this.装備.TabIndex = 3;
-            this.装備.Text = "装備アイテム";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -262,49 +261,10 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "選択アイテム詳細";
             // 
-            // panelEquipment
-            // 
-            this.panelEquipment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.panelEquipment.Controls.Add(this.p1_20);
-            this.panelEquipment.Controls.Add(this.p1_30);
-            this.panelEquipment.Controls.Add(this.p1_29);
-            this.panelEquipment.Controls.Add(this.p1_28);
-            this.panelEquipment.Controls.Add(this.p1_27);
-            this.panelEquipment.Controls.Add(this.p1_26);
-            this.panelEquipment.Controls.Add(this.p1_25);
-            this.panelEquipment.Controls.Add(this.p1_24);
-            this.panelEquipment.Controls.Add(this.p1_16);
-            this.panelEquipment.Controls.Add(this.p1_23);
-            this.panelEquipment.Controls.Add(this.p1_8);
-            this.panelEquipment.Controls.Add(this.p1_22);
-            this.panelEquipment.Controls.Add(this.p1_15);
-            this.panelEquipment.Controls.Add(this.p1_21);
-            this.panelEquipment.Controls.Add(this.p1_7);
-            this.panelEquipment.Controls.Add(this.p1_19);
-            this.panelEquipment.Controls.Add(this.p1_14);
-            this.panelEquipment.Controls.Add(this.p1_18);
-            this.panelEquipment.Controls.Add(this.p1_13);
-            this.panelEquipment.Controls.Add(this.p1_17);
-            this.panelEquipment.Controls.Add(this.p1_6);
-            this.panelEquipment.Controls.Add(this.p1_12);
-            this.panelEquipment.Controls.Add(this.p1_5);
-            this.panelEquipment.Controls.Add(this.p1_11);
-            this.panelEquipment.Controls.Add(this.p1_4);
-            this.panelEquipment.Controls.Add(this.p1_10);
-            this.panelEquipment.Controls.Add(this.p1_3);
-            this.panelEquipment.Controls.Add(this.p1_9);
-            this.panelEquipment.Controls.Add(this.p1_2);
-            this.panelEquipment.Controls.Add(this.p1_1);
-            this.panelEquipment.Controls.Add(this.装備);
-            this.panelEquipment.Location = new System.Drawing.Point(12, 291);
-            this.panelEquipment.Name = "panelEquipment";
-            this.panelEquipment.Size = new System.Drawing.Size(645, 249);
-            this.panelEquipment.TabIndex = 17;
-            // 
             // p1_20
             // 
             this.p1_20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_20.Location = new System.Drawing.Point(569, 120);
+            this.p1_20.Location = new System.Drawing.Point(569, 74);
             this.p1_20.Name = "p1_20";
             this.p1_20.Size = new System.Drawing.Size(55, 55);
             this.p1_20.TabIndex = 12;
@@ -313,7 +273,7 @@
             // p1_30
             // 
             this.p1_30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_30.Location = new System.Drawing.Point(569, 181);
+            this.p1_30.Location = new System.Drawing.Point(569, 135);
             this.p1_30.Name = "p1_30";
             this.p1_30.Size = new System.Drawing.Size(55, 55);
             this.p1_30.TabIndex = 13;
@@ -322,7 +282,7 @@
             // p1_29
             // 
             this.p1_29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_29.Location = new System.Drawing.Point(508, 181);
+            this.p1_29.Location = new System.Drawing.Point(508, 135);
             this.p1_29.Name = "p1_29";
             this.p1_29.Size = new System.Drawing.Size(55, 55);
             this.p1_29.TabIndex = 12;
@@ -331,7 +291,7 @@
             // p1_28
             // 
             this.p1_28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_28.Location = new System.Drawing.Point(447, 181);
+            this.p1_28.Location = new System.Drawing.Point(447, 135);
             this.p1_28.Name = "p1_28";
             this.p1_28.Size = new System.Drawing.Size(55, 55);
             this.p1_28.TabIndex = 11;
@@ -342,7 +302,7 @@
             this.p1_27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.p1_27.Controls.Add(this.panel4);
             this.p1_27.Controls.Add(this.panel10);
-            this.p1_27.Location = new System.Drawing.Point(386, 181);
+            this.p1_27.Location = new System.Drawing.Point(386, 135);
             this.p1_27.Name = "p1_27";
             this.p1_27.Size = new System.Drawing.Size(55, 55);
             this.p1_27.TabIndex = 16;
@@ -387,7 +347,7 @@
             this.p1_26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.p1_26.Controls.Add(this.panel5);
             this.p1_26.Controls.Add(this.panel6);
-            this.p1_26.Location = new System.Drawing.Point(325, 181);
+            this.p1_26.Location = new System.Drawing.Point(325, 135);
             this.p1_26.Name = "p1_26";
             this.p1_26.Size = new System.Drawing.Size(55, 55);
             this.p1_26.TabIndex = 9;
@@ -430,7 +390,7 @@
             // p1_25
             // 
             this.p1_25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_25.Location = new System.Drawing.Point(264, 181);
+            this.p1_25.Location = new System.Drawing.Point(264, 135);
             this.p1_25.Name = "p1_25";
             this.p1_25.Size = new System.Drawing.Size(55, 55);
             this.p1_25.TabIndex = 8;
@@ -439,7 +399,7 @@
             // p1_24
             // 
             this.p1_24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_24.Location = new System.Drawing.Point(203, 181);
+            this.p1_24.Location = new System.Drawing.Point(203, 135);
             this.p1_24.Name = "p1_24";
             this.p1_24.Size = new System.Drawing.Size(55, 55);
             this.p1_24.TabIndex = 13;
@@ -448,7 +408,7 @@
             // p1_16
             // 
             this.p1_16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_16.Location = new System.Drawing.Point(325, 120);
+            this.p1_16.Location = new System.Drawing.Point(325, 74);
             this.p1_16.Name = "p1_16";
             this.p1_16.Size = new System.Drawing.Size(55, 55);
             this.p1_16.TabIndex = 13;
@@ -457,7 +417,7 @@
             // p1_23
             // 
             this.p1_23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_23.Location = new System.Drawing.Point(142, 181);
+            this.p1_23.Location = new System.Drawing.Point(142, 135);
             this.p1_23.Name = "p1_23";
             this.p1_23.Size = new System.Drawing.Size(55, 55);
             this.p1_23.TabIndex = 14;
@@ -466,7 +426,7 @@
             // p1_8
             // 
             this.p1_8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_8.Location = new System.Drawing.Point(447, 59);
+            this.p1_8.Location = new System.Drawing.Point(447, 13);
             this.p1_8.Name = "p1_8";
             this.p1_8.Size = new System.Drawing.Size(55, 55);
             this.p1_8.TabIndex = 7;
@@ -475,7 +435,7 @@
             // p1_22
             // 
             this.p1_22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_22.Location = new System.Drawing.Point(81, 181);
+            this.p1_22.Location = new System.Drawing.Point(81, 135);
             this.p1_22.Name = "p1_22";
             this.p1_22.Size = new System.Drawing.Size(55, 55);
             this.p1_22.TabIndex = 15;
@@ -484,7 +444,7 @@
             // p1_15
             // 
             this.p1_15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_15.Location = new System.Drawing.Point(264, 120);
+            this.p1_15.Location = new System.Drawing.Point(264, 74);
             this.p1_15.Name = "p1_15";
             this.p1_15.Size = new System.Drawing.Size(55, 55);
             this.p1_15.TabIndex = 14;
@@ -493,7 +453,7 @@
             // p1_21
             // 
             this.p1_21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_21.Location = new System.Drawing.Point(20, 181);
+            this.p1_21.Location = new System.Drawing.Point(20, 135);
             this.p1_21.Name = "p1_21";
             this.p1_21.Size = new System.Drawing.Size(55, 55);
             this.p1_21.TabIndex = 11;
@@ -502,7 +462,7 @@
             // p1_7
             // 
             this.p1_7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_7.Location = new System.Drawing.Point(386, 59);
+            this.p1_7.Location = new System.Drawing.Point(386, 13);
             this.p1_7.Name = "p1_7";
             this.p1_7.Size = new System.Drawing.Size(55, 55);
             this.p1_7.TabIndex = 7;
@@ -511,7 +471,7 @@
             // p1_19
             // 
             this.p1_19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_19.Location = new System.Drawing.Point(508, 120);
+            this.p1_19.Location = new System.Drawing.Point(508, 74);
             this.p1_19.Name = "p1_19";
             this.p1_19.Size = new System.Drawing.Size(55, 55);
             this.p1_19.TabIndex = 10;
@@ -520,7 +480,7 @@
             // p1_14
             // 
             this.p1_14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_14.Location = new System.Drawing.Point(203, 120);
+            this.p1_14.Location = new System.Drawing.Point(203, 74);
             this.p1_14.Name = "p1_14";
             this.p1_14.Size = new System.Drawing.Size(55, 55);
             this.p1_14.TabIndex = 15;
@@ -529,7 +489,8 @@
             // p1_18
             // 
             this.p1_18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_18.Location = new System.Drawing.Point(447, 120);
+            this.p1_18.Controls.Add(this.dgv1);
+            this.p1_18.Location = new System.Drawing.Point(447, 74);
             this.p1_18.Name = "p1_18";
             this.p1_18.Size = new System.Drawing.Size(55, 55);
             this.p1_18.TabIndex = 9;
@@ -538,7 +499,7 @@
             // p1_13
             // 
             this.p1_13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_13.Location = new System.Drawing.Point(142, 120);
+            this.p1_13.Location = new System.Drawing.Point(142, 74);
             this.p1_13.Name = "p1_13";
             this.p1_13.Size = new System.Drawing.Size(55, 55);
             this.p1_13.TabIndex = 11;
@@ -547,7 +508,7 @@
             // p1_17
             // 
             this.p1_17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_17.Location = new System.Drawing.Point(386, 120);
+            this.p1_17.Location = new System.Drawing.Point(386, 74);
             this.p1_17.Name = "p1_17";
             this.p1_17.Size = new System.Drawing.Size(55, 55);
             this.p1_17.TabIndex = 8;
@@ -556,7 +517,7 @@
             // p1_6
             // 
             this.p1_6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_6.Location = new System.Drawing.Point(325, 59);
+            this.p1_6.Location = new System.Drawing.Point(325, 13);
             this.p1_6.Name = "p1_6";
             this.p1_6.Size = new System.Drawing.Size(55, 55);
             this.p1_6.TabIndex = 7;
@@ -565,7 +526,7 @@
             // p1_12
             // 
             this.p1_12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_12.Location = new System.Drawing.Point(81, 120);
+            this.p1_12.Location = new System.Drawing.Point(81, 74);
             this.p1_12.Name = "p1_12";
             this.p1_12.Size = new System.Drawing.Size(55, 55);
             this.p1_12.TabIndex = 12;
@@ -574,7 +535,7 @@
             // p1_5
             // 
             this.p1_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_5.Location = new System.Drawing.Point(264, 59);
+            this.p1_5.Location = new System.Drawing.Point(264, 13);
             this.p1_5.Name = "p1_5";
             this.p1_5.Size = new System.Drawing.Size(55, 55);
             this.p1_5.TabIndex = 6;
@@ -583,7 +544,7 @@
             // p1_11
             // 
             this.p1_11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_11.Location = new System.Drawing.Point(20, 120);
+            this.p1_11.Location = new System.Drawing.Point(20, 74);
             this.p1_11.Name = "p1_11";
             this.p1_11.Size = new System.Drawing.Size(55, 55);
             this.p1_11.TabIndex = 10;
@@ -592,7 +553,7 @@
             // p1_4
             // 
             this.p1_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_4.Location = new System.Drawing.Point(203, 59);
+            this.p1_4.Location = new System.Drawing.Point(203, 13);
             this.p1_4.Name = "p1_4";
             this.p1_4.Size = new System.Drawing.Size(55, 55);
             this.p1_4.TabIndex = 6;
@@ -601,7 +562,7 @@
             // p1_10
             // 
             this.p1_10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_10.Location = new System.Drawing.Point(568, 59);
+            this.p1_10.Location = new System.Drawing.Point(568, 13);
             this.p1_10.Name = "p1_10";
             this.p1_10.Size = new System.Drawing.Size(55, 55);
             this.p1_10.TabIndex = 9;
@@ -610,7 +571,7 @@
             // p1_3
             // 
             this.p1_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_3.Location = new System.Drawing.Point(142, 59);
+            this.p1_3.Location = new System.Drawing.Point(142, 13);
             this.p1_3.Name = "p1_3";
             this.p1_3.Size = new System.Drawing.Size(55, 55);
             this.p1_3.TabIndex = 5;
@@ -619,7 +580,7 @@
             // p1_9
             // 
             this.p1_9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_9.Location = new System.Drawing.Point(507, 59);
+            this.p1_9.Location = new System.Drawing.Point(507, 13);
             this.p1_9.Name = "p1_9";
             this.p1_9.Size = new System.Drawing.Size(55, 55);
             this.p1_9.TabIndex = 8;
@@ -628,7 +589,7 @@
             // p1_2
             // 
             this.p1_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.p1_2.Location = new System.Drawing.Point(81, 59);
+            this.p1_2.Location = new System.Drawing.Point(81, 13);
             this.p1_2.Name = "p1_2";
             this.p1_2.Size = new System.Drawing.Size(55, 55);
             this.p1_2.TabIndex = 4;
@@ -1051,16 +1012,134 @@
             this.textCount.Size = new System.Drawing.Size(58, 19);
             this.textCount.TabIndex = 48;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tabPage7);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(12, 306);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(645, 240);
+            this.tabControl1.TabIndex = 2;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(634, 8);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "装備";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(637, 214);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "食べ物";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panelEquipment
+            // 
+            this.panelEquipment.BackColor = System.Drawing.Color.White;
+            this.panelEquipment.Controls.Add(this.p1_20);
+            this.panelEquipment.Controls.Add(this.p1_30);
+            this.panelEquipment.Controls.Add(this.p1_29);
+            this.panelEquipment.Controls.Add(this.p1_28);
+            this.panelEquipment.Controls.Add(this.p1_27);
+            this.panelEquipment.Controls.Add(this.p1_26);
+            this.panelEquipment.Controls.Add(this.p1_25);
+            this.panelEquipment.Controls.Add(this.p1_24);
+            this.panelEquipment.Controls.Add(this.p1_16);
+            this.panelEquipment.Controls.Add(this.p1_23);
+            this.panelEquipment.Controls.Add(this.p1_8);
+            this.panelEquipment.Controls.Add(this.p1_22);
+            this.panelEquipment.Controls.Add(this.p1_15);
+            this.panelEquipment.Controls.Add(this.p1_21);
+            this.panelEquipment.Controls.Add(this.p1_7);
+            this.panelEquipment.Controls.Add(this.p1_19);
+            this.panelEquipment.Controls.Add(this.p1_14);
+            this.panelEquipment.Controls.Add(this.p1_18);
+            this.panelEquipment.Controls.Add(this.p1_13);
+            this.panelEquipment.Controls.Add(this.p1_17);
+            this.panelEquipment.Controls.Add(this.p1_6);
+            this.panelEquipment.Controls.Add(this.p1_12);
+            this.panelEquipment.Controls.Add(this.p1_5);
+            this.panelEquipment.Controls.Add(this.p1_11);
+            this.panelEquipment.Controls.Add(this.p1_4);
+            this.panelEquipment.Controls.Add(this.p1_10);
+            this.panelEquipment.Controls.Add(this.p1_3);
+            this.panelEquipment.Controls.Add(this.p1_9);
+            this.panelEquipment.Controls.Add(this.p1_2);
+            this.panelEquipment.Controls.Add(this.p1_1);
+            this.panelEquipment.Location = new System.Drawing.Point(12, 328);
+            this.panelEquipment.Name = "panelEquipment";
+            this.panelEquipment.Size = new System.Drawing.Size(641, 214);
+            this.panelEquipment.TabIndex = 17;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(637, 214);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "クラウドストレージ";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(637, 214);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "ペット";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(637, 214);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "素材";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(637, 214);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "ペットストレージ";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(637, 214);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "大切なもの";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1192, 833);
+            this.ClientSize = new System.Drawing.Size(1177, 558);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dgv1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelEquipment);
+            this.Controls.Add(this.tabControl1);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
@@ -1068,14 +1147,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
             this.p1_1.ResumeLayout(false);
             this.p1_1.PerformLayout();
-            this.panelEquipment.ResumeLayout(false);
-            this.panelEquipment.PerformLayout();
             this.p1_27.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.p1_26.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.p1_18.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.panelEquipment.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1088,9 +1168,7 @@
         private System.Windows.Forms.DataGridView dgv1;
         private System.Windows.Forms.Panel p1_1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label 装備;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panelEquipment;
         private System.Windows.Forms.Panel p1_24;
         private System.Windows.Forms.Panel p1_16;
         private System.Windows.Forms.Panel p1_23;
@@ -1179,6 +1257,15 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textAssignedEquipSlot;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel panelEquipment;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tabPage7;
     }
 }
 
