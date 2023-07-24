@@ -18,6 +18,7 @@ using static CraftpiaViewSaveData.NestParams.ConvertCraftpiaParams;
 using CraftpiaViewSaveData.NestParams;
 using CraftpiaViewSaveData.File;
 using CraftpiaViewSaveData.CPTree;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace CraftpiaViewSaveData
 {
@@ -26,10 +27,45 @@ namespace CraftpiaViewSaveData
         List<ClassDb> originalData;
         CraftpiaParams convertData;
         _CPInventorySaveData CPInventorySaveData;
+        public class ComboBoxItemSet
+        {
+            public int ItemValue { get; set; }
+            public String ItemDisp { get; set; }
+            public ComboBoxItemSet(string id, string name)
+            {
+                ItemValue = Convert.ToInt32(id);
+                ItemDisp = id + " : " + name;
+            }
+        }
 
         public MainForm()
         {
             InitializeComponent();
+            ComboBoxSet();
+        }
+
+        void ComboBoxSet()
+        {
+            List<ComboBoxItemSet> clist = new List<ComboBoxItemSet>();
+
+            var enchantParams = GetResourceFile.GetFile("EnchantParams.txt");
+            foreach (var d in enchantParams)
+            {
+                clist.Add(new ComboBoxItemSet(d.Key, d.Value));
+            }
+
+            cboEnchant1.DataSource = new List<ComboBoxItemSet>(clist);
+            cboEnchant1.DisplayMember = "ItemDisp";
+            cboEnchant1.ValueMember = "ItemValue";
+            cboEnchant2.DataSource = new List<ComboBoxItemSet>(clist);
+            cboEnchant2.DisplayMember = "ItemDisp";
+            cboEnchant2.ValueMember = "ItemValue";
+            cboEnchant3.DataSource = new List<ComboBoxItemSet>(clist);
+            cboEnchant3.DisplayMember = "ItemDisp";
+            cboEnchant3.ValueMember = "ItemValue";
+            cboEnchant4.DataSource = new List<ComboBoxItemSet>(clist);
+            cboEnchant4.DisplayMember = "ItemDisp";
+            cboEnchant4.ValueMember = "ItemValue";
         }
 
         #region "データ取得関係"
@@ -67,7 +103,6 @@ namespace CraftpiaViewSaveData
             Dictionary<string, CraftpiaParams> hiddenViewString = convertData.GetChildParamsString();
             dgv1.Rows.Clear();
 
-            var viewlist = GetResourceFile.GetFile();
             int row = 0;
             foreach (var data in hiddenViewString)
             {
@@ -78,24 +113,6 @@ namespace CraftpiaViewSaveData
                 dgv1.Rows[row].Cells[(int)rowindex.DetailName].Value = data.Value.name;
                 dgv1.Rows[row].Cells[(int)rowindex.FullName].Value = data.Key;
 
-                //名称をtxtから取得
-                foreach (var v in viewlist)
-                {
-                    int idx = -1;
-                    bool ismatch = true;
-                    foreach (var k in v.Key.Split('.'))
-                    {
-                        if (idx >= dataTree.IndexOf(k))
-                        {
-                            ismatch = false;
-                            break;
-                        }
-                    }
-                    if (ismatch)
-                    {
-                        dgv1.Rows[row].Cells[(int)rowindex.DetailName_Ja].Value = viewlist[v.Key];
-                    }
-                }
                 //何個目のアイテムか,Noを発番
                 var no_str = "";
                 foreach (var d in dataTree)
@@ -122,13 +139,13 @@ namespace CraftpiaViewSaveData
                                   .Where(p => System.Text.RegularExpressions.Regex.IsMatch(p.Name, "^p1_.*", RegexOptions.Singleline))
                                   .OrderBy(q => q.TabIndex).ToArray();
 
-            var itemIndex = Convert.ToInt32(new string((((Panel)sender).Name).Skip(3).ToArray()));
+            var itemIndex = Convert.ToInt32(new string((((Panel)sender).Name).Skip(3).ToArray())) - 1;
             var categoryName = itemListName.equipmentList.ToString();
 
-            DisplayItemDetail(categoryName, itemIndex);
+            DisplayItemDetail(categoryName, itemIndex, 1);
         }
 
-        void DisplayItemDetail(string categoryName, int itemindex)
+        void DisplayItemDetail(string categoryName, int itemindex, int iteminboxindex)
         {
             if (CPInventorySaveData == null)
             {
@@ -139,10 +156,10 @@ namespace CraftpiaViewSaveData
             var target = CPInventorySaveData.paramsList[categoryName].Value[itemindex];
             textItemId.Text = target.Value[0].item.itemId.ToString();
             textItemLevel.Text = target.Value[0].item.itemLevel.ToString();
-            textEnchantIds1_1.Text = target.Value[0].item.enchantIds[0].ToString();
-            textEnchantIds1_2.Text = target.Value[0].item.enchantIds[1].ToString();
-            textEnchantIds1_3.Text = target.Value[0].item.enchantIds[2].ToString();
-            textEnchantIds1_4.Text = target.Value[0].item.enchantIds[3].ToString();
+            textEnchantIds_1.Text = target.Value[0].item.enchantIds[0].ToString();
+            textEnchantIds_2.Text = target.Value[0].item.enchantIds[1].ToString();
+            textEnchantIds_3.Text = target.Value[0].item.enchantIds[2].ToString();
+            textEnchantIds_4.Text = target.Value[0].item.enchantIds[3].ToString();
             textProficient.Text = target.Value[0].item.proficient.ToString();
             textPetID.Text = target.Value[0].item.petID.ToString();
             chkSaveLock.Checked = target.Value[0].item.saveLock;
@@ -155,6 +172,12 @@ namespace CraftpiaViewSaveData
             textAssignedHotkeySlot2.Text = target.Value[0].assignedHotkeySlot[1].ToString();
             textAssignedHotkeySlot3.Text = target.Value[0].assignedHotkeySlot[2].ToString();
             textAssignedEquipSlot.Text = target.Value[0].assignedEquipSlot.ToString();
+
+            // 初期値セット
+            cboEnchant1.SelectedValue = target.Value[0].item.enchantIds[0];
+            cboEnchant2.SelectedValue = target.Value[0].item.enchantIds[1];
+            cboEnchant3.SelectedValue = target.Value[0].item.enchantIds[2];
+            cboEnchant4.SelectedValue = target.Value[0].item.enchantIds[3];
         }
         #endregion
     }

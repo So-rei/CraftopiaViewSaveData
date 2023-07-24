@@ -88,20 +88,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.cboItem = new System.Windows.Forms.ComboBox();
             this.textItemId = new System.Windows.Forms.TextBox();
             this.textItemLevel = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textEnchantIds1_1 = new System.Windows.Forms.TextBox();
-            this.textEnchantIds1_2 = new System.Windows.Forms.TextBox();
-            this.textEnchantIds1_3 = new System.Windows.Forms.TextBox();
-            this.textEnchantIds1_4 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds_1 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds_2 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds_3 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds_4 = new System.Windows.Forms.TextBox();
             this.textProficient = new System.Windows.Forms.TextBox();
             this.textPetID = new System.Windows.Forms.TextBox();
             this.textBulletNum = new System.Windows.Forms.TextBox();
@@ -116,19 +112,19 @@
             this.textBulletId = new System.Windows.Forms.TextBox();
             this.chkSaveLock = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.cboEnchant1 = new System.Windows.Forms.ComboBox();
+            this.cboEnchant2 = new System.Windows.Forms.ComboBox();
+            this.cboEnchant3 = new System.Windows.Forms.ComboBox();
+            this.cboEnchant4 = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textCount = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textAssignedHotkeySlot1 = new System.Windows.Forms.TextBox();
-            this.textAssignedHotkeySlot3 = new System.Windows.Forms.TextBox();
-            this.textAssignedHotkeySlot2 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.textAssignedEquipSlot = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textAssignedHotkeySlot2 = new System.Windows.Forms.TextBox();
+            this.textAssignedHotkeySlot3 = new System.Windows.Forms.TextBox();
+            this.textAssignedHotkeySlot1 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textCount = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.p1_1.SuspendLayout();
@@ -320,6 +316,7 @@
             this.p1_30.Name = "p1_30";
             this.p1_30.Size = new System.Drawing.Size(55, 55);
             this.p1_30.TabIndex = 13;
+            this.p1_30.Click += new System.EventHandler(this.panelEquipment_content_Click);
             // 
             // p1_29
             // 
@@ -328,6 +325,7 @@
             this.p1_29.Name = "p1_29";
             this.p1_29.Size = new System.Drawing.Size(55, 55);
             this.p1_29.TabIndex = 12;
+            this.p1_29.Click += new System.EventHandler(this.panelEquipment_content_Click);
             // 
             // p1_28
             // 
@@ -336,6 +334,7 @@
             this.p1_28.Name = "p1_28";
             this.p1_28.Size = new System.Drawing.Size(55, 55);
             this.p1_28.TabIndex = 11;
+            this.p1_28.Click += new System.EventHandler(this.panelEquipment_content_Click);
             // 
             // p1_27
             // 
@@ -346,6 +345,7 @@
             this.p1_27.Name = "p1_27";
             this.p1_27.Size = new System.Drawing.Size(55, 55);
             this.p1_27.TabIndex = 16;
+            this.p1_27.Click += new System.EventHandler(this.panelEquipment_content_Click);
             // 
             // panel4
             // 
@@ -390,6 +390,7 @@
             this.p1_26.Name = "p1_26";
             this.p1_26.Size = new System.Drawing.Size(55, 55);
             this.p1_26.TabIndex = 9;
+            this.p1_26.Click += new System.EventHandler(this.panelEquipment_content_Click);
             // 
             // panel5
             // 
@@ -432,6 +433,7 @@
             this.p1_25.Name = "p1_25";
             this.p1_25.Size = new System.Drawing.Size(55, 55);
             this.p1_25.TabIndex = 8;
+            this.p1_25.Click += new System.EventHandler(this.panelEquipment_content_Click);
             // 
             // p1_24
             // 
@@ -682,40 +684,16 @@
             this.textBox1.Size = new System.Drawing.Size(34, 19);
             this.textBox1.TabIndex = 13;
             // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(1054, 47);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 20);
-            this.comboBox4.TabIndex = 8;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label7.Location = new System.Drawing.Point(4, 5);
+            this.label7.Location = new System.Drawing.Point(11, 6);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 16);
             this.label7.TabIndex = 14;
             this.label7.Text = "アイテム名";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(912, 47);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 20);
-            this.comboBox3.TabIndex = 7;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(771, 47);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 20);
-            this.comboBox2.TabIndex = 6;
             // 
             // label8
             // 
@@ -727,21 +705,13 @@
             this.label8.TabIndex = 16;
             this.label8.Text = "＋";
             // 
-            // comboBox1
+            // cboItem
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(633, 47);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 20);
-            this.comboBox1.TabIndex = 4;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(99, 3);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(163, 20);
-            this.comboBox5.TabIndex = 15;
+            this.cboItem.FormattingEnabled = true;
+            this.cboItem.Location = new System.Drawing.Point(99, 3);
+            this.cboItem.Name = "cboItem";
+            this.cboItem.Size = new System.Drawing.Size(163, 20);
+            this.cboItem.TabIndex = 15;
             // 
             // textItemId
             // 
@@ -761,40 +731,40 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label9.Location = new System.Drawing.Point(57, 39);
+            this.label9.Location = new System.Drawing.Point(11, 36);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(24, 16);
+            this.label9.Size = new System.Drawing.Size(58, 16);
             this.label9.TabIndex = 23;
-            this.label9.Text = "＋";
+            this.label9.Text = "装備＋";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textEnchantIds1_1
+            // textEnchantIds_1
             // 
-            this.textEnchantIds1_1.Location = new System.Drawing.Point(268, 72);
-            this.textEnchantIds1_1.Name = "textEnchantIds1_1";
-            this.textEnchantIds1_1.Size = new System.Drawing.Size(58, 19);
-            this.textEnchantIds1_1.TabIndex = 24;
+            this.textEnchantIds_1.Location = new System.Drawing.Point(268, 72);
+            this.textEnchantIds_1.Name = "textEnchantIds_1";
+            this.textEnchantIds_1.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds_1.TabIndex = 24;
             // 
-            // textEnchantIds1_2
+            // textEnchantIds_2
             // 
-            this.textEnchantIds1_2.Location = new System.Drawing.Point(268, 107);
-            this.textEnchantIds1_2.Name = "textEnchantIds1_2";
-            this.textEnchantIds1_2.Size = new System.Drawing.Size(58, 19);
-            this.textEnchantIds1_2.TabIndex = 25;
+            this.textEnchantIds_2.Location = new System.Drawing.Point(268, 107);
+            this.textEnchantIds_2.Name = "textEnchantIds_2";
+            this.textEnchantIds_2.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds_2.TabIndex = 25;
             // 
-            // textEnchantIds1_3
+            // textEnchantIds_3
             // 
-            this.textEnchantIds1_3.Location = new System.Drawing.Point(268, 146);
-            this.textEnchantIds1_3.Name = "textEnchantIds1_3";
-            this.textEnchantIds1_3.Size = new System.Drawing.Size(58, 19);
-            this.textEnchantIds1_3.TabIndex = 26;
+            this.textEnchantIds_3.Location = new System.Drawing.Point(268, 146);
+            this.textEnchantIds_3.Name = "textEnchantIds_3";
+            this.textEnchantIds_3.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds_3.TabIndex = 26;
             // 
-            // textEnchantIds1_4
+            // textEnchantIds_4
             // 
-            this.textEnchantIds1_4.Location = new System.Drawing.Point(268, 186);
-            this.textEnchantIds1_4.Name = "textEnchantIds1_4";
-            this.textEnchantIds1_4.Size = new System.Drawing.Size(58, 19);
-            this.textEnchantIds1_4.TabIndex = 27;
+            this.textEnchantIds_4.Location = new System.Drawing.Point(268, 186);
+            this.textEnchantIds_4.Name = "textEnchantIds_4";
+            this.textEnchantIds_4.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds_4.TabIndex = 27;
             // 
             // textProficient
             // 
@@ -877,9 +847,9 @@
             this.lblProficient.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lblProficient.Location = new System.Drawing.Point(10, 222);
             this.lblProficient.Name = "lblProficient";
-            this.lblProficient.Size = new System.Drawing.Size(82, 16);
+            this.lblProficient.Size = new System.Drawing.Size(92, 16);
             this.lblProficient.TabIndex = 36;
-            this.lblProficient.Text = "Proficient";
+            this.lblProficient.Text = "装備熟練度";
             this.lblProficient.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label14
@@ -932,37 +902,37 @@
             this.label15.Text = "銃弾ID?";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // comboBox6
+            // cboEnchant1
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(99, 72);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(163, 20);
-            this.comboBox6.TabIndex = 44;
+            this.cboEnchant1.FormattingEnabled = true;
+            this.cboEnchant1.Location = new System.Drawing.Point(99, 72);
+            this.cboEnchant1.Name = "cboEnchant1";
+            this.cboEnchant1.Size = new System.Drawing.Size(163, 20);
+            this.cboEnchant1.TabIndex = 44;
             // 
-            // comboBox7
+            // cboEnchant2
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(99, 107);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(163, 20);
-            this.comboBox7.TabIndex = 45;
+            this.cboEnchant2.FormattingEnabled = true;
+            this.cboEnchant2.Location = new System.Drawing.Point(99, 107);
+            this.cboEnchant2.Name = "cboEnchant2";
+            this.cboEnchant2.Size = new System.Drawing.Size(163, 20);
+            this.cboEnchant2.TabIndex = 45;
             // 
-            // comboBox8
+            // cboEnchant3
             // 
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(99, 147);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(163, 20);
-            this.comboBox8.TabIndex = 46;
+            this.cboEnchant3.FormattingEnabled = true;
+            this.cboEnchant3.Location = new System.Drawing.Point(99, 147);
+            this.cboEnchant3.Name = "cboEnchant3";
+            this.cboEnchant3.Size = new System.Drawing.Size(163, 20);
+            this.cboEnchant3.TabIndex = 46;
             // 
-            // comboBox9
+            // cboEnchant4
             // 
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(99, 185);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(163, 20);
-            this.comboBox9.TabIndex = 47;
+            this.cboEnchant4.FormattingEnabled = true;
+            this.cboEnchant4.Location = new System.Drawing.Point(99, 185);
+            this.cboEnchant4.Name = "cboEnchant4";
+            this.cboEnchant4.Size = new System.Drawing.Size(163, 20);
+            this.cboEnchant4.TabIndex = 47;
             // 
             // panel2
             // 
@@ -974,10 +944,10 @@
             this.panel2.Controls.Add(this.label18);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.textCount);
-            this.panel2.Controls.Add(this.comboBox9);
-            this.panel2.Controls.Add(this.comboBox8);
-            this.panel2.Controls.Add(this.comboBox7);
-            this.panel2.Controls.Add(this.comboBox6);
+            this.panel2.Controls.Add(this.cboEnchant4);
+            this.panel2.Controls.Add(this.cboEnchant3);
+            this.panel2.Controls.Add(this.cboEnchant2);
+            this.panel2.Controls.Add(this.cboEnchant1);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.chkSaveLock);
             this.panel2.Controls.Add(this.textBulletId);
@@ -992,20 +962,16 @@
             this.panel2.Controls.Add(this.textBulletNum);
             this.panel2.Controls.Add(this.textPetID);
             this.panel2.Controls.Add(this.textProficient);
-            this.panel2.Controls.Add(this.textEnchantIds1_4);
-            this.panel2.Controls.Add(this.textEnchantIds1_3);
-            this.panel2.Controls.Add(this.textEnchantIds1_2);
-            this.panel2.Controls.Add(this.textEnchantIds1_1);
+            this.panel2.Controls.Add(this.textEnchantIds_4);
+            this.panel2.Controls.Add(this.textEnchantIds_3);
+            this.panel2.Controls.Add(this.textEnchantIds_2);
+            this.panel2.Controls.Add(this.textEnchantIds_1);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.textItemLevel);
             this.panel2.Controls.Add(this.textItemId);
-            this.panel2.Controls.Add(this.comboBox5);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.cboItem);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.comboBox2);
-            this.panel2.Controls.Add(this.comboBox3);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.comboBox4);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label6);
@@ -1016,55 +982,12 @@
             this.panel2.Size = new System.Drawing.Size(488, 534);
             this.panel2.TabIndex = 20;
             // 
-            // textCount
+            // textAssignedEquipSlot
             // 
-            this.textCount.Location = new System.Drawing.Point(268, 405);
-            this.textCount.Name = "textCount";
-            this.textCount.Size = new System.Drawing.Size(58, 19);
-            this.textCount.TabIndex = 48;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label17.Location = new System.Drawing.Point(11, 404);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(41, 16);
-            this.label17.TabIndex = 49;
-            this.label17.Text = "個数";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label18.Location = new System.Drawing.Point(10, 444);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(221, 16);
-            this.label18.TabIndex = 50;
-            this.label18.Text = "ショトカ装備位置(ページ1/2/3)";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // textAssignedHotkeySlot1
-            // 
-            this.textAssignedHotkeySlot1.Location = new System.Drawing.Point(271, 444);
-            this.textAssignedHotkeySlot1.Name = "textAssignedHotkeySlot1";
-            this.textAssignedHotkeySlot1.Size = new System.Drawing.Size(26, 19);
-            this.textAssignedHotkeySlot1.TabIndex = 51;
-            // 
-            // textAssignedHotkeySlot3
-            // 
-            this.textAssignedHotkeySlot3.Location = new System.Drawing.Point(335, 444);
-            this.textAssignedHotkeySlot3.Name = "textAssignedHotkeySlot3";
-            this.textAssignedHotkeySlot3.Size = new System.Drawing.Size(26, 19);
-            this.textAssignedHotkeySlot3.TabIndex = 52;
-            // 
-            // textAssignedHotkeySlot2
-            // 
-            this.textAssignedHotkeySlot2.Location = new System.Drawing.Point(303, 444);
-            this.textAssignedHotkeySlot2.Name = "textAssignedHotkeySlot2";
-            this.textAssignedHotkeySlot2.Size = new System.Drawing.Size(26, 19);
-            this.textAssignedHotkeySlot2.TabIndex = 53;
+            this.textAssignedEquipSlot.Location = new System.Drawing.Point(268, 483);
+            this.textAssignedEquipSlot.Name = "textAssignedEquipSlot";
+            this.textAssignedEquipSlot.Size = new System.Drawing.Size(26, 19);
+            this.textAssignedEquipSlot.TabIndex = 55;
             // 
             // label19
             // 
@@ -1077,12 +1000,55 @@
             this.label19.Text = "装備位置";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textAssignedEquipSlot
+            // textAssignedHotkeySlot2
             // 
-            this.textAssignedEquipSlot.Location = new System.Drawing.Point(268, 483);
-            this.textAssignedEquipSlot.Name = "textAssignedEquipSlot";
-            this.textAssignedEquipSlot.Size = new System.Drawing.Size(26, 19);
-            this.textAssignedEquipSlot.TabIndex = 55;
+            this.textAssignedHotkeySlot2.Location = new System.Drawing.Point(303, 444);
+            this.textAssignedHotkeySlot2.Name = "textAssignedHotkeySlot2";
+            this.textAssignedHotkeySlot2.Size = new System.Drawing.Size(26, 19);
+            this.textAssignedHotkeySlot2.TabIndex = 53;
+            // 
+            // textAssignedHotkeySlot3
+            // 
+            this.textAssignedHotkeySlot3.Location = new System.Drawing.Point(335, 444);
+            this.textAssignedHotkeySlot3.Name = "textAssignedHotkeySlot3";
+            this.textAssignedHotkeySlot3.Size = new System.Drawing.Size(26, 19);
+            this.textAssignedHotkeySlot3.TabIndex = 52;
+            // 
+            // textAssignedHotkeySlot1
+            // 
+            this.textAssignedHotkeySlot1.Location = new System.Drawing.Point(271, 444);
+            this.textAssignedHotkeySlot1.Name = "textAssignedHotkeySlot1";
+            this.textAssignedHotkeySlot1.Size = new System.Drawing.Size(26, 19);
+            this.textAssignedHotkeySlot1.TabIndex = 51;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label18.Location = new System.Drawing.Point(10, 444);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(221, 16);
+            this.label18.TabIndex = 50;
+            this.label18.Text = "ショトカ装備位置(ページ1/2/3)";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label17.Location = new System.Drawing.Point(11, 404);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(41, 16);
+            this.label17.TabIndex = 49;
+            this.label17.Text = "個数";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textCount
+            // 
+            this.textCount.Location = new System.Drawing.Point(268, 405);
+            this.textCount.Name = "textCount";
+            this.textCount.Size = new System.Drawing.Size(58, 19);
+            this.textCount.TabIndex = 48;
             // 
             // MainForm
             // 
@@ -1175,20 +1141,16 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox cboItem;
         private System.Windows.Forms.TextBox textItemId;
         private System.Windows.Forms.TextBox textItemLevel;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textEnchantIds1_1;
-        private System.Windows.Forms.TextBox textEnchantIds1_2;
-        private System.Windows.Forms.TextBox textEnchantIds1_3;
-        private System.Windows.Forms.TextBox textEnchantIds1_4;
+        private System.Windows.Forms.TextBox textEnchantIds_1;
+        private System.Windows.Forms.TextBox textEnchantIds_2;
+        private System.Windows.Forms.TextBox textEnchantIds_3;
+        private System.Windows.Forms.TextBox textEnchantIds_4;
         private System.Windows.Forms.TextBox textProficient;
         private System.Windows.Forms.TextBox textPetID;
         private System.Windows.Forms.TextBox textBulletNum;
@@ -1203,10 +1165,10 @@
         private System.Windows.Forms.TextBox textBulletId;
         private System.Windows.Forms.CheckBox chkSaveLock;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.ComboBox comboBox8;
-        private System.Windows.Forms.ComboBox comboBox9;
+        private System.Windows.Forms.ComboBox cboEnchant1;
+        private System.Windows.Forms.ComboBox cboEnchant2;
+        private System.Windows.Forms.ComboBox cboEnchant3;
+        private System.Windows.Forms.ComboBox cboEnchant4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textCount;

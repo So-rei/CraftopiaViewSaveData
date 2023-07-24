@@ -11,10 +11,10 @@ namespace CraftpiaViewSaveData.File
 {
     internal static class GetResourceFile
     {
-        public static Dictionary<string , string> GetFile()
+        public static Dictionary<string , string> GetFile(string filename)
         {
             var dic = new Dictionary<string , string>();
-            var apppath = Directory.GetParent(Assembly.GetExecutingAssembly().Location).ToString() + "\\SettingParams.txt";
+            var apppath = Directory.GetParent(Assembly.GetExecutingAssembly().Location).ToString() + "\\" + filename;
             //"C:\test\1.txt"をShift-JISコードとして開く
             using (System.IO.StreamReader sr = new System.IO.StreamReader(@apppath, System.Text.Encoding.GetEncoding("shift_jis")))
             {
@@ -24,7 +24,7 @@ namespace CraftpiaViewSaveData.File
                     var line = sr.ReadLine();
                     if (line == "" || line[0] == '#') continue;
 
-                    var sx = line.Split(' ');
+                    var sx = line.Split(',');
                     dic.Add(sx[0], sx.Count() > 1 ? sx[1] : "");
                 }
             }

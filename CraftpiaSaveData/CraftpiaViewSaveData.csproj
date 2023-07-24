@@ -131,11 +131,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Setting\EnchantParams.txt" />
     <Content Include="Setting\SettingParams.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(ProjectDir)\Setting\SettingParams.txt" $(TargetDir) /Y</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(ProjectDir)\Setting\EnchantParams.txt" $(TargetDir) /Y</PostBuildEvent>
   </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

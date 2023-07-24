@@ -13,7 +13,6 @@ namespace CraftpiaViewSaveData.CPTree
         public int[] assignedHotkeySlot { get; set; } = new int[3] { -1, -1, -1 }; //装備系のときのみ
         public int assignedEquipSlot { get; set; }
 
-
         public override string ToString()
         {
             string ret = "{";

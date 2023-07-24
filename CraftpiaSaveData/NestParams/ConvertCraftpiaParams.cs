@@ -177,7 +177,6 @@ namespace CraftpiaViewSaveData.NestParams
                         foreach (var _iteminboxvalue in _iteminbox)
                         {
                             //item,count,assignedHotkeySlot,assignedEquipSlot の順
-
                             //item詳細
                             foreach (var _item in _iteminboxvalue.innerParams[0])
                             {
@@ -215,7 +214,7 @@ namespace CraftpiaViewSaveData.NestParams
                             itemInBoxValue.count = Convert.ToInt32(_iteminboxvalue.innerParams[1].value);
 
                             //assignedHotkeySlotは装備系のみ
-                            if (child.name == itemListName.equipmentList.ToString())
+                            if (child.name == itemListName.equipmentList.ToString() && _iteminboxvalue.innerParams[2].Count() == 3)
                             {
                                 itemInBoxValue.assignedHotkeySlot = Array.ConvertAll(_iteminboxvalue.innerParams[2].Select(p => p.value).ToArray(), e => (int)Convert.ChangeType(e, typeof(int)));
                             }
