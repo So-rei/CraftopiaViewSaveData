@@ -92,10 +92,10 @@
             this.textItemId = new System.Windows.Forms.TextBox();
             this.textItemLevel = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textEnchantIds_1 = new System.Windows.Forms.TextBox();
-            this.textEnchantIds_2 = new System.Windows.Forms.TextBox();
-            this.textEnchantIds_3 = new System.Windows.Forms.TextBox();
-            this.textEnchantIds_4 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds1_1 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds1_2 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds1_3 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds1_4 = new System.Windows.Forms.TextBox();
             this.textProficient = new System.Windows.Forms.TextBox();
             this.textPetID = new System.Windows.Forms.TextBox();
             this.textBulletNum = new System.Windows.Forms.TextBox();
@@ -110,10 +110,10 @@
             this.textBulletId = new System.Windows.Forms.TextBox();
             this.chkSaveLock = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.cboEnchant1 = new System.Windows.Forms.ComboBox();
-            this.cboEnchant2 = new System.Windows.Forms.ComboBox();
-            this.cboEnchant3 = new System.Windows.Forms.ComboBox();
-            this.cboEnchant4 = new System.Windows.Forms.ComboBox();
+            this.cboEnchant1_1 = new System.Windows.Forms.ComboBox();
+            this.cboEnchant1_2 = new System.Windows.Forms.ComboBox();
+            this.cboEnchant1_3 = new System.Windows.Forms.ComboBox();
+            this.cboEnchant1_4 = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textAssignedEquipSlot = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -133,6 +133,137 @@
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.panelEquipment = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cboEnchant2_1 = new System.Windows.Forms.TabControl();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.textAssignedEquipSlot4 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textAssignedHotkeySlot4_2 = new System.Windows.Forms.TextBox();
+            this.textAssignedHotkeySlot4_3 = new System.Windows.Forms.TextBox();
+            this.textAssignedHotkeySlot4_1 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textCount4 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.chkSaveLock4 = new System.Windows.Forms.CheckBox();
+            this.textBulletId4 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.chkDataVersion4 = new System.Windows.Forms.CheckBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.textBulletNum4 = new System.Windows.Forms.TextBox();
+            this.textPetID4 = new System.Windows.Forms.TextBox();
+            this.textProficient4 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds4_4 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds4_3 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds4_2 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds4_1 = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.textItemLevel4 = new System.Windows.Forms.TextBox();
+            this.textItemId4 = new System.Windows.Forms.TextBox();
+            this.cboItem4 = new System.Windows.Forms.ComboBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.textAssignedEquipSlot3 = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.textAssignedHotkeySlot3_2 = new System.Windows.Forms.TextBox();
+            this.textAssignedHotkeySlot3_3 = new System.Windows.Forms.TextBox();
+            this.textAssignedHotkeySlot3_1 = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.textCount3 = new System.Windows.Forms.TextBox();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.chkSaveLock3 = new System.Windows.Forms.CheckBox();
+            this.textBulletId3 = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.chkDataVersion3 = new System.Windows.Forms.CheckBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.textBulletNum3 = new System.Windows.Forms.TextBox();
+            this.textPetID3 = new System.Windows.Forms.TextBox();
+            this.textProficient3 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds3_4 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds3_3 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds3_2 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds3_1 = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.textItemLevel3 = new System.Windows.Forms.TextBox();
+            this.textItemId3 = new System.Windows.Forms.TextBox();
+            this.cboItem3 = new System.Windows.Forms.ComboBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.textBox33 = new System.Windows.Forms.TextBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.textAssignedEquipSlot2 = new System.Windows.Forms.TextBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.textAssignedHotkeySlot2_2 = new System.Windows.Forms.TextBox();
+            this.textAssignedHotkeySlot2_3 = new System.Windows.Forms.TextBox();
+            this.textAssignedHotkeySlot1_1 = new System.Windows.Forms.TextBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.textCount2 = new System.Windows.Forms.TextBox();
+            this.cboEnchant2_4 = new System.Windows.Forms.ComboBox();
+            this.cboEnchant2_3 = new System.Windows.Forms.ComboBox();
+            this.cboEnchant2_2 = new System.Windows.Forms.ComboBox();
+            this.comboBox14 = new System.Windows.Forms.ComboBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.chkSaveLock2 = new System.Windows.Forms.CheckBox();
+            this.textBulletId2 = new System.Windows.Forms.TextBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.chkDataVersion2 = new System.Windows.Forms.CheckBox();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.textBulletNum2 = new System.Windows.Forms.TextBox();
+            this.textPetID2 = new System.Windows.Forms.TextBox();
+            this.textProficient2 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds2_4 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds2_3 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds2_2 = new System.Windows.Forms.TextBox();
+            this.textEnchantIds2_1 = new System.Windows.Forms.TextBox();
+            this.label67 = new System.Windows.Forms.Label();
+            this.textItemLevel2 = new System.Windows.Forms.TextBox();
+            this.textItemId2 = new System.Windows.Forms.TextBox();
+            this.cboItem2 = new System.Windows.Forms.ComboBox();
+            this.label68 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
+            this.textBox49 = new System.Windows.Forms.TextBox();
+            this.label70 = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.label73 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.p1_1.SuspendLayout();
@@ -144,6 +275,14 @@
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.panelEquipment.SuspendLayout();
+            this.cboEnchant2_1.SuspendLayout();
+            this.tabPage9.SuspendLayout();
+            this.tabPage10.SuspendLayout();
+            this.tabPage11.SuspendLayout();
+            this.tabPage12.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -701,33 +840,33 @@
             this.label9.Text = "装備＋";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textEnchantIds_1
+            // textEnchantIds1_1
             // 
-            this.textEnchantIds_1.Location = new System.Drawing.Point(268, 72);
-            this.textEnchantIds_1.Name = "textEnchantIds_1";
-            this.textEnchantIds_1.Size = new System.Drawing.Size(58, 19);
-            this.textEnchantIds_1.TabIndex = 24;
+            this.textEnchantIds1_1.Location = new System.Drawing.Point(268, 72);
+            this.textEnchantIds1_1.Name = "textEnchantIds1_1";
+            this.textEnchantIds1_1.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds1_1.TabIndex = 24;
             // 
-            // textEnchantIds_2
+            // textEnchantIds1_2
             // 
-            this.textEnchantIds_2.Location = new System.Drawing.Point(268, 107);
-            this.textEnchantIds_2.Name = "textEnchantIds_2";
-            this.textEnchantIds_2.Size = new System.Drawing.Size(58, 19);
-            this.textEnchantIds_2.TabIndex = 25;
+            this.textEnchantIds1_2.Location = new System.Drawing.Point(268, 107);
+            this.textEnchantIds1_2.Name = "textEnchantIds1_2";
+            this.textEnchantIds1_2.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds1_2.TabIndex = 25;
             // 
-            // textEnchantIds_3
+            // textEnchantIds1_3
             // 
-            this.textEnchantIds_3.Location = new System.Drawing.Point(268, 146);
-            this.textEnchantIds_3.Name = "textEnchantIds_3";
-            this.textEnchantIds_3.Size = new System.Drawing.Size(58, 19);
-            this.textEnchantIds_3.TabIndex = 26;
+            this.textEnchantIds1_3.Location = new System.Drawing.Point(268, 146);
+            this.textEnchantIds1_3.Name = "textEnchantIds1_3";
+            this.textEnchantIds1_3.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds1_3.TabIndex = 26;
             // 
-            // textEnchantIds_4
+            // textEnchantIds1_4
             // 
-            this.textEnchantIds_4.Location = new System.Drawing.Point(268, 186);
-            this.textEnchantIds_4.Name = "textEnchantIds_4";
-            this.textEnchantIds_4.Size = new System.Drawing.Size(58, 19);
-            this.textEnchantIds_4.TabIndex = 27;
+            this.textEnchantIds1_4.Location = new System.Drawing.Point(268, 186);
+            this.textEnchantIds1_4.Name = "textEnchantIds1_4";
+            this.textEnchantIds1_4.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds1_4.TabIndex = 27;
             // 
             // textProficient
             // 
@@ -865,37 +1004,37 @@
             this.label15.Text = "銃弾ID?";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // cboEnchant1
+            // cboEnchant1_1
             // 
-            this.cboEnchant1.FormattingEnabled = true;
-            this.cboEnchant1.Location = new System.Drawing.Point(99, 72);
-            this.cboEnchant1.Name = "cboEnchant1";
-            this.cboEnchant1.Size = new System.Drawing.Size(163, 20);
-            this.cboEnchant1.TabIndex = 44;
+            this.cboEnchant1_1.FormattingEnabled = true;
+            this.cboEnchant1_1.Location = new System.Drawing.Point(99, 72);
+            this.cboEnchant1_1.Name = "cboEnchant1_1";
+            this.cboEnchant1_1.Size = new System.Drawing.Size(163, 20);
+            this.cboEnchant1_1.TabIndex = 44;
             // 
-            // cboEnchant2
+            // cboEnchant1_2
             // 
-            this.cboEnchant2.FormattingEnabled = true;
-            this.cboEnchant2.Location = new System.Drawing.Point(99, 107);
-            this.cboEnchant2.Name = "cboEnchant2";
-            this.cboEnchant2.Size = new System.Drawing.Size(163, 20);
-            this.cboEnchant2.TabIndex = 45;
+            this.cboEnchant1_2.FormattingEnabled = true;
+            this.cboEnchant1_2.Location = new System.Drawing.Point(99, 107);
+            this.cboEnchant1_2.Name = "cboEnchant1_2";
+            this.cboEnchant1_2.Size = new System.Drawing.Size(163, 20);
+            this.cboEnchant1_2.TabIndex = 45;
             // 
-            // cboEnchant3
+            // cboEnchant1_3
             // 
-            this.cboEnchant3.FormattingEnabled = true;
-            this.cboEnchant3.Location = new System.Drawing.Point(99, 147);
-            this.cboEnchant3.Name = "cboEnchant3";
-            this.cboEnchant3.Size = new System.Drawing.Size(163, 20);
-            this.cboEnchant3.TabIndex = 46;
+            this.cboEnchant1_3.FormattingEnabled = true;
+            this.cboEnchant1_3.Location = new System.Drawing.Point(99, 147);
+            this.cboEnchant1_3.Name = "cboEnchant1_3";
+            this.cboEnchant1_3.Size = new System.Drawing.Size(163, 20);
+            this.cboEnchant1_3.TabIndex = 46;
             // 
-            // cboEnchant4
+            // cboEnchant1_4
             // 
-            this.cboEnchant4.FormattingEnabled = true;
-            this.cboEnchant4.Location = new System.Drawing.Point(99, 185);
-            this.cboEnchant4.Name = "cboEnchant4";
-            this.cboEnchant4.Size = new System.Drawing.Size(163, 20);
-            this.cboEnchant4.TabIndex = 47;
+            this.cboEnchant1_4.FormattingEnabled = true;
+            this.cboEnchant1_4.Location = new System.Drawing.Point(99, 185);
+            this.cboEnchant1_4.Name = "cboEnchant1_4";
+            this.cboEnchant1_4.Size = new System.Drawing.Size(163, 20);
+            this.cboEnchant1_4.TabIndex = 47;
             // 
             // panel2
             // 
@@ -907,10 +1046,10 @@
             this.panel2.Controls.Add(this.label18);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.textCount);
-            this.panel2.Controls.Add(this.cboEnchant4);
-            this.panel2.Controls.Add(this.cboEnchant3);
-            this.panel2.Controls.Add(this.cboEnchant2);
-            this.panel2.Controls.Add(this.cboEnchant1);
+            this.panel2.Controls.Add(this.cboEnchant1_4);
+            this.panel2.Controls.Add(this.cboEnchant1_3);
+            this.panel2.Controls.Add(this.cboEnchant1_2);
+            this.panel2.Controls.Add(this.cboEnchant1_1);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.chkSaveLock);
             this.panel2.Controls.Add(this.textBulletId);
@@ -925,10 +1064,10 @@
             this.panel2.Controls.Add(this.textBulletNum);
             this.panel2.Controls.Add(this.textPetID);
             this.panel2.Controls.Add(this.textProficient);
-            this.panel2.Controls.Add(this.textEnchantIds_4);
-            this.panel2.Controls.Add(this.textEnchantIds_3);
-            this.panel2.Controls.Add(this.textEnchantIds_2);
-            this.panel2.Controls.Add(this.textEnchantIds_1);
+            this.panel2.Controls.Add(this.textEnchantIds1_4);
+            this.panel2.Controls.Add(this.textEnchantIds1_3);
+            this.panel2.Controls.Add(this.textEnchantIds1_2);
+            this.panel2.Controls.Add(this.textEnchantIds1_1);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.textItemLevel);
             this.panel2.Controls.Add(this.textItemId);
@@ -940,9 +1079,9 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(676, 47);
+            this.panel2.Location = new System.Drawing.Point(31, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(488, 493);
+            this.panel2.Size = new System.Drawing.Size(488, 488);
             this.panel2.TabIndex = 20;
             // 
             // textAssignedEquipSlot
@@ -1056,7 +1195,7 @@
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(637, 214);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "ペット";
+            this.tabPage4.Text = "クラウドストレージ";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // tabPage5
@@ -1065,7 +1204,7 @@
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(637, 214);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "素材";
+            this.tabPage5.Text = "ペット";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // tabPage6
@@ -1074,7 +1213,7 @@
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Size = new System.Drawing.Size(637, 214);
             this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "ペットストレージ";
+            this.tabPage6.Text = "素材";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // tabPage7
@@ -1083,7 +1222,7 @@
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Size = new System.Drawing.Size(637, 214);
             this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "大切なもの";
+            this.tabPage7.Text = "ペットストレージ";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // tabPage8
@@ -1092,7 +1231,7 @@
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Size = new System.Drawing.Size(637, 214);
             this.tabPage8.TabIndex = 2;
-            this.tabPage8.Text = "クラウドストレージ";
+            this.tabPage8.Text = "大切なもの";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
             // panelEquipment
@@ -1143,12 +1282,1305 @@
             this.tabPage2.Text = "建物";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // cboEnchant2_1
+            // 
+            this.cboEnchant2_1.Controls.Add(this.tabPage9);
+            this.cboEnchant2_1.Controls.Add(this.tabPage10);
+            this.cboEnchant2_1.Controls.Add(this.tabPage11);
+            this.cboEnchant2_1.Controls.Add(this.tabPage12);
+            this.cboEnchant2_1.Location = new System.Drawing.Point(667, 36);
+            this.cboEnchant2_1.Name = "cboEnchant2_1";
+            this.cboEnchant2_1.SelectedIndex = 0;
+            this.cboEnchant2_1.Size = new System.Drawing.Size(555, 513);
+            this.cboEnchant2_1.TabIndex = 21;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tabPage9.Controls.Add(this.panel2);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(547, 487);
+            this.tabPage9.TabIndex = 0;
+            this.tabPage9.Text = "アイテム1(左上)";
+            // 
+            // tabPage10
+            // 
+            this.tabPage10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tabPage10.Controls.Add(this.panel13);
+            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage10.Size = new System.Drawing.Size(547, 487);
+            this.tabPage10.TabIndex = 1;
+            this.tabPage10.Text = "アイテム2(右上)";
+            // 
+            // tabPage11
+            // 
+            this.tabPage11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tabPage11.Controls.Add(this.panel12);
+            this.tabPage11.Location = new System.Drawing.Point(4, 22);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Size = new System.Drawing.Size(547, 487);
+            this.tabPage11.TabIndex = 2;
+            this.tabPage11.Text = "アイテム3(左下)";
+            // 
+            // tabPage12
+            // 
+            this.tabPage12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabPage12.Controls.Add(this.panel11);
+            this.tabPage12.Location = new System.Drawing.Point(4, 22);
+            this.tabPage12.Name = "tabPage12";
+            this.tabPage12.Size = new System.Drawing.Size(547, 487);
+            this.tabPage12.TabIndex = 3;
+            this.tabPage12.Text = "アイテム4(右下)";
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.textAssignedEquipSlot4);
+            this.panel11.Controls.Add(this.label20);
+            this.panel11.Controls.Add(this.textAssignedHotkeySlot4_2);
+            this.panel11.Controls.Add(this.textAssignedHotkeySlot4_3);
+            this.panel11.Controls.Add(this.textAssignedHotkeySlot4_1);
+            this.panel11.Controls.Add(this.label21);
+            this.panel11.Controls.Add(this.label22);
+            this.panel11.Controls.Add(this.textCount4);
+            this.panel11.Controls.Add(this.comboBox1);
+            this.panel11.Controls.Add(this.comboBox2);
+            this.panel11.Controls.Add(this.comboBox3);
+            this.panel11.Controls.Add(this.comboBox4);
+            this.panel11.Controls.Add(this.label23);
+            this.panel11.Controls.Add(this.chkSaveLock4);
+            this.panel11.Controls.Add(this.textBulletId4);
+            this.panel11.Controls.Add(this.label24);
+            this.panel11.Controls.Add(this.label25);
+            this.panel11.Controls.Add(this.label26);
+            this.panel11.Controls.Add(this.chkDataVersion4);
+            this.panel11.Controls.Add(this.label27);
+            this.panel11.Controls.Add(this.label28);
+            this.panel11.Controls.Add(this.label29);
+            this.panel11.Controls.Add(this.label30);
+            this.panel11.Controls.Add(this.textBulletNum4);
+            this.panel11.Controls.Add(this.textPetID4);
+            this.panel11.Controls.Add(this.textProficient4);
+            this.panel11.Controls.Add(this.textEnchantIds4_4);
+            this.panel11.Controls.Add(this.textEnchantIds4_3);
+            this.panel11.Controls.Add(this.textEnchantIds4_2);
+            this.panel11.Controls.Add(this.textEnchantIds4_1);
+            this.panel11.Controls.Add(this.label31);
+            this.panel11.Controls.Add(this.textItemLevel4);
+            this.panel11.Controls.Add(this.textItemId4);
+            this.panel11.Controls.Add(this.cboItem4);
+            this.panel11.Controls.Add(this.label32);
+            this.panel11.Controls.Add(this.label33);
+            this.panel11.Controls.Add(this.textBox17);
+            this.panel11.Controls.Add(this.label34);
+            this.panel11.Controls.Add(this.label35);
+            this.panel11.Controls.Add(this.label36);
+            this.panel11.Controls.Add(this.label37);
+            this.panel11.Location = new System.Drawing.Point(31, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(488, 477);
+            this.panel11.TabIndex = 22;
+            // 
+            // textAssignedEquipSlot4
+            // 
+            this.textAssignedEquipSlot4.Location = new System.Drawing.Point(267, 456);
+            this.textAssignedEquipSlot4.Name = "textAssignedEquipSlot4";
+            this.textAssignedEquipSlot4.Size = new System.Drawing.Size(26, 19);
+            this.textAssignedEquipSlot4.TabIndex = 55;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label20.Location = new System.Drawing.Point(10, 459);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(75, 16);
+            this.label20.TabIndex = 54;
+            this.label20.Text = "装備位置";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textAssignedHotkeySlot4_2
+            // 
+            this.textAssignedHotkeySlot4_2.Location = new System.Drawing.Point(302, 417);
+            this.textAssignedHotkeySlot4_2.Name = "textAssignedHotkeySlot4_2";
+            this.textAssignedHotkeySlot4_2.Size = new System.Drawing.Size(26, 19);
+            this.textAssignedHotkeySlot4_2.TabIndex = 53;
+            // 
+            // textAssignedHotkeySlot4_3
+            // 
+            this.textAssignedHotkeySlot4_3.Location = new System.Drawing.Point(334, 417);
+            this.textAssignedHotkeySlot4_3.Name = "textAssignedHotkeySlot4_3";
+            this.textAssignedHotkeySlot4_3.Size = new System.Drawing.Size(26, 19);
+            this.textAssignedHotkeySlot4_3.TabIndex = 52;
+            // 
+            // textAssignedHotkeySlot4_1
+            // 
+            this.textAssignedHotkeySlot4_1.Location = new System.Drawing.Point(270, 417);
+            this.textAssignedHotkeySlot4_1.Name = "textAssignedHotkeySlot4_1";
+            this.textAssignedHotkeySlot4_1.Size = new System.Drawing.Size(26, 19);
+            this.textAssignedHotkeySlot4_1.TabIndex = 51;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label21.Location = new System.Drawing.Point(9, 417);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(221, 16);
+            this.label21.TabIndex = 50;
+            this.label21.Text = "ショトカ装備位置(ページ1/2/3)";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label22.Location = new System.Drawing.Point(10, 377);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(41, 16);
+            this.label22.TabIndex = 49;
+            this.label22.Text = "個数";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textCount4
+            // 
+            this.textCount4.Location = new System.Drawing.Point(267, 378);
+            this.textCount4.Name = "textCount4";
+            this.textCount4.Size = new System.Drawing.Size(58, 19);
+            this.textCount4.TabIndex = 48;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(99, 185);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(163, 20);
+            this.comboBox1.TabIndex = 47;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(99, 147);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(163, 20);
+            this.comboBox2.TabIndex = 46;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(99, 107);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(163, 20);
+            this.comboBox3.TabIndex = 45;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(99, 72);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(163, 20);
+            this.comboBox4.TabIndex = 44;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label23.Location = new System.Drawing.Point(10, 329);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(65, 16);
+            this.label23.TabIndex = 43;
+            this.label23.Text = "銃弾ID?";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // chkSaveLock4
+            // 
+            this.chkSaveLock4.AutoSize = true;
+            this.chkSaveLock4.Location = new System.Drawing.Point(367, 32);
+            this.chkSaveLock4.Name = "chkSaveLock4";
+            this.chkSaveLock4.Size = new System.Drawing.Size(94, 16);
+            this.chkSaveLock4.TabIndex = 42;
+            this.chkSaveLock4.Text = "鍵付きアイテム";
+            this.chkSaveLock4.UseVisualStyleBackColor = true;
+            // 
+            // textBulletId4
+            // 
+            this.textBulletId4.Location = new System.Drawing.Point(268, 329);
+            this.textBulletId4.Name = "textBulletId4";
+            this.textBulletId4.Size = new System.Drawing.Size(58, 19);
+            this.textBulletId4.TabIndex = 40;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label24.Location = new System.Drawing.Point(10, 293);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(66, 16);
+            this.label24.TabIndex = 39;
+            this.label24.Text = "銃弾数?";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label25.Location = new System.Drawing.Point(10, 258);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(64, 16);
+            this.label25.TabIndex = 37;
+            this.label25.Text = "ペットlv?";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label26.Location = new System.Drawing.Point(10, 222);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(92, 16);
+            this.label26.TabIndex = 36;
+            this.label26.Text = "装備熟練度";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // chkDataVersion4
+            // 
+            this.chkDataVersion4.AutoSize = true;
+            this.chkDataVersion4.Location = new System.Drawing.Point(367, 3);
+            this.chkDataVersion4.Name = "chkDataVersion4";
+            this.chkDataVersion4.Size = new System.Drawing.Size(48, 16);
+            this.chkDataVersion4.TabIndex = 35;
+            this.chkDataVersion4.Text = "遺産";
+            this.chkDataVersion4.UseVisualStyleBackColor = true;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label27.Location = new System.Drawing.Point(10, 185);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(71, 16);
+            this.label27.TabIndex = 34;
+            this.label27.Text = "エンチャ４";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label28.Location = new System.Drawing.Point(10, 146);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(71, 16);
+            this.label28.TabIndex = 33;
+            this.label28.Text = "エンチャ３";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label29.Location = new System.Drawing.Point(10, 110);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(71, 16);
+            this.label29.TabIndex = 32;
+            this.label29.Text = "エンチャ２";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label30.Location = new System.Drawing.Point(10, 71);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(71, 16);
+            this.label30.TabIndex = 31;
+            this.label30.Text = "エンチャ１";
+            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBulletNum4
+            // 
+            this.textBulletNum4.Location = new System.Drawing.Point(268, 290);
+            this.textBulletNum4.Name = "textBulletNum4";
+            this.textBulletNum4.Size = new System.Drawing.Size(58, 19);
+            this.textBulletNum4.TabIndex = 30;
+            // 
+            // textPetID4
+            // 
+            this.textPetID4.Location = new System.Drawing.Point(268, 255);
+            this.textPetID4.Name = "textPetID4";
+            this.textPetID4.Size = new System.Drawing.Size(58, 19);
+            this.textPetID4.TabIndex = 29;
+            // 
+            // textProficient4
+            // 
+            this.textProficient4.Location = new System.Drawing.Point(268, 219);
+            this.textProficient4.Name = "textProficient4";
+            this.textProficient4.Size = new System.Drawing.Size(58, 19);
+            this.textProficient4.TabIndex = 28;
+            // 
+            // textEnchantIds4_4
+            // 
+            this.textEnchantIds4_4.Location = new System.Drawing.Point(268, 186);
+            this.textEnchantIds4_4.Name = "textEnchantIds4_4";
+            this.textEnchantIds4_4.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds4_4.TabIndex = 27;
+            // 
+            // textEnchantIds4_3
+            // 
+            this.textEnchantIds4_3.Location = new System.Drawing.Point(268, 146);
+            this.textEnchantIds4_3.Name = "textEnchantIds4_3";
+            this.textEnchantIds4_3.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds4_3.TabIndex = 26;
+            // 
+            // textEnchantIds4_2
+            // 
+            this.textEnchantIds4_2.Location = new System.Drawing.Point(268, 107);
+            this.textEnchantIds4_2.Name = "textEnchantIds4_2";
+            this.textEnchantIds4_2.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds4_2.TabIndex = 25;
+            // 
+            // textEnchantIds4_1
+            // 
+            this.textEnchantIds4_1.Location = new System.Drawing.Point(268, 72);
+            this.textEnchantIds4_1.Name = "textEnchantIds4_1";
+            this.textEnchantIds4_1.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds4_1.TabIndex = 24;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label31.Location = new System.Drawing.Point(11, 36);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(58, 16);
+            this.label31.TabIndex = 23;
+            this.label31.Text = "装備＋";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textItemLevel4
+            // 
+            this.textItemLevel4.Location = new System.Drawing.Point(268, 36);
+            this.textItemLevel4.Name = "textItemLevel4";
+            this.textItemLevel4.Size = new System.Drawing.Size(58, 19);
+            this.textItemLevel4.TabIndex = 22;
+            // 
+            // textItemId4
+            // 
+            this.textItemId4.Location = new System.Drawing.Point(268, 3);
+            this.textItemId4.Name = "textItemId4";
+            this.textItemId4.Size = new System.Drawing.Size(58, 19);
+            this.textItemId4.TabIndex = 20;
+            // 
+            // cboItem4
+            // 
+            this.cboItem4.FormattingEnabled = true;
+            this.cboItem4.Location = new System.Drawing.Point(99, 3);
+            this.cboItem4.Name = "cboItem4";
+            this.cboItem4.Size = new System.Drawing.Size(163, 20);
+            this.cboItem4.TabIndex = 15;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label32.Location = new System.Drawing.Point(746, 12);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(24, 16);
+            this.label32.TabIndex = 16;
+            this.label32.Text = "＋";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label33.Location = new System.Drawing.Point(11, 6);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(77, 16);
+            this.label33.TabIndex = 14;
+            this.label33.Text = "アイテム名";
+            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(749, 32);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(34, 19);
+            this.textBox17.TabIndex = 13;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label34.Location = new System.Drawing.Point(636, 28);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(68, 16);
+            this.label34.TabIndex = 9;
+            this.label34.Text = "エンチャ1";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label35.Location = new System.Drawing.Point(1055, 28);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(68, 16);
+            this.label35.TabIndex = 12;
+            this.label35.Text = "エンチャ4";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label36.Location = new System.Drawing.Point(773, 28);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(68, 16);
+            this.label36.TabIndex = 10;
+            this.label36.Text = "エンチャ2";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label37.Location = new System.Drawing.Point(914, 28);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(68, 16);
+            this.label37.TabIndex = 11;
+            this.label37.Text = "エンチャ3";
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.textAssignedEquipSlot3);
+            this.panel12.Controls.Add(this.label38);
+            this.panel12.Controls.Add(this.textAssignedHotkeySlot3_2);
+            this.panel12.Controls.Add(this.textAssignedHotkeySlot3_3);
+            this.panel12.Controls.Add(this.textAssignedHotkeySlot3_1);
+            this.panel12.Controls.Add(this.label39);
+            this.panel12.Controls.Add(this.label40);
+            this.panel12.Controls.Add(this.textCount3);
+            this.panel12.Controls.Add(this.comboBox6);
+            this.panel12.Controls.Add(this.comboBox7);
+            this.panel12.Controls.Add(this.comboBox8);
+            this.panel12.Controls.Add(this.comboBox9);
+            this.panel12.Controls.Add(this.label41);
+            this.panel12.Controls.Add(this.chkSaveLock3);
+            this.panel12.Controls.Add(this.textBulletId3);
+            this.panel12.Controls.Add(this.label42);
+            this.panel12.Controls.Add(this.label43);
+            this.panel12.Controls.Add(this.label44);
+            this.panel12.Controls.Add(this.chkDataVersion3);
+            this.panel12.Controls.Add(this.label45);
+            this.panel12.Controls.Add(this.label46);
+            this.panel12.Controls.Add(this.label47);
+            this.panel12.Controls.Add(this.label48);
+            this.panel12.Controls.Add(this.textBulletNum3);
+            this.panel12.Controls.Add(this.textPetID3);
+            this.panel12.Controls.Add(this.textProficient3);
+            this.panel12.Controls.Add(this.textEnchantIds3_4);
+            this.panel12.Controls.Add(this.textEnchantIds3_3);
+            this.panel12.Controls.Add(this.textEnchantIds3_2);
+            this.panel12.Controls.Add(this.textEnchantIds3_1);
+            this.panel12.Controls.Add(this.label49);
+            this.panel12.Controls.Add(this.textItemLevel3);
+            this.panel12.Controls.Add(this.textItemId3);
+            this.panel12.Controls.Add(this.cboItem3);
+            this.panel12.Controls.Add(this.label50);
+            this.panel12.Controls.Add(this.label51);
+            this.panel12.Controls.Add(this.textBox33);
+            this.panel12.Controls.Add(this.label52);
+            this.panel12.Controls.Add(this.label53);
+            this.panel12.Controls.Add(this.label54);
+            this.panel12.Controls.Add(this.label55);
+            this.panel12.Location = new System.Drawing.Point(31, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(488, 493);
+            this.panel12.TabIndex = 22;
+            // 
+            // textAssignedEquipSlot3
+            // 
+            this.textAssignedEquipSlot3.Location = new System.Drawing.Point(267, 456);
+            this.textAssignedEquipSlot3.Name = "textAssignedEquipSlot3";
+            this.textAssignedEquipSlot3.Size = new System.Drawing.Size(26, 19);
+            this.textAssignedEquipSlot3.TabIndex = 55;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label38.Location = new System.Drawing.Point(10, 459);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(75, 16);
+            this.label38.TabIndex = 54;
+            this.label38.Text = "装備位置";
+            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textAssignedHotkeySlot3_2
+            // 
+            this.textAssignedHotkeySlot3_2.Location = new System.Drawing.Point(302, 417);
+            this.textAssignedHotkeySlot3_2.Name = "textAssignedHotkeySlot3_2";
+            this.textAssignedHotkeySlot3_2.Size = new System.Drawing.Size(26, 19);
+            this.textAssignedHotkeySlot3_2.TabIndex = 53;
+            // 
+            // textAssignedHotkeySlot3_3
+            // 
+            this.textAssignedHotkeySlot3_3.Location = new System.Drawing.Point(334, 417);
+            this.textAssignedHotkeySlot3_3.Name = "textAssignedHotkeySlot3_3";
+            this.textAssignedHotkeySlot3_3.Size = new System.Drawing.Size(26, 19);
+            this.textAssignedHotkeySlot3_3.TabIndex = 52;
+            // 
+            // textAssignedHotkeySlot3_1
+            // 
+            this.textAssignedHotkeySlot3_1.Location = new System.Drawing.Point(270, 417);
+            this.textAssignedHotkeySlot3_1.Name = "textAssignedHotkeySlot3_1";
+            this.textAssignedHotkeySlot3_1.Size = new System.Drawing.Size(26, 19);
+            this.textAssignedHotkeySlot3_1.TabIndex = 51;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label39.Location = new System.Drawing.Point(9, 417);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(221, 16);
+            this.label39.TabIndex = 50;
+            this.label39.Text = "ショトカ装備位置(ページ1/2/3)";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label40.Location = new System.Drawing.Point(10, 377);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(41, 16);
+            this.label40.TabIndex = 49;
+            this.label40.Text = "個数";
+            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textCount3
+            // 
+            this.textCount3.Location = new System.Drawing.Point(267, 378);
+            this.textCount3.Name = "textCount3";
+            this.textCount3.Size = new System.Drawing.Size(58, 19);
+            this.textCount3.TabIndex = 48;
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(99, 185);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(163, 20);
+            this.comboBox6.TabIndex = 47;
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(99, 147);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(163, 20);
+            this.comboBox7.TabIndex = 46;
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Location = new System.Drawing.Point(99, 107);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(163, 20);
+            this.comboBox8.TabIndex = 45;
+            // 
+            // comboBox9
+            // 
+            this.comboBox9.FormattingEnabled = true;
+            this.comboBox9.Location = new System.Drawing.Point(99, 72);
+            this.comboBox9.Name = "comboBox9";
+            this.comboBox9.Size = new System.Drawing.Size(163, 20);
+            this.comboBox9.TabIndex = 44;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label41.Location = new System.Drawing.Point(10, 329);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(65, 16);
+            this.label41.TabIndex = 43;
+            this.label41.Text = "銃弾ID?";
+            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // chkSaveLock3
+            // 
+            this.chkSaveLock3.AutoSize = true;
+            this.chkSaveLock3.Location = new System.Drawing.Point(367, 32);
+            this.chkSaveLock3.Name = "chkSaveLock3";
+            this.chkSaveLock3.Size = new System.Drawing.Size(94, 16);
+            this.chkSaveLock3.TabIndex = 42;
+            this.chkSaveLock3.Text = "鍵付きアイテム";
+            this.chkSaveLock3.UseVisualStyleBackColor = true;
+            // 
+            // textBulletId3
+            // 
+            this.textBulletId3.Location = new System.Drawing.Point(268, 329);
+            this.textBulletId3.Name = "textBulletId3";
+            this.textBulletId3.Size = new System.Drawing.Size(58, 19);
+            this.textBulletId3.TabIndex = 40;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label42.Location = new System.Drawing.Point(10, 293);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(66, 16);
+            this.label42.TabIndex = 39;
+            this.label42.Text = "銃弾数?";
+            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label43.Location = new System.Drawing.Point(10, 258);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(64, 16);
+            this.label43.TabIndex = 37;
+            this.label43.Text = "ペットlv?";
+            this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label44.Location = new System.Drawing.Point(10, 222);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(92, 16);
+            this.label44.TabIndex = 36;
+            this.label44.Text = "装備熟練度";
+            this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // chkDataVersion3
+            // 
+            this.chkDataVersion3.AutoSize = true;
+            this.chkDataVersion3.Location = new System.Drawing.Point(367, 3);
+            this.chkDataVersion3.Name = "chkDataVersion3";
+            this.chkDataVersion3.Size = new System.Drawing.Size(48, 16);
+            this.chkDataVersion3.TabIndex = 35;
+            this.chkDataVersion3.Text = "遺産";
+            this.chkDataVersion3.UseVisualStyleBackColor = true;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label45.Location = new System.Drawing.Point(10, 185);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(71, 16);
+            this.label45.TabIndex = 34;
+            this.label45.Text = "エンチャ４";
+            this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label46.Location = new System.Drawing.Point(10, 146);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(71, 16);
+            this.label46.TabIndex = 33;
+            this.label46.Text = "エンチャ３";
+            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label47.Location = new System.Drawing.Point(10, 110);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(71, 16);
+            this.label47.TabIndex = 32;
+            this.label47.Text = "エンチャ２";
+            this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label48.Location = new System.Drawing.Point(10, 71);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(71, 16);
+            this.label48.TabIndex = 31;
+            this.label48.Text = "エンチャ１";
+            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBulletNum3
+            // 
+            this.textBulletNum3.Location = new System.Drawing.Point(268, 290);
+            this.textBulletNum3.Name = "textBulletNum3";
+            this.textBulletNum3.Size = new System.Drawing.Size(58, 19);
+            this.textBulletNum3.TabIndex = 30;
+            // 
+            // textPetID3
+            // 
+            this.textPetID3.Location = new System.Drawing.Point(268, 255);
+            this.textPetID3.Name = "textPetID3";
+            this.textPetID3.Size = new System.Drawing.Size(58, 19);
+            this.textPetID3.TabIndex = 29;
+            // 
+            // textProficient3
+            // 
+            this.textProficient3.Location = new System.Drawing.Point(268, 219);
+            this.textProficient3.Name = "textProficient3";
+            this.textProficient3.Size = new System.Drawing.Size(58, 19);
+            this.textProficient3.TabIndex = 28;
+            // 
+            // textEnchantIds3_4
+            // 
+            this.textEnchantIds3_4.Location = new System.Drawing.Point(268, 186);
+            this.textEnchantIds3_4.Name = "textEnchantIds3_4";
+            this.textEnchantIds3_4.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds3_4.TabIndex = 27;
+            // 
+            // textEnchantIds3_3
+            // 
+            this.textEnchantIds3_3.Location = new System.Drawing.Point(268, 146);
+            this.textEnchantIds3_3.Name = "textEnchantIds3_3";
+            this.textEnchantIds3_3.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds3_3.TabIndex = 26;
+            // 
+            // textEnchantIds3_2
+            // 
+            this.textEnchantIds3_2.Location = new System.Drawing.Point(268, 107);
+            this.textEnchantIds3_2.Name = "textEnchantIds3_2";
+            this.textEnchantIds3_2.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds3_2.TabIndex = 25;
+            // 
+            // textEnchantIds3_1
+            // 
+            this.textEnchantIds3_1.Location = new System.Drawing.Point(268, 72);
+            this.textEnchantIds3_1.Name = "textEnchantIds3_1";
+            this.textEnchantIds3_1.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds3_1.TabIndex = 24;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label49.Location = new System.Drawing.Point(11, 36);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(58, 16);
+            this.label49.TabIndex = 23;
+            this.label49.Text = "装備＋";
+            this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textItemLevel3
+            // 
+            this.textItemLevel3.Location = new System.Drawing.Point(268, 36);
+            this.textItemLevel3.Name = "textItemLevel3";
+            this.textItemLevel3.Size = new System.Drawing.Size(58, 19);
+            this.textItemLevel3.TabIndex = 22;
+            // 
+            // textItemId3
+            // 
+            this.textItemId3.Location = new System.Drawing.Point(268, 3);
+            this.textItemId3.Name = "textItemId3";
+            this.textItemId3.Size = new System.Drawing.Size(58, 19);
+            this.textItemId3.TabIndex = 20;
+            // 
+            // cboItem3
+            // 
+            this.cboItem3.FormattingEnabled = true;
+            this.cboItem3.Location = new System.Drawing.Point(99, 3);
+            this.cboItem3.Name = "cboItem3";
+            this.cboItem3.Size = new System.Drawing.Size(163, 20);
+            this.cboItem3.TabIndex = 15;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label50.Location = new System.Drawing.Point(746, 12);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(24, 16);
+            this.label50.TabIndex = 16;
+            this.label50.Text = "＋";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label51.Location = new System.Drawing.Point(11, 6);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(77, 16);
+            this.label51.TabIndex = 14;
+            this.label51.Text = "アイテム名";
+            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox33
+            // 
+            this.textBox33.Location = new System.Drawing.Point(749, 32);
+            this.textBox33.Name = "textBox33";
+            this.textBox33.Size = new System.Drawing.Size(34, 19);
+            this.textBox33.TabIndex = 13;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label52.Location = new System.Drawing.Point(636, 28);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(68, 16);
+            this.label52.TabIndex = 9;
+            this.label52.Text = "エンチャ1";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label53.Location = new System.Drawing.Point(1055, 28);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(68, 16);
+            this.label53.TabIndex = 12;
+            this.label53.Text = "エンチャ4";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label54.Location = new System.Drawing.Point(773, 28);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(68, 16);
+            this.label54.TabIndex = 10;
+            this.label54.Text = "エンチャ2";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label55.Location = new System.Drawing.Point(914, 28);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(68, 16);
+            this.label55.TabIndex = 11;
+            this.label55.Text = "エンチャ3";
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.textAssignedEquipSlot2);
+            this.panel13.Controls.Add(this.label56);
+            this.panel13.Controls.Add(this.textAssignedHotkeySlot2_2);
+            this.panel13.Controls.Add(this.textAssignedHotkeySlot2_3);
+            this.panel13.Controls.Add(this.textAssignedHotkeySlot1_1);
+            this.panel13.Controls.Add(this.label57);
+            this.panel13.Controls.Add(this.label58);
+            this.panel13.Controls.Add(this.textCount2);
+            this.panel13.Controls.Add(this.cboEnchant2_4);
+            this.panel13.Controls.Add(this.cboEnchant2_3);
+            this.panel13.Controls.Add(this.cboEnchant2_2);
+            this.panel13.Controls.Add(this.comboBox14);
+            this.panel13.Controls.Add(this.label59);
+            this.panel13.Controls.Add(this.chkSaveLock2);
+            this.panel13.Controls.Add(this.textBulletId2);
+            this.panel13.Controls.Add(this.label60);
+            this.panel13.Controls.Add(this.label61);
+            this.panel13.Controls.Add(this.label62);
+            this.panel13.Controls.Add(this.chkDataVersion2);
+            this.panel13.Controls.Add(this.label63);
+            this.panel13.Controls.Add(this.label64);
+            this.panel13.Controls.Add(this.label65);
+            this.panel13.Controls.Add(this.label66);
+            this.panel13.Controls.Add(this.textBulletNum2);
+            this.panel13.Controls.Add(this.textPetID2);
+            this.panel13.Controls.Add(this.textProficient2);
+            this.panel13.Controls.Add(this.textEnchantIds2_4);
+            this.panel13.Controls.Add(this.textEnchantIds2_3);
+            this.panel13.Controls.Add(this.textEnchantIds2_2);
+            this.panel13.Controls.Add(this.textEnchantIds2_1);
+            this.panel13.Controls.Add(this.label67);
+            this.panel13.Controls.Add(this.textItemLevel2);
+            this.panel13.Controls.Add(this.textItemId2);
+            this.panel13.Controls.Add(this.cboItem2);
+            this.panel13.Controls.Add(this.label68);
+            this.panel13.Controls.Add(this.label69);
+            this.panel13.Controls.Add(this.textBox49);
+            this.panel13.Controls.Add(this.label70);
+            this.panel13.Controls.Add(this.label71);
+            this.panel13.Controls.Add(this.label72);
+            this.panel13.Controls.Add(this.label73);
+            this.panel13.Location = new System.Drawing.Point(31, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(488, 487);
+            this.panel13.TabIndex = 22;
+            // 
+            // textAssignedEquipSlot2
+            // 
+            this.textAssignedEquipSlot2.Location = new System.Drawing.Point(267, 456);
+            this.textAssignedEquipSlot2.Name = "textAssignedEquipSlot2";
+            this.textAssignedEquipSlot2.Size = new System.Drawing.Size(26, 19);
+            this.textAssignedEquipSlot2.TabIndex = 55;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label56.Location = new System.Drawing.Point(10, 459);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(75, 16);
+            this.label56.TabIndex = 54;
+            this.label56.Text = "装備位置";
+            this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textAssignedHotkeySlot2_2
+            // 
+            this.textAssignedHotkeySlot2_2.Location = new System.Drawing.Point(302, 417);
+            this.textAssignedHotkeySlot2_2.Name = "textAssignedHotkeySlot2_2";
+            this.textAssignedHotkeySlot2_2.Size = new System.Drawing.Size(26, 19);
+            this.textAssignedHotkeySlot2_2.TabIndex = 53;
+            // 
+            // textAssignedHotkeySlot2_3
+            // 
+            this.textAssignedHotkeySlot2_3.Location = new System.Drawing.Point(334, 417);
+            this.textAssignedHotkeySlot2_3.Name = "textAssignedHotkeySlot2_3";
+            this.textAssignedHotkeySlot2_3.Size = new System.Drawing.Size(26, 19);
+            this.textAssignedHotkeySlot2_3.TabIndex = 52;
+            // 
+            // textAssignedHotkeySlot1_1
+            // 
+            this.textAssignedHotkeySlot1_1.Location = new System.Drawing.Point(270, 417);
+            this.textAssignedHotkeySlot1_1.Name = "textAssignedHotkeySlot1_1";
+            this.textAssignedHotkeySlot1_1.Size = new System.Drawing.Size(26, 19);
+            this.textAssignedHotkeySlot1_1.TabIndex = 51;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label57.Location = new System.Drawing.Point(9, 417);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(221, 16);
+            this.label57.TabIndex = 50;
+            this.label57.Text = "ショトカ装備位置(ページ1/2/3)";
+            this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label58.Location = new System.Drawing.Point(10, 377);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(41, 16);
+            this.label58.TabIndex = 49;
+            this.label58.Text = "個数";
+            this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textCount2
+            // 
+            this.textCount2.Location = new System.Drawing.Point(267, 378);
+            this.textCount2.Name = "textCount2";
+            this.textCount2.Size = new System.Drawing.Size(58, 19);
+            this.textCount2.TabIndex = 48;
+            // 
+            // cboEnchant2_4
+            // 
+            this.cboEnchant2_4.FormattingEnabled = true;
+            this.cboEnchant2_4.Location = new System.Drawing.Point(99, 185);
+            this.cboEnchant2_4.Name = "cboEnchant2_4";
+            this.cboEnchant2_4.Size = new System.Drawing.Size(163, 20);
+            this.cboEnchant2_4.TabIndex = 47;
+            // 
+            // cboEnchant2_3
+            // 
+            this.cboEnchant2_3.FormattingEnabled = true;
+            this.cboEnchant2_3.Location = new System.Drawing.Point(99, 147);
+            this.cboEnchant2_3.Name = "cboEnchant2_3";
+            this.cboEnchant2_3.Size = new System.Drawing.Size(163, 20);
+            this.cboEnchant2_3.TabIndex = 46;
+            // 
+            // cboEnchant2_2
+            // 
+            this.cboEnchant2_2.FormattingEnabled = true;
+            this.cboEnchant2_2.Location = new System.Drawing.Point(99, 107);
+            this.cboEnchant2_2.Name = "cboEnchant2_2";
+            this.cboEnchant2_2.Size = new System.Drawing.Size(163, 20);
+            this.cboEnchant2_2.TabIndex = 45;
+            // 
+            // comboBox14
+            // 
+            this.comboBox14.FormattingEnabled = true;
+            this.comboBox14.Location = new System.Drawing.Point(99, 72);
+            this.comboBox14.Name = "comboBox14";
+            this.comboBox14.Size = new System.Drawing.Size(163, 20);
+            this.comboBox14.TabIndex = 44;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label59.Location = new System.Drawing.Point(10, 329);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(65, 16);
+            this.label59.TabIndex = 43;
+            this.label59.Text = "銃弾ID?";
+            this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // chkSaveLock2
+            // 
+            this.chkSaveLock2.AutoSize = true;
+            this.chkSaveLock2.Location = new System.Drawing.Point(367, 32);
+            this.chkSaveLock2.Name = "chkSaveLock2";
+            this.chkSaveLock2.Size = new System.Drawing.Size(94, 16);
+            this.chkSaveLock2.TabIndex = 42;
+            this.chkSaveLock2.Text = "鍵付きアイテム";
+            this.chkSaveLock2.UseVisualStyleBackColor = true;
+            // 
+            // textBulletId2
+            // 
+            this.textBulletId2.Location = new System.Drawing.Point(268, 329);
+            this.textBulletId2.Name = "textBulletId2";
+            this.textBulletId2.Size = new System.Drawing.Size(58, 19);
+            this.textBulletId2.TabIndex = 40;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label60.Location = new System.Drawing.Point(10, 293);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(66, 16);
+            this.label60.TabIndex = 39;
+            this.label60.Text = "銃弾数?";
+            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label61.Location = new System.Drawing.Point(10, 258);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(64, 16);
+            this.label61.TabIndex = 37;
+            this.label61.Text = "ペットlv?";
+            this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label62.Location = new System.Drawing.Point(10, 222);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(92, 16);
+            this.label62.TabIndex = 36;
+            this.label62.Text = "装備熟練度";
+            this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // chkDataVersion2
+            // 
+            this.chkDataVersion2.AutoSize = true;
+            this.chkDataVersion2.Location = new System.Drawing.Point(367, 3);
+            this.chkDataVersion2.Name = "chkDataVersion2";
+            this.chkDataVersion2.Size = new System.Drawing.Size(48, 16);
+            this.chkDataVersion2.TabIndex = 35;
+            this.chkDataVersion2.Text = "遺産";
+            this.chkDataVersion2.UseVisualStyleBackColor = true;
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label63.Location = new System.Drawing.Point(10, 185);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(71, 16);
+            this.label63.TabIndex = 34;
+            this.label63.Text = "エンチャ４";
+            this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label64.Location = new System.Drawing.Point(10, 146);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(71, 16);
+            this.label64.TabIndex = 33;
+            this.label64.Text = "エンチャ３";
+            this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label65.Location = new System.Drawing.Point(10, 110);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(71, 16);
+            this.label65.TabIndex = 32;
+            this.label65.Text = "エンチャ２";
+            this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label66.Location = new System.Drawing.Point(10, 71);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(71, 16);
+            this.label66.TabIndex = 31;
+            this.label66.Text = "エンチャ１";
+            this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBulletNum2
+            // 
+            this.textBulletNum2.Location = new System.Drawing.Point(268, 290);
+            this.textBulletNum2.Name = "textBulletNum2";
+            this.textBulletNum2.Size = new System.Drawing.Size(58, 19);
+            this.textBulletNum2.TabIndex = 30;
+            // 
+            // textPetID2
+            // 
+            this.textPetID2.Location = new System.Drawing.Point(268, 255);
+            this.textPetID2.Name = "textPetID2";
+            this.textPetID2.Size = new System.Drawing.Size(58, 19);
+            this.textPetID2.TabIndex = 29;
+            // 
+            // textProficient2
+            // 
+            this.textProficient2.Location = new System.Drawing.Point(268, 219);
+            this.textProficient2.Name = "textProficient2";
+            this.textProficient2.Size = new System.Drawing.Size(58, 19);
+            this.textProficient2.TabIndex = 28;
+            // 
+            // textEnchantIds2_4
+            // 
+            this.textEnchantIds2_4.Location = new System.Drawing.Point(268, 186);
+            this.textEnchantIds2_4.Name = "textEnchantIds2_4";
+            this.textEnchantIds2_4.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds2_4.TabIndex = 27;
+            // 
+            // textEnchantIds2_3
+            // 
+            this.textEnchantIds2_3.Location = new System.Drawing.Point(268, 146);
+            this.textEnchantIds2_3.Name = "textEnchantIds2_3";
+            this.textEnchantIds2_3.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds2_3.TabIndex = 26;
+            // 
+            // textEnchantIds2_2
+            // 
+            this.textEnchantIds2_2.Location = new System.Drawing.Point(268, 107);
+            this.textEnchantIds2_2.Name = "textEnchantIds2_2";
+            this.textEnchantIds2_2.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds2_2.TabIndex = 25;
+            // 
+            // textEnchantIds2_1
+            // 
+            this.textEnchantIds2_1.Location = new System.Drawing.Point(268, 72);
+            this.textEnchantIds2_1.Name = "textEnchantIds2_1";
+            this.textEnchantIds2_1.Size = new System.Drawing.Size(58, 19);
+            this.textEnchantIds2_1.TabIndex = 24;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label67.Location = new System.Drawing.Point(11, 36);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(58, 16);
+            this.label67.TabIndex = 23;
+            this.label67.Text = "装備＋";
+            this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textItemLevel2
+            // 
+            this.textItemLevel2.Location = new System.Drawing.Point(268, 36);
+            this.textItemLevel2.Name = "textItemLevel2";
+            this.textItemLevel2.Size = new System.Drawing.Size(58, 19);
+            this.textItemLevel2.TabIndex = 22;
+            // 
+            // textItemId2
+            // 
+            this.textItemId2.Location = new System.Drawing.Point(268, 3);
+            this.textItemId2.Name = "textItemId2";
+            this.textItemId2.Size = new System.Drawing.Size(58, 19);
+            this.textItemId2.TabIndex = 20;
+            // 
+            // cboItem2
+            // 
+            this.cboItem2.FormattingEnabled = true;
+            this.cboItem2.Location = new System.Drawing.Point(99, 3);
+            this.cboItem2.Name = "cboItem2";
+            this.cboItem2.Size = new System.Drawing.Size(163, 20);
+            this.cboItem2.TabIndex = 15;
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label68.Location = new System.Drawing.Point(746, 12);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(24, 16);
+            this.label68.TabIndex = 16;
+            this.label68.Text = "＋";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label69.Location = new System.Drawing.Point(11, 6);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(77, 16);
+            this.label69.TabIndex = 14;
+            this.label69.Text = "アイテム名";
+            this.label69.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox49
+            // 
+            this.textBox49.Location = new System.Drawing.Point(749, 32);
+            this.textBox49.Name = "textBox49";
+            this.textBox49.Size = new System.Drawing.Size(34, 19);
+            this.textBox49.TabIndex = 13;
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label70.Location = new System.Drawing.Point(636, 28);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(68, 16);
+            this.label70.TabIndex = 9;
+            this.label70.Text = "エンチャ1";
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label71.Location = new System.Drawing.Point(1055, 28);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(68, 16);
+            this.label71.TabIndex = 12;
+            this.label71.Text = "エンチャ4";
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label72.Location = new System.Drawing.Point(773, 28);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(68, 16);
+            this.label72.TabIndex = 10;
+            this.label72.Text = "エンチャ2";
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label73.Location = new System.Drawing.Point(914, 28);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(68, 16);
+            this.label73.TabIndex = 11;
+            this.label73.Text = "エンチャ3";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1177, 558);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(1768, 558);
+            this.Controls.Add(this.cboEnchant2_1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelEquipment);
@@ -1169,6 +2601,17 @@
             this.panel2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.panelEquipment.ResumeLayout(false);
+            this.cboEnchant2_1.ResumeLayout(false);
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage10.ResumeLayout(false);
+            this.tabPage11.ResumeLayout(false);
+            this.tabPage12.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1239,10 +2682,10 @@
         private System.Windows.Forms.TextBox textItemId;
         private System.Windows.Forms.TextBox textItemLevel;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textEnchantIds_1;
-        private System.Windows.Forms.TextBox textEnchantIds_2;
-        private System.Windows.Forms.TextBox textEnchantIds_3;
-        private System.Windows.Forms.TextBox textEnchantIds_4;
+        private System.Windows.Forms.TextBox textEnchantIds1_1;
+        private System.Windows.Forms.TextBox textEnchantIds1_2;
+        private System.Windows.Forms.TextBox textEnchantIds1_3;
+        private System.Windows.Forms.TextBox textEnchantIds1_4;
         private System.Windows.Forms.TextBox textProficient;
         private System.Windows.Forms.TextBox textPetID;
         private System.Windows.Forms.TextBox textBulletNum;
@@ -1257,10 +2700,10 @@
         private System.Windows.Forms.TextBox textBulletId;
         private System.Windows.Forms.CheckBox chkSaveLock;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox cboEnchant1;
-        private System.Windows.Forms.ComboBox cboEnchant2;
-        private System.Windows.Forms.ComboBox cboEnchant3;
-        private System.Windows.Forms.ComboBox cboEnchant4;
+        private System.Windows.Forms.ComboBox cboEnchant1_1;
+        private System.Windows.Forms.ComboBox cboEnchant1_2;
+        private System.Windows.Forms.ComboBox cboEnchant1_3;
+        private System.Windows.Forms.ComboBox cboEnchant1_4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textCount;
@@ -1280,6 +2723,137 @@
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl cboEnchant2_1;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.TextBox textAssignedEquipSlot2;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.TextBox textAssignedHotkeySlot2_2;
+        private System.Windows.Forms.TextBox textAssignedHotkeySlot2_3;
+        private System.Windows.Forms.TextBox textAssignedHotkeySlot1_1;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.TextBox textCount2;
+        private System.Windows.Forms.ComboBox cboEnchant2_4;
+        private System.Windows.Forms.ComboBox cboEnchant2_3;
+        private System.Windows.Forms.ComboBox cboEnchant2_2;
+        private System.Windows.Forms.ComboBox comboBox14;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.CheckBox chkSaveLock2;
+        private System.Windows.Forms.TextBox textBulletId2;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.CheckBox chkDataVersion2;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.TextBox textBulletNum2;
+        private System.Windows.Forms.TextBox textPetID2;
+        private System.Windows.Forms.TextBox textProficient2;
+        private System.Windows.Forms.TextBox textEnchantIds2_4;
+        private System.Windows.Forms.TextBox textEnchantIds2_3;
+        private System.Windows.Forms.TextBox textEnchantIds2_2;
+        private System.Windows.Forms.TextBox textEnchantIds2_1;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.TextBox textItemLevel2;
+        private System.Windows.Forms.TextBox textItemId2;
+        private System.Windows.Forms.ComboBox cboItem2;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.TextBox textBox49;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.TabPage tabPage11;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.TextBox textAssignedEquipSlot3;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TextBox textAssignedHotkeySlot3_2;
+        private System.Windows.Forms.TextBox textAssignedHotkeySlot3_3;
+        private System.Windows.Forms.TextBox textAssignedHotkeySlot3_1;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.TextBox textCount3;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox comboBox9;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.CheckBox chkSaveLock3;
+        private System.Windows.Forms.TextBox textBulletId3;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.CheckBox chkDataVersion3;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.TextBox textBulletNum3;
+        private System.Windows.Forms.TextBox textPetID3;
+        private System.Windows.Forms.TextBox textProficient3;
+        private System.Windows.Forms.TextBox textEnchantIds3_4;
+        private System.Windows.Forms.TextBox textEnchantIds3_3;
+        private System.Windows.Forms.TextBox textEnchantIds3_2;
+        private System.Windows.Forms.TextBox textEnchantIds3_1;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.TextBox textItemLevel3;
+        private System.Windows.Forms.TextBox textItemId3;
+        private System.Windows.Forms.ComboBox cboItem3;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.TextBox textBox33;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.TabPage tabPage12;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.TextBox textAssignedEquipSlot4;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox textAssignedHotkeySlot4_2;
+        private System.Windows.Forms.TextBox textAssignedHotkeySlot4_3;
+        private System.Windows.Forms.TextBox textAssignedHotkeySlot4_1;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox textCount4;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.CheckBox chkSaveLock4;
+        private System.Windows.Forms.TextBox textBulletId4;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.CheckBox chkDataVersion4;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox textBulletNum4;
+        private System.Windows.Forms.TextBox textPetID4;
+        private System.Windows.Forms.TextBox textProficient4;
+        private System.Windows.Forms.TextBox textEnchantIds4_4;
+        private System.Windows.Forms.TextBox textEnchantIds4_3;
+        private System.Windows.Forms.TextBox textEnchantIds4_2;
+        private System.Windows.Forms.TextBox textEnchantIds4_1;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TextBox textItemLevel4;
+        private System.Windows.Forms.TextBox textItemId4;
+        private System.Windows.Forms.ComboBox cboItem4;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label37;
     }
 }
 

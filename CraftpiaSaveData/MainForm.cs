@@ -56,18 +56,18 @@ namespace CraftpiaViewSaveData
                 clist.Add(new ComboBoxItemSet(d.Key, d.Value));
             }
 
-            cboEnchant1.DataSource = new List<ComboBoxItemSet>(clist);
-            cboEnchant1.DisplayMember = "ItemDisp";
-            cboEnchant1.ValueMember = "ItemValue";
-            cboEnchant2.DataSource = new List<ComboBoxItemSet>(clist);
-            cboEnchant2.DisplayMember = "ItemDisp";
-            cboEnchant2.ValueMember = "ItemValue";
-            cboEnchant3.DataSource = new List<ComboBoxItemSet>(clist);
-            cboEnchant3.DisplayMember = "ItemDisp";
-            cboEnchant3.ValueMember = "ItemValue";
-            cboEnchant4.DataSource = new List<ComboBoxItemSet>(clist);
-            cboEnchant4.DisplayMember = "ItemDisp";
-            cboEnchant4.ValueMember = "ItemValue";
+            cboEnchant1_1.DataSource = new List<ComboBoxItemSet>(clist);
+            cboEnchant1_1.DisplayMember = "ItemDisp";
+            cboEnchant1_1.ValueMember = "ItemValue";
+            cboEnchant1_2.DataSource = new List<ComboBoxItemSet>(clist);
+            cboEnchant1_2.DisplayMember = "ItemDisp";
+            cboEnchant1_2.ValueMember = "ItemValue";
+            cboEnchant1_3.DataSource = new List<ComboBoxItemSet>(clist);
+            cboEnchant1_3.DisplayMember = "ItemDisp";
+            cboEnchant1_3.ValueMember = "ItemValue";
+            cboEnchant1_4.DataSource = new List<ComboBoxItemSet>(clist);
+            cboEnchant1_4.DisplayMember = "ItemDisp";
+            cboEnchant1_4.ValueMember = "ItemValue";
         }
         void ItemComboBoxSet()
         {
@@ -179,10 +179,10 @@ namespace CraftpiaViewSaveData
             var target = CPInventorySaveData.paramsList[categoryName].Value[itemindex];
             textItemId.Text = target.Value[0].item.itemId.ToString();
             textItemLevel.Text = target.Value[0].item.itemLevel.ToString();
-            textEnchantIds_1.Text = target.Value[0].item.enchantIds[0].ToString();
-            textEnchantIds_2.Text = target.Value[0].item.enchantIds[1].ToString();
-            textEnchantIds_3.Text = target.Value[0].item.enchantIds[2].ToString();
-            textEnchantIds_4.Text = target.Value[0].item.enchantIds[3].ToString();
+            textEnchantIds1_1.Text = target.Value[0].item.enchantIds[0].ToString();
+            textEnchantIds1_2.Text = target.Value[0].item.enchantIds[1].ToString();
+            textEnchantIds1_3.Text = target.Value[0].item.enchantIds[2].ToString();
+            textEnchantIds1_4.Text = target.Value[0].item.enchantIds[3].ToString();
             textProficient.Text = target.Value[0].item.proficient.ToString();
             textPetID.Text = target.Value[0].item.petID.ToString();
             chkSaveLock.Checked = target.Value[0].item.saveLock;
@@ -198,10 +198,10 @@ namespace CraftpiaViewSaveData
 
             // コンボボックス連動
             cboItem.SelectedValue = target.Value[0].item.itemId;
-            cboEnchant1.SelectedValue = target.Value[0].item.enchantIds[0];
-            cboEnchant2.SelectedValue = target.Value[0].item.enchantIds[1];
-            cboEnchant3.SelectedValue = target.Value[0].item.enchantIds[2];
-            cboEnchant4.SelectedValue = target.Value[0].item.enchantIds[3];
+            cboEnchant1_1.SelectedValue = target.Value[0].item.enchantIds[0];
+            cboEnchant1_2.SelectedValue = target.Value[0].item.enchantIds[1];
+            cboEnchant1_3.SelectedValue = target.Value[0].item.enchantIds[2];
+            cboEnchant1_4.SelectedValue = target.Value[0].item.enchantIds[3];
         }
         #endregion
 
