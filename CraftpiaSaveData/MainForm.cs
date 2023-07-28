@@ -27,6 +27,7 @@ namespace CraftpiaViewSaveData
         List<ClassDb> originalData;
         CraftpiaParams convertData;
         _CPInventorySaveData CPInventorySaveData;
+        itemListName selectType { get { return (itemListName)tabControl1.SelectedIndex; } }
         public class ComboBoxItemSet
         {
             public int ItemValue { get; set; }
@@ -148,7 +149,7 @@ namespace CraftpiaViewSaveData
         #region "アイテム詳細関係"
         private void label1_Click(object sender, EventArgs e)
         {
-            DisplayItemDetail(itemListName.equipmentList.ToString(), 1, 1);
+            DisplayItemDetail(selectType.ToString(), 1, 1);
         }
 
         private void panelEquipment_content_Click(object sender, EventArgs e)
@@ -159,9 +160,8 @@ namespace CraftpiaViewSaveData
                                   .OrderBy(q => q.TabIndex).ToArray();
 
             var itemIndex = Convert.ToInt32(new string((((Panel)sender).Name).Skip(3).ToArray())) - 1;
-            var categoryName = itemListName.equipmentList.ToString();
 
-            DisplayItemDetail(categoryName, itemIndex, 1);
+            DisplayItemDetail(selectType.ToString(), itemIndex, 1);
         }
 
         void DisplayItemDetail(string categoryName, int itemindex, int iteminboxindex)
@@ -171,6 +171,10 @@ namespace CraftpiaViewSaveData
                 MessageBox.Show("セーブデータがセットされていません。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            
+            //アイテム所持数未開放
+            if (CPInventorySaveData.paramsList[categoryName].Value.Count() <= itemindex)
+                return;
 
             var target = CPInventorySaveData.paramsList[categoryName].Value[itemindex];
             textItemId.Text = target.Value[0].item.itemId.ToString();
@@ -201,5 +205,9 @@ namespace CraftpiaViewSaveData
         }
         #endregion
 
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisplayItemDetail(selectType.ToString(), 1, 1);
+        }
     }
-}
+    }
