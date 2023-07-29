@@ -12,7 +12,7 @@ namespace CraftpiaViewSaveData.NestParams
 {
     public static class ConvertCraftpiaParams
     {
-        public static CraftpiaParams JsonStrToCraftpiaParams(string value, string savePath)
+        public static CraftpiaParams JsonStrToCraftpiaParams(string value)
         {
             //jsonファイル to 入れ子クラス
             int bc = value.Count();
@@ -230,5 +230,11 @@ namespace CraftpiaViewSaveData.NestParams
 
             return ret;
         }
+        public static string CPTreeToJsonStr(_CPInventorySaveData cpTree)
+        {
+            //TODO
+            return "";
+        }
     }
+
 }

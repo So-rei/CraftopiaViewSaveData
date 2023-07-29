@@ -25,9 +25,12 @@ namespace CraftpiaViewSaveData
 {
     public partial class MainForm : Form
     {
+        string dbPath { get; set; }
         List<ClassDb> originalData;
         CraftpiaParams convertData;
+        _CPInventorySaveData CPInventorySaveDataBackUp;
         _CPInventorySaveData CPInventorySaveData;
+
         itemListName selectType { get { return (itemListName)tabControl1.SelectedIndex; } }
         public class ComboBoxItemSet
         {
@@ -115,11 +118,14 @@ namespace CraftpiaViewSaveData
         {
             var files = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             var ocss = files.Where(f => Path.GetExtension(f) == ".db" || Path.GetExtension(f) == ".json");
-            if (ocss.Count() != 1) return;
 
-            originalData = CrudDb.Read(ocss.First());
-            convertData = ConvertCraftpiaParams.JsonStrToCraftpiaParams(originalData.Where(p => p.id == PPSave_ID_InGame).First().value, ocss.First());
-            CPInventorySaveData = CraftpiaParamsToCPTree(convertData);
+            if (ocss.Count() != 1) return;
+            dbPath = ocss.First();
+
+            originalData = CrudDb.Read(dbPath);
+            convertData = ConvertCraftpiaParams.JsonStrToCraftpiaParams(originalData.Where(p => p.id == PPSave_ID_InGame).First().value);
+            CPInventorySaveDataBackUp = ConvertCraftpiaParams.CraftpiaParamsToCPTree(convertData);
+            CPInventorySaveData = new _CPInventorySaveData(CPInventorySaveDataBackUp);
 
             //アイテム上限数（解放も込み）を視覚的にわかるようにする
             setDispView();
@@ -244,6 +250,8 @@ namespace CraftpiaViewSaveData
 
             setItemDetailToDisp(selectType.ToString(), itemIndex);
         }
+        #endregion
+        #region "個別アイテム関係"
 
         /// <summary>
         /// アイテムデータ　→　画面
@@ -480,6 +488,52 @@ namespace CraftpiaViewSaveData
                 cboEnchant4_2.SelectedValue = "0";
                 cboEnchant4_3.SelectedValue = "0";
                 cboEnchant4_4.SelectedValue = "0";
+            }
+        }
+        #endregion
+
+        #region 保存関係
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("本当にリセットしますか？(画面状態を最後にドラッグした時の状態に戻します)", "警告", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+            {
+                //リセット
+                CPInventorySaveData = CPInventorySaveDataBackUp;
+            }
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("セーブデータを上書きします。本当によろしいですか？", "警告", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+            {
+                //セーブ処理開始
+                if (!SetItemDetailToFile())
+                {
+                    MessageBox.Show("セーブに失敗しました。");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// セーブ処理
+        /// </summary>
+        /// <returns></returns>
+        bool SetItemDetailToFile()
+        {
+            try
+            {
+                string jsonStr = ConvertCraftpiaParams.CPTreeToJsonStr(CPInventorySaveData);
+                originalData.Where(p => p.id == PPSave_ID_InGame).First().value = jsonStr;
+                if (!CrudDb.Update(dbPath, originalData))
+                    return false;
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SetItemDetailToFile-err : " + ex.Message);
+                return false;
             }
         }
         #endregion

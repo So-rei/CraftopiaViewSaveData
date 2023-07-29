@@ -282,6 +282,8 @@
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonReset = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.p1_1.SuspendLayout();
@@ -2784,11 +2786,39 @@
             this.label37.TabIndex = 11;
             this.label37.Text = "エンチャ3";
             // 
+            // buttonSave
+            // 
+            this.buttonSave.BackColor = System.Drawing.Color.Yellow;
+            this.buttonSave.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonSave.ForeColor = System.Drawing.Color.Red;
+            this.buttonSave.Location = new System.Drawing.Point(1078, 551);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(140, 45);
+            this.buttonSave.TabIndex = 22;
+            this.buttonSave.Text = "保存";
+            this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonReset.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonReset.ForeColor = System.Drawing.Color.Black;
+            this.buttonReset.Location = new System.Drawing.Point(671, 551);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(140, 45);
+            this.buttonReset.TabIndex = 23;
+            this.buttonReset.Text = "リセット";
+            this.buttonReset.UseVisualStyleBackColor = false;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1222, 608);
+            this.Controls.Add(this.buttonReset);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.tabcontrol2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
@@ -3085,6 +3115,8 @@
         private System.Windows.Forms.Panel p1_33;
         private System.Windows.Forms.Panel p1_32;
         private System.Windows.Forms.Panel p1_31;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonReset;
     }
 }
 

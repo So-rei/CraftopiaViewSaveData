@@ -10,12 +10,25 @@ namespace CraftpiaViewSaveData.CPTree
     {
         public Dictionary<string, CPXList> paramsList;
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public _CPInventorySaveData()
         {
             paramsList = new Dictionary<string, CPXList>();
             foreach (string s in Enum.GetNames(typeof(CommonConst.itemListName)))
             {
                 paramsList.Add(s, new CPXList(s));
+            }
+        }
+        /// <summary>
+        /// コピー用コンストラクタ
+        /// </summary>
+        public _CPInventorySaveData(_CPInventorySaveData sc)
+        {
+            foreach (var d in sc.paramsList)
+            {
+                paramsList.Add(d.Key, d.Value);
             }
         }
 
