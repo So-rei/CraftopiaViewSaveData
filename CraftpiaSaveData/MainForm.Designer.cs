@@ -133,6 +133,24 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.panelItemNo = new System.Windows.Forms.Panel();
+            this.p1_40 = new System.Windows.Forms.Panel();
+            this.p1_39 = new System.Windows.Forms.Panel();
+            this.p1_38 = new System.Windows.Forms.Panel();
+            this.p1_37 = new System.Windows.Forms.Panel();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.p1_36 = new System.Windows.Forms.Panel();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.p1_35 = new System.Windows.Forms.Panel();
+            this.p1_34 = new System.Windows.Forms.Panel();
+            this.p1_33 = new System.Windows.Forms.Panel();
+            this.p1_32 = new System.Windows.Forms.Panel();
+            this.p1_31 = new System.Windows.Forms.Panel();
             this.tabcontrol2 = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
@@ -275,6 +293,10 @@
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.panelItemNo.SuspendLayout();
+            this.p1_37.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.p1_36.SuspendLayout();
+            this.panel23.SuspendLayout();
             this.tabcontrol2.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.tabPage10.SuspendLayout();
@@ -835,9 +857,9 @@
             this.label9.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label9.Location = new System.Drawing.Point(11, 36);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 16);
+            this.label9.Size = new System.Drawing.Size(120, 16);
             this.label9.TabIndex = 23;
-            this.label9.Text = "装備＋";
+            this.label9.Text = "装備＋/捕獲Lv";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textEnchantIds1_1
@@ -1247,6 +1269,16 @@
             // panelItemNo
             // 
             this.panelItemNo.BackColor = System.Drawing.Color.White;
+            this.panelItemNo.Controls.Add(this.p1_40);
+            this.panelItemNo.Controls.Add(this.p1_39);
+            this.panelItemNo.Controls.Add(this.p1_38);
+            this.panelItemNo.Controls.Add(this.p1_37);
+            this.panelItemNo.Controls.Add(this.p1_36);
+            this.panelItemNo.Controls.Add(this.p1_35);
+            this.panelItemNo.Controls.Add(this.p1_34);
+            this.panelItemNo.Controls.Add(this.p1_33);
+            this.panelItemNo.Controls.Add(this.p1_32);
+            this.panelItemNo.Controls.Add(this.p1_31);
             this.panelItemNo.Controls.Add(this.p1_20);
             this.panelItemNo.Controls.Add(this.p1_30);
             this.panelItemNo.Controls.Add(this.p1_29);
@@ -1279,8 +1311,170 @@
             this.panelItemNo.Controls.Add(this.p1_1);
             this.panelItemNo.Location = new System.Drawing.Point(12, 328);
             this.panelItemNo.Name = "panelItemNo";
-            this.panelItemNo.Size = new System.Drawing.Size(641, 214);
+            this.panelItemNo.Size = new System.Drawing.Size(641, 268);
             this.panelItemNo.TabIndex = 17;
+            // 
+            // p1_40
+            // 
+            this.p1_40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.p1_40.Location = new System.Drawing.Point(569, 197);
+            this.p1_40.Name = "p1_40";
+            this.p1_40.Size = new System.Drawing.Size(55, 55);
+            this.p1_40.TabIndex = 22;
+            this.p1_40.Click += new System.EventHandler(this.panel_ItemNo_Click);
+            // 
+            // p1_39
+            // 
+            this.p1_39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.p1_39.Location = new System.Drawing.Point(508, 197);
+            this.p1_39.Name = "p1_39";
+            this.p1_39.Size = new System.Drawing.Size(55, 55);
+            this.p1_39.TabIndex = 21;
+            this.p1_39.Click += new System.EventHandler(this.panel_ItemNo_Click);
+            // 
+            // p1_38
+            // 
+            this.p1_38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.p1_38.Location = new System.Drawing.Point(447, 197);
+            this.p1_38.Name = "p1_38";
+            this.p1_38.Size = new System.Drawing.Size(55, 55);
+            this.p1_38.TabIndex = 19;
+            this.p1_38.Click += new System.EventHandler(this.panel_ItemNo_Click);
+            // 
+            // p1_37
+            // 
+            this.p1_37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.p1_37.Controls.Add(this.panel18);
+            this.p1_37.Controls.Add(this.panel21);
+            this.p1_37.Location = new System.Drawing.Point(386, 197);
+            this.p1_37.Name = "p1_37";
+            this.p1_37.Size = new System.Drawing.Size(55, 55);
+            this.p1_37.TabIndex = 26;
+            this.p1_37.Click += new System.EventHandler(this.panel_ItemNo_Click);
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel18.Controls.Add(this.panel19);
+            this.panel18.Controls.Add(this.panel20);
+            this.panel18.Location = new System.Drawing.Point(61, 10);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(55, 55);
+            this.panel18.TabIndex = 9;
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel19.Location = new System.Drawing.Point(3, 61);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(55, 55);
+            this.panel19.TabIndex = 9;
+            // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel20.Location = new System.Drawing.Point(6, 40);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(55, 55);
+            this.panel20.TabIndex = 9;
+            // 
+            // panel21
+            // 
+            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel21.Location = new System.Drawing.Point(3, 61);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(55, 55);
+            this.panel21.TabIndex = 9;
+            // 
+            // p1_36
+            // 
+            this.p1_36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.p1_36.Controls.Add(this.panel23);
+            this.p1_36.Controls.Add(this.panel26);
+            this.p1_36.Location = new System.Drawing.Point(325, 197);
+            this.p1_36.Name = "p1_36";
+            this.p1_36.Size = new System.Drawing.Size(55, 55);
+            this.p1_36.TabIndex = 18;
+            this.p1_36.Click += new System.EventHandler(this.panel_ItemNo_Click);
+            // 
+            // panel23
+            // 
+            this.panel23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel23.Controls.Add(this.panel24);
+            this.panel23.Controls.Add(this.panel25);
+            this.panel23.Location = new System.Drawing.Point(61, 10);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(55, 55);
+            this.panel23.TabIndex = 9;
+            // 
+            // panel24
+            // 
+            this.panel24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel24.Location = new System.Drawing.Point(3, 61);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(55, 55);
+            this.panel24.TabIndex = 9;
+            // 
+            // panel25
+            // 
+            this.panel25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel25.Location = new System.Drawing.Point(6, 40);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(55, 55);
+            this.panel25.TabIndex = 9;
+            // 
+            // panel26
+            // 
+            this.panel26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel26.Location = new System.Drawing.Point(3, 61);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(55, 55);
+            this.panel26.TabIndex = 9;
+            // 
+            // p1_35
+            // 
+            this.p1_35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.p1_35.Location = new System.Drawing.Point(264, 197);
+            this.p1_35.Name = "p1_35";
+            this.p1_35.Size = new System.Drawing.Size(55, 55);
+            this.p1_35.TabIndex = 17;
+            this.p1_35.Click += new System.EventHandler(this.panel_ItemNo_Click);
+            // 
+            // p1_34
+            // 
+            this.p1_34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.p1_34.Location = new System.Drawing.Point(203, 197);
+            this.p1_34.Name = "p1_34";
+            this.p1_34.Size = new System.Drawing.Size(55, 55);
+            this.p1_34.TabIndex = 23;
+            this.p1_34.Click += new System.EventHandler(this.panel_ItemNo_Click);
+            // 
+            // p1_33
+            // 
+            this.p1_33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.p1_33.Location = new System.Drawing.Point(142, 197);
+            this.p1_33.Name = "p1_33";
+            this.p1_33.Size = new System.Drawing.Size(55, 55);
+            this.p1_33.TabIndex = 24;
+            this.p1_33.Click += new System.EventHandler(this.panel_ItemNo_Click);
+            // 
+            // p1_32
+            // 
+            this.p1_32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.p1_32.Location = new System.Drawing.Point(81, 197);
+            this.p1_32.Name = "p1_32";
+            this.p1_32.Size = new System.Drawing.Size(55, 55);
+            this.p1_32.TabIndex = 25;
+            this.p1_32.Click += new System.EventHandler(this.panel_ItemNo_Click);
+            // 
+            // p1_31
+            // 
+            this.p1_31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.p1_31.Location = new System.Drawing.Point(20, 197);
+            this.p1_31.Name = "p1_31";
+            this.p1_31.Size = new System.Drawing.Size(55, 55);
+            this.p1_31.TabIndex = 20;
+            this.p1_31.Click += new System.EventHandler(this.panel_ItemNo_Click);
             // 
             // tabcontrol2
             // 
@@ -1366,6 +1560,7 @@
             // 
             // textAssignedEquipSlot2
             // 
+            this.textAssignedEquipSlot2.Enabled = false;
             this.textAssignedEquipSlot2.Location = new System.Drawing.Point(267, 456);
             this.textAssignedEquipSlot2.Name = "textAssignedEquipSlot2";
             this.textAssignedEquipSlot2.Size = new System.Drawing.Size(26, 19);
@@ -1528,6 +1723,7 @@
             // chkDataVersion2
             // 
             this.chkDataVersion2.AutoSize = true;
+            this.chkDataVersion2.Enabled = false;
             this.chkDataVersion2.Location = new System.Drawing.Point(367, 3);
             this.chkDataVersion2.Name = "chkDataVersion2";
             this.chkDataVersion2.Size = new System.Drawing.Size(48, 16);
@@ -1595,6 +1791,7 @@
             // 
             // textProficient2
             // 
+            this.textProficient2.Enabled = false;
             this.textProficient2.Location = new System.Drawing.Point(268, 219);
             this.textProficient2.Name = "textProficient2";
             this.textProficient2.Size = new System.Drawing.Size(58, 19);
@@ -1648,6 +1845,7 @@
             // 
             // textItemId2
             // 
+            this.textItemId2.Enabled = false;
             this.textItemId2.Location = new System.Drawing.Point(268, 3);
             this.textItemId2.Name = "textItemId2";
             this.textItemId2.Size = new System.Drawing.Size(58, 19);
@@ -1655,6 +1853,7 @@
             // 
             // cboItem2
             // 
+            this.cboItem2.Enabled = false;
             this.cboItem2.FormattingEnabled = true;
             this.cboItem2.Location = new System.Drawing.Point(99, 3);
             this.cboItem2.Name = "cboItem2";
@@ -1789,6 +1988,7 @@
             // 
             // textAssignedEquipSlot3
             // 
+            this.textAssignedEquipSlot3.Enabled = false;
             this.textAssignedEquipSlot3.Location = new System.Drawing.Point(267, 456);
             this.textAssignedEquipSlot3.Name = "textAssignedEquipSlot3";
             this.textAssignedEquipSlot3.Size = new System.Drawing.Size(26, 19);
@@ -1951,6 +2151,7 @@
             // chkDataVersion3
             // 
             this.chkDataVersion3.AutoSize = true;
+            this.chkDataVersion3.Enabled = false;
             this.chkDataVersion3.Location = new System.Drawing.Point(367, 3);
             this.chkDataVersion3.Name = "chkDataVersion3";
             this.chkDataVersion3.Size = new System.Drawing.Size(48, 16);
@@ -2018,6 +2219,7 @@
             // 
             // textProficient3
             // 
+            this.textProficient3.Enabled = false;
             this.textProficient3.Location = new System.Drawing.Point(268, 219);
             this.textProficient3.Name = "textProficient3";
             this.textProficient3.Size = new System.Drawing.Size(58, 19);
@@ -2071,6 +2273,7 @@
             // 
             // textItemId3
             // 
+            this.textItemId3.Enabled = false;
             this.textItemId3.Location = new System.Drawing.Point(268, 3);
             this.textItemId3.Name = "textItemId3";
             this.textItemId3.Size = new System.Drawing.Size(58, 19);
@@ -2078,6 +2281,7 @@
             // 
             // cboItem3
             // 
+            this.cboItem3.Enabled = false;
             this.cboItem3.FormattingEnabled = true;
             this.cboItem3.Location = new System.Drawing.Point(99, 3);
             this.cboItem3.Name = "cboItem3";
@@ -2212,6 +2416,7 @@
             // 
             // textAssignedEquipSlot4
             // 
+            this.textAssignedEquipSlot4.Enabled = false;
             this.textAssignedEquipSlot4.Location = new System.Drawing.Point(267, 456);
             this.textAssignedEquipSlot4.Name = "textAssignedEquipSlot4";
             this.textAssignedEquipSlot4.Size = new System.Drawing.Size(26, 19);
@@ -2374,6 +2579,7 @@
             // chkDataVersion4
             // 
             this.chkDataVersion4.AutoSize = true;
+            this.chkDataVersion4.Enabled = false;
             this.chkDataVersion4.Location = new System.Drawing.Point(367, 3);
             this.chkDataVersion4.Name = "chkDataVersion4";
             this.chkDataVersion4.Size = new System.Drawing.Size(48, 16);
@@ -2441,6 +2647,7 @@
             // 
             // textProficient4
             // 
+            this.textProficient4.Enabled = false;
             this.textProficient4.Location = new System.Drawing.Point(268, 219);
             this.textProficient4.Name = "textProficient4";
             this.textProficient4.Size = new System.Drawing.Size(58, 19);
@@ -2494,6 +2701,7 @@
             // 
             // textItemId4
             // 
+            this.textItemId4.Enabled = false;
             this.textItemId4.Location = new System.Drawing.Point(268, 3);
             this.textItemId4.Name = "textItemId4";
             this.textItemId4.Size = new System.Drawing.Size(58, 19);
@@ -2501,6 +2709,7 @@
             // 
             // cboItem4
             // 
+            this.cboItem4.Enabled = false;
             this.cboItem4.FormattingEnabled = true;
             this.cboItem4.Location = new System.Drawing.Point(99, 3);
             this.cboItem4.Name = "cboItem4";
@@ -2579,7 +2788,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1222, 558);
+            this.ClientSize = new System.Drawing.Size(1222, 608);
             this.Controls.Add(this.tabcontrol2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
@@ -2601,6 +2810,10 @@
             this.panel2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.panelItemNo.ResumeLayout(false);
+            this.p1_37.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
+            this.p1_36.ResumeLayout(false);
+            this.panel23.ResumeLayout(false);
             this.tabcontrol2.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
             this.tabPage10.ResumeLayout(false);
@@ -2854,6 +3067,24 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Panel p1_40;
+        private System.Windows.Forms.Panel p1_39;
+        private System.Windows.Forms.Panel p1_38;
+        private System.Windows.Forms.Panel p1_37;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Panel p1_36;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.Panel panel26;
+        private System.Windows.Forms.Panel p1_35;
+        private System.Windows.Forms.Panel p1_34;
+        private System.Windows.Forms.Panel p1_33;
+        private System.Windows.Forms.Panel p1_32;
+        private System.Windows.Forms.Panel p1_31;
     }
 }
 

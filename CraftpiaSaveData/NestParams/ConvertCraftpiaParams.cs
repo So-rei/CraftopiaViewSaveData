@@ -173,9 +173,9 @@ namespace CraftpiaViewSaveData.NestParams
 
                     foreach (var _iteminbox in items)
                     {
-                        var itemInBoxValue = new CPItemInBoxValue();
                         foreach (var _iteminboxvalue in _iteminbox)
                         {
+                            var itemInBoxValue = new CPItemInBoxValue();
                             //item,count,assignedHotkeySlot,assignedEquipSlot の順
                             //item詳細
                             foreach (var _item in _iteminboxvalue.innerParams[0])
@@ -219,8 +219,9 @@ namespace CraftpiaViewSaveData.NestParams
                                 itemInBoxValue.assignedHotkeySlot = Array.ConvertAll(_iteminboxvalue.innerParams[2].Select(p => p.value).ToArray(), e => (int)Convert.ChangeType(e, typeof(int)));
                             }
                             itemInBoxValue.assignedEquipSlot = Convert.ToInt32(_iteminboxvalue.innerParams[3].value);
+
+                            itemInBox.Value.Add(itemInBoxValue);
                         }
-                        itemInBox.Value.Add(itemInBoxValue);
                     }
 
                     cpx.Value.Add(itemInBox);

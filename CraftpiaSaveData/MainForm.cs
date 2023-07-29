@@ -117,14 +117,62 @@ namespace CraftpiaViewSaveData
             convertData = ConvertCraftpiaParams.JsonStrToCraftpiaParams(originalData.Where(p => p.id == PPSave_ID_InGame).First().value, ocss.First());
             CPInventorySaveData = CraftpiaParamsToCPTree(convertData);
 
+            //アイテム上限数（解放も込み）を視覚的にわかるようにする
+            setDispView();
             //1ページ1番目をロード
-            SetItemDetailToDisp(selectType.ToString(), 1);
+            setItemDetailToDisp(selectType.ToString(), 0);
 #if DEBUGX
             HiddenViewString();
 #endif
         }
         #endregion
 
+        private void setDispView()
+        {
+            int page_limit = CPInventorySaveData.paramsList[selectType.ToString()].Value.Count();
+            Color colOK = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            Color colNG = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            p1_1.BackColor = page_limit > 0 ? colOK : colNG;
+            p1_2.BackColor = page_limit > 1 ? colOK : colNG;
+            p1_3.BackColor = page_limit > 2 ? colOK : colNG;
+            p1_4.BackColor = page_limit > 3 ? colOK : colNG;
+            p1_5.BackColor = page_limit > 4 ? colOK : colNG;
+            p1_6.BackColor = page_limit > 5 ? colOK : colNG;
+            p1_7.BackColor = page_limit > 6 ? colOK : colNG;
+            p1_8.BackColor = page_limit > 7 ? colOK : colNG;
+            p1_9.BackColor = page_limit > 8 ? colOK : colNG;
+            p1_10.BackColor = page_limit > 9 ? colOK : colNG;
+            p1_11.BackColor = page_limit > 10 ? colOK : colNG;
+            p1_12.BackColor = page_limit > 11 ? colOK : colNG;
+            p1_13.BackColor = page_limit > 12 ? colOK : colNG;
+            p1_14.BackColor = page_limit > 13 ? colOK : colNG;
+            p1_15.BackColor = page_limit > 14 ? colOK : colNG;
+            p1_16.BackColor = page_limit > 15 ? colOK : colNG;
+            p1_17.BackColor = page_limit > 16 ? colOK : colNG;
+            p1_18.BackColor = page_limit > 17 ? colOK : colNG;
+            p1_19.BackColor = page_limit > 18 ? colOK : colNG;
+            p1_20.BackColor = page_limit > 19 ? colOK : colNG;
+            p1_21.BackColor = page_limit > 20 ? colOK : colNG;
+            p1_22.BackColor = page_limit > 21 ? colOK : colNG;
+            p1_23.BackColor = page_limit > 22 ? colOK : colNG;
+            p1_24.BackColor = page_limit > 23 ? colOK : colNG;
+            p1_25.BackColor = page_limit > 24 ? colOK : colNG;
+            p1_26.BackColor = page_limit > 25 ? colOK : colNG;
+            p1_27.BackColor = page_limit > 26 ? colOK : colNG;
+            p1_28.BackColor = page_limit > 27 ? colOK : colNG;
+            p1_29.BackColor = page_limit > 28 ? colOK : colNG;
+            p1_30.BackColor = page_limit > 29 ? colOK : colNG;
+            p1_31.BackColor = page_limit > 30 ? colOK : colNG;
+            p1_32.BackColor = page_limit > 31 ? colOK : colNG;
+            p1_33.BackColor = page_limit > 32 ? colOK : colNG;
+            p1_34.BackColor = page_limit > 33 ? colOK : colNG;
+            p1_35.BackColor = page_limit > 34 ? colOK : colNG;
+            p1_36.BackColor = page_limit > 35 ? colOK : colNG;
+            p1_37.BackColor = page_limit > 36 ? colOK : colNG;
+            p1_38.BackColor = page_limit > 37 ? colOK : colNG;
+            p1_39.BackColor = page_limit > 38 ? colOK : colNG;
+            p1_40.BackColor = page_limit > 39 ? colOK : colNG;
+        }
 #if DEBUGX
         //画面で確認用
         private void HiddenViewString()
@@ -161,13 +209,27 @@ namespace CraftpiaViewSaveData
 #endif
 
         #region "アイテム詳細関係"
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //アイテム属性タブ遷移
+            if (selectType.ToString() == itemListName.petChestList.ToString())
+            {
+                MessageBox.Show("petChestListは設定不可です。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            //アイテム上限数（解放も込み）を視覚的にわかるようにする
+            setDispView();
+            setItemDetailToDisp(selectType.ToString(), 1);
+        }
         private void label1_Click(object sender, EventArgs e)
         {
-            SetItemDetailToDisp(selectType.ToString(), 1);
+            //アイテム選択
+            setItemDetailToDisp(selectType.ToString(), 1);
         }
 
         private void panel_ItemNo_Click(object sender, EventArgs e)
         {
+            //アイテム選択1-40
             //c#にはLike文が無いので面倒
             var PanelArray1 = panelItemNo.Controls.OfType<Panel>()
                                   .Where(p => System.Text.RegularExpressions.Regex.IsMatch(p.Name, "^p1_.*", RegexOptions.Singleline))
@@ -175,14 +237,10 @@ namespace CraftpiaViewSaveData
 
             var itemIndex = Convert.ToInt32(new string((((Panel)sender).Name).Skip(3).ToArray())) - 1;
 
-            SetItemDetailToDisp(selectType.ToString(), itemIndex);
-        }
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetItemDetailToDisp(selectType.ToString(), 1);
+            setItemDetailToDisp(selectType.ToString(), itemIndex);
         }
 
-        void SetItemDetailToDisp(string categoryName, int itemindex)
+        void setItemDetailToDisp(string categoryName, int itemindex)
         {
             if (CPInventorySaveData == null)
             {
@@ -251,6 +309,10 @@ namespace CraftpiaViewSaveData
                 cboEnchant2_3.SelectedValue = target.Value[1].item.enchantIds[2];
                 cboEnchant2_4.SelectedValue = target.Value[1].item.enchantIds[3];
             }
+            else
+            {
+                SetItemDetailInit(2);
+            }
             //アイテム3(左下)--------------------------------------------------------------------
             if (target.Value.Count() > 2)
             {
@@ -280,6 +342,10 @@ namespace CraftpiaViewSaveData
                 cboEnchant3_3.SelectedValue = target.Value[2].item.enchantIds[2];
                 cboEnchant3_4.SelectedValue = target.Value[2].item.enchantIds[3];
             }
+            else
+            {
+                SetItemDetailInit(3);
+            }
             //アイテム3(左下)--------------------------------------------------------------------
             if (target.Value.Count() > 3)
             {
@@ -308,6 +374,98 @@ namespace CraftpiaViewSaveData
                 cboEnchant4_2.SelectedValue = target.Value[3].item.enchantIds[1];
                 cboEnchant4_3.SelectedValue = target.Value[3].item.enchantIds[2];
                 cboEnchant4_4.SelectedValue = target.Value[3].item.enchantIds[3];
+            }
+            else
+            {
+                SetItemDetailInit(4);
+            }
+        }
+
+        void SetItemDetailInit(int no)
+        {
+            if (no ==2)
+            {
+                //基本属性
+                textItemId2.Text = textItemId1.Text;
+                textItemLevel2.Text = "0";
+                textEnchantIds2_1.Text = "0";
+                textEnchantIds2_2.Text = "0";
+                textEnchantIds2_3.Text = "0";
+                textEnchantIds2_4.Text = "0";
+                textProficient2.Text = "0";
+                textPetID2.Text = "65535";
+                chkSaveLock2.Checked = chkSaveLock1.Checked;
+                textBulletNum2.Text = "0";
+                textBulletId2.Text = "0";
+                chkDataVersion2.Checked = chkDataVersion1.Checked;
+                //個数など外部属性
+                textCount2.Text = "0";
+                textAssignedHotkeySlot2_1.Text = "0";
+                textAssignedHotkeySlot2_2.Text = "0";
+                textAssignedHotkeySlot2_3.Text = "0";
+                textAssignedEquipSlot2.Text = "0";
+                // コンボボックス連動
+                cboItem2.SelectedValue = "0";
+                cboEnchant2_1.SelectedValue = "0";
+                cboEnchant2_2.SelectedValue = "0";
+                cboEnchant2_3.SelectedValue = "0";
+                cboEnchant2_4.SelectedValue = "0";
+            }
+            if (no == 3)
+            {
+                //基本属性
+                textItemId3.Text = textItemId1.Text;
+                textItemLevel3.Text = "0";
+                textEnchantIds3_1.Text = "0";
+                textEnchantIds3_2.Text = "0";
+                textEnchantIds3_3.Text = "0";
+                textEnchantIds3_4.Text = "0";
+                textProficient3.Text = "0";
+                textPetID3.Text = "65535";
+                chkSaveLock3.Checked = chkSaveLock1.Checked;
+                textBulletNum3.Text = "0";
+                textBulletId3.Text = "0";
+                chkDataVersion3.Checked = chkDataVersion1.Checked;
+                //個数など外部属性
+                textCount3.Text = "0";
+                textAssignedHotkeySlot3_1.Text = "0";
+                textAssignedHotkeySlot3_2.Text = "0";
+                textAssignedHotkeySlot3_3.Text = "0";
+                textAssignedEquipSlot3.Text = "0";
+                // コンボボックス連動
+                cboItem3.SelectedValue = "0";
+                cboEnchant3_1.SelectedValue = "0";
+                cboEnchant3_2.SelectedValue = "0";
+                cboEnchant3_3.SelectedValue = "0";
+                cboEnchant3_4.SelectedValue = "0";
+            }
+            if (no == 4)
+            {
+                //基本属性
+                textItemId4.Text = textItemId1.Text;
+                textItemLevel4.Text = "0";
+                textEnchantIds4_1.Text = "0";
+                textEnchantIds4_2.Text = "0";
+                textEnchantIds4_3.Text = "0";
+                textEnchantIds4_4.Text = "0";
+                textProficient4.Text = "0";
+                textPetID4.Text = "65535";
+                chkSaveLock4.Checked = chkSaveLock1.Checked;
+                textBulletNum4.Text = "0";
+                textBulletId4.Text = "0";
+                chkDataVersion4.Checked = chkDataVersion1.Checked;
+                //個数など外部属性
+                textCount4.Text = "0";
+                textAssignedHotkeySlot4_1.Text = "0";
+                textAssignedHotkeySlot4_2.Text = "0";
+                textAssignedHotkeySlot4_3.Text = "0";
+                textAssignedEquipSlot4.Text = "0";
+                // コンボボックス連動
+                cboItem4.SelectedValue = "0";
+                cboEnchant4_1.SelectedValue = "0";
+                cboEnchant4_2.SelectedValue = "0";
+                cboEnchant4_3.SelectedValue = "0";
+                cboEnchant4_4.SelectedValue = "0";
             }
         }
         #endregion
