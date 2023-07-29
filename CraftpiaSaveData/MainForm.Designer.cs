@@ -1229,7 +1229,7 @@
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(637, 214);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "クラウドストレージ";
+            this.tabPage4.Text = "素材";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // tabPage5
@@ -1247,7 +1247,7 @@
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Size = new System.Drawing.Size(637, 214);
             this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "素材";
+            this.tabPage6.Text = "大切なもの";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // tabPage7
@@ -1256,7 +1256,7 @@
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Size = new System.Drawing.Size(637, 214);
             this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "ペットストレージ";
+            this.tabPage7.Text = "クラウドストレージ";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // tabPage8
@@ -1265,7 +1265,7 @@
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Size = new System.Drawing.Size(637, 214);
             this.tabPage8.TabIndex = 2;
-            this.tabPage8.Text = "大切なもの";
+            this.tabPage8.Text = "ペットストレージ";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
             // panelItemNo

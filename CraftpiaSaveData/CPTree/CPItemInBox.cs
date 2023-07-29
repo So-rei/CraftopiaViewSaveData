@@ -8,16 +8,16 @@ namespace CraftpiaViewSaveData.CPTree
 {
     public class CPItemInBox
     {
-        public List<CPItemInBoxValue> Value { get; set; } = new List<CPItemInBoxValue>();
+        public List<CPItemInBoxValue> Child { get; set; } = new List<CPItemInBoxValue>();
 
         public override string ToString()
         {
             string ret = "\"itemInBox\":[";
-            foreach (var item in Value)
+            foreach (CPItemInBoxValue item in Child)
             {
                 ret += "{" + item.ToString() + "},";
             }
-            ret.TrimEnd(',');
+            ret = ret.TrimEnd(',');
 
             ret += "]";
 

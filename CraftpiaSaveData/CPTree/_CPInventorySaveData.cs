@@ -26,22 +26,21 @@ namespace CraftpiaViewSaveData.CPTree
         /// </summary>
         public _CPInventorySaveData(_CPInventorySaveData sc)
         {
+            paramsList = new Dictionary<string, CPXList>();
             foreach (var d in sc.paramsList)
             {
-                paramsList.Add(d.Key, d.Value);
+                paramsList.Add(d.Key, (CPXList)(d.Value));
             }
         }
 
         public override string ToString()
         {
-            string ret = "\"" + CommonConst.inventorySaveData + "\":{";
+            string ret = "{\"" + CommonConst.inventorySaveData + "\":{";
             foreach (var li in paramsList)
             {
-                ret += li.ToString() + ",";
+                ret += li.Value.ToString() + ",";
             }
-            ret.TrimEnd(',');
-
-            ret += "}";
+            ret = ret.TrimEnd(',') + "}";
 
             return ret;
         }

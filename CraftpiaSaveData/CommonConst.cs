@@ -16,22 +16,22 @@ namespace CraftpiaViewSaveData
             equipmentList,
             buildingList, 
             consumptionList,
-            personalChestList,
-            petList,
             materialList,
+            petList,
+            importantList,
+            personalChestList,
             petChestList,
-            importantList
         }
         public enum itemListNameJa
         {
             装備,
             建物,
             食べ物,
-            クラウドストレージ,
-            ペット,
             素材,
+            ペット,
+            大切なもの,
+            クラウドストレージ,
             ペットストレージ,
-            大切なもの
         }
 
         //DBのテーブル名

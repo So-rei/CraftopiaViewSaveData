@@ -8,7 +8,7 @@ namespace CraftpiaViewSaveData.CPTree
 {
     public class CPXList
     {
-        public List<CPItemInBox> Value { get; set; } = new List<CPItemInBox>();
+        public List<CPItemInBox> Child { get; set; } = new List<CPItemInBox>();
 
         public string ListName { get; private set; }
 
@@ -20,13 +20,11 @@ namespace CraftpiaViewSaveData.CPTree
         public override string ToString()
         {
             string ret = "\""+ ListName + "\":[";
-            foreach (var item in Value)
+            foreach (CPItemInBox item in Child)
             {
                 ret += "{" + item.ToString() + "},";
             }
-            ret.TrimEnd(',');
-
-            ret += "]";
+            ret = ret.TrimEnd(',') + "]";
 
             return ret;
         }

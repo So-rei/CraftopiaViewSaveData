@@ -10,20 +10,25 @@ namespace CraftpiaViewSaveData.CPTree
     {
         public CPItem item { get; set; } = new CPItem();
         public int count { get; set; }
-        public int[] assignedHotkeySlot { get; set; } = new int[3] { 0, 0, 0 }; //装備系のときのみ
+        public int[] assignedHotkeySlot { get; set; } //装備系のみ。装備以外だと配列ごとnullになる
         public int assignedEquipSlot { get; set; }
 
         public override string ToString()
         {
-            string ret = "{";
+            //if (count == 0) return ""; //空の名前なし{}を排除する
+
+            string ret = "";
             ret += "\"item\":" + item.ToString() + ",";
             ret += "\"count\":" + count.ToString() + ",";
-            if (assignedHotkeySlot[0] != -1)
+            if (assignedHotkeySlot != null)
             {
                 ret += "\"assignedHotkeySlot\":[" + assignedHotkeySlot[0].ToString() + "," + assignedHotkeySlot[1].ToString() + "," + assignedHotkeySlot[2].ToString() + "],";
             }
+            else
+            {
+                ret += "\"assignedHotkeySlot\":null,";
+            }
             ret += "\"assignedEquipSlot\":" + assignedEquipSlot.ToString();
-            ret += "}";
 
             return ret;
         }

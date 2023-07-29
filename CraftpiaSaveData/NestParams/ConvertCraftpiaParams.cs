@@ -164,6 +164,7 @@ namespace CraftpiaViewSaveData.NestParams
             var ret = new _CPInventorySaveData();
             foreach (var child in inventoryparams.innerParams)
             {
+                //表示したい●●List以外は飛ばす
                 if (!ret.paramsList.TryGetValue(child.name, out var cpx)) continue;
                 if (!child.TryGetChildParams(out var cc)) continue;
 
@@ -214,27 +215,64 @@ namespace CraftpiaViewSaveData.NestParams
                             itemInBoxValue.count = Convert.ToInt32(_iteminboxvalue.innerParams[1].value);
 
                             //assignedHotkeySlotは装備系のみ
-                            if (child.name == itemListName.equipmentList.ToString() && _iteminboxvalue.innerParams[2].Count() == 3)
+                            //if (child.name == itemListName.equipmentList.ToString() && _iteminboxvalue.innerParams[2].Count() == 3)
+                            if (_iteminboxvalue.innerParams[2].Count() == 3)
                             {
                                 itemInBoxValue.assignedHotkeySlot = Array.ConvertAll(_iteminboxvalue.innerParams[2].Select(p => p.value).ToArray(), e => (int)Convert.ChangeType(e, typeof(int)));
                             }
                             itemInBoxValue.assignedEquipSlot = Convert.ToInt32(_iteminboxvalue.innerParams[3].value);
 
-                            itemInBox.Value.Add(itemInBoxValue);
+                            itemInBox.Child.Add(itemInBoxValue);
                         }
                     }
 
-                    cpx.Value.Add(itemInBox);
+                    cpx.Child.Add(itemInBox);
                 }
             }
 
             return ret;
         }
+
+        /// <summary>
+        /// 変更したデータをJson形式Stringに変更する
+        /// </summary>
+        /// <param name="cpTree">変更した_CPInventorySaveData</param>
+        /// <returns>Json形式String</returns>
         public static string CPTreeToJsonStr(_CPInventorySaveData cpTree)
         {
-            //TODO
-            return "";
+            return cpTree.ToString();
+        }
+
+        /// <summary>
+        /// importantListとpersonalChestListの間にunlockedPet,quickSlotSkill
+        /// personalChestListの後にenchantFragmentList、skillSaveDatas、missionSaveDatas、mainMissionCleared、questSaveDatas、missionCategoryTookDatas、statisticalSaveDatas
+        /// petSaveDatas,recipeUnlocked,licenseUnlocked,totalPlayTime,creativeTutorial,soulOrbPicked,soulOrbExchangeCount,equipMysetSaveDatas,lookMysetSaveDatas,skillMysetSaveDatas,mapFogDraw,visualTutorialSaveData,timelineSaveData
+        /// が入っているのでそれを適宜セットし、最終的にDBに入れる文字列にする
+        /// </summary>
+        /// <param name="cpTree">変更した_CPInventorySaveData</param>
+        /// <returns>Json形式String</returns>
+        public static string ConcatOtherParams(string bf, _CPInventorySaveData cpTree)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(((CPXList)(cpTree.paramsList[itemListName.equipmentList.ToString()])).ToString());
+            sb.Append(((CPXList)(cpTree.paramsList[itemListName.buildingList.ToString()])).ToString());
+            sb.Append(((CPXList)(cpTree.paramsList[itemListName.consumptionList.ToString()])).ToString());
+            sb.Append(((CPXList)(cpTree.paramsList[itemListName.materialList.ToString()])).ToString());
+            sb.Append(((CPXList)(cpTree.paramsList[itemListName.petList.ToString()])).ToString());
+            sb.Append(((CPXList)(cpTree.paramsList[itemListName.importantList.ToString()])).ToString());
+
+            int idx1 = bf.IndexOf("unlockedPet");
+            int idx2 = bf.IndexOf(itemListName.personalChestList.ToString());
+            string hazama = bf.Substring(idx1, idx2 - idx1);
+            sb.Append(hazama);
+
+            sb.Append(((CPXList)(cpTree.paramsList[itemListName.personalChestList.ToString()])).ToString());
+            sb.Append(((CPXList)(cpTree.paramsList[itemListName.petChestList.ToString()])).ToString());
+
+            int idx3 = bf.IndexOf("enchantFragmentList");
+            sb.Append(bf.Substring(idx3));
+
+            return sb.ToString();
         }
     }
-
 }

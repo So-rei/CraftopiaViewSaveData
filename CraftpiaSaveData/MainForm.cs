@@ -140,7 +140,7 @@ namespace CraftpiaViewSaveData
         //アイテム上限数（解放も込み）を視覚的にわかるようにする
         private void setDispView()
         {
-            int page_limit = CPInventorySaveData.paramsList[selectType.ToString()].Value.Count();
+            int page_limit = CPInventorySaveData.paramsList[selectType.ToString()].Child.Count();
             Color colOK = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             Color colNG = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             p1_1.BackColor = page_limit > 0 ? colOK : colNG;
@@ -267,131 +267,131 @@ namespace CraftpiaViewSaveData
             }
             
             //アイテム所持数未開放
-            if (CPInventorySaveData.paramsList[categoryName].Value.Count() <= itemindex)
+            if (CPInventorySaveData.paramsList[categoryName].Child.Count() <= itemindex)
                 return;
 
-            var target = CPInventorySaveData.paramsList[categoryName].Value[itemindex];
+            var target = CPInventorySaveData.paramsList[categoryName].Child[itemindex];
 
             //アイテム1(左上)--------------------------------------------------------------------
             //基本属性
-            textItemId1.Text = target.Value[0].item.itemId.ToString();
-            textItemLevel1.Text = target.Value[0].item.itemLevel.ToString();
-            textEnchantIds1_1.Text = target.Value[0].item.enchantIds[0].ToString();
-            textEnchantIds1_2.Text = target.Value[0].item.enchantIds[1].ToString();
-            textEnchantIds1_3.Text = target.Value[0].item.enchantIds[2].ToString();
-            textEnchantIds1_4.Text = target.Value[0].item.enchantIds[3].ToString();
-            textProficient1.Text = target.Value[0].item.proficient.ToString();
-            textPetID1.Text = target.Value[0].item.petID.ToString();
-            chkSaveLock1.Checked = target.Value[0].item.saveLock;
-            textBulletNum1.Text = target.Value[0].item.bulletNum.ToString();
-            textBulletId1.Text = target.Value[0].item.bulletId.ToString();
-            chkDataVersion1.Checked = target.Value[0].item.dataVersion == 0;
+            textItemId1.Text = target.Child[0].item.itemId.ToString();
+            textItemLevel1.Text = target.Child[0].item.itemLevel.ToString();
+            textEnchantIds1_1.Text = target.Child[0].item.enchantIds[0].ToString();
+            textEnchantIds1_2.Text = target.Child[0].item.enchantIds[1].ToString();
+            textEnchantIds1_3.Text = target.Child[0].item.enchantIds[2].ToString();
+            textEnchantIds1_4.Text = target.Child[0].item.enchantIds[3].ToString();
+            textProficient1.Text = target.Child[0].item.proficient.ToString();
+            textPetID1.Text = target.Child[0].item.petID.ToString();
+            chkSaveLock1.Checked = target.Child[0].item.saveLock;
+            textBulletNum1.Text = target.Child[0].item.bulletNum.ToString();
+            textBulletId1.Text = target.Child[0].item.bulletId.ToString();
+            chkDataVersion1.Checked = target.Child[0].item.dataVersion == 0;
             //個数など外部属性
-            textCount1.Text = target.Value[0].count.ToString();
-            textAssignedHotkeySlot1_1.Text = target.Value[0].assignedHotkeySlot[0].ToString();
-            textAssignedHotkeySlot1_2.Text = target.Value[0].assignedHotkeySlot[1].ToString();
-            textAssignedHotkeySlot1_3.Text = target.Value[0].assignedHotkeySlot[2].ToString();
-            textAssignedEquipSlot1.Text = target.Value[0].assignedEquipSlot.ToString();
+            textCount1.Text = target.Child[0].count.ToString();
+            textAssignedHotkeySlot1_1.Text = target.Child[0].assignedHotkeySlot[0].ToString();
+            textAssignedHotkeySlot1_2.Text = target.Child[0].assignedHotkeySlot[1].ToString();
+            textAssignedHotkeySlot1_3.Text = target.Child[0].assignedHotkeySlot[2].ToString();
+            textAssignedEquipSlot1.Text = target.Child[0].assignedEquipSlot.ToString();
             // コンボボックス連動
-            cboItem1.SelectedValue = target.Value[0].item.itemId;
-            cboEnchant1_1.SelectedValue = target.Value[0].item.enchantIds[0];
-            cboEnchant1_2.SelectedValue = target.Value[0].item.enchantIds[1];
-            cboEnchant1_3.SelectedValue = target.Value[0].item.enchantIds[2];
-            cboEnchant1_4.SelectedValue = target.Value[0].item.enchantIds[3];
+            cboItem1.SelectedValue = target.Child[0].item.itemId;
+            cboEnchant1_1.SelectedValue = target.Child[0].item.enchantIds[0];
+            cboEnchant1_2.SelectedValue = target.Child[0].item.enchantIds[1];
+            cboEnchant1_3.SelectedValue = target.Child[0].item.enchantIds[2];
+            cboEnchant1_4.SelectedValue = target.Child[0].item.enchantIds[3];
             //アイテム2(右上)--------------------------------------------------------------------
-            if (target.Value.Count() > 1)
+            if (target.Child.Count() > 1)
             {
                 //基本属性
-                textItemId2.Text = target.Value[1].item.itemId.ToString();
-                textItemLevel2.Text = target.Value[1].item.itemLevel.ToString();
-                textEnchantIds2_1.Text = target.Value[1].item.enchantIds[0].ToString();
-                textEnchantIds2_2.Text = target.Value[1].item.enchantIds[1].ToString();
-                textEnchantIds2_3.Text = target.Value[1].item.enchantIds[2].ToString();
-                textEnchantIds2_4.Text = target.Value[1].item.enchantIds[3].ToString();
-                textProficient2.Text = target.Value[1].item.proficient.ToString();
-                textPetID2.Text = target.Value[1].item.petID.ToString();
-                chkSaveLock2.Checked = target.Value[1].item.saveLock;
-                textBulletNum2.Text = target.Value[1].item.bulletNum.ToString();
-                textBulletId2.Text = target.Value[1].item.bulletId.ToString();
-                chkDataVersion2.Checked = target.Value[1].item.dataVersion == 0;
+                textItemId2.Text = target.Child[1].item.itemId.ToString();
+                textItemLevel2.Text = target.Child[1].item.itemLevel.ToString();
+                textEnchantIds2_1.Text = target.Child[1].item.enchantIds[0].ToString();
+                textEnchantIds2_2.Text = target.Child[1].item.enchantIds[1].ToString();
+                textEnchantIds2_3.Text = target.Child[1].item.enchantIds[2].ToString();
+                textEnchantIds2_4.Text = target.Child[1].item.enchantIds[3].ToString();
+                textProficient2.Text = target.Child[1].item.proficient.ToString();
+                textPetID2.Text = target.Child[1].item.petID.ToString();
+                chkSaveLock2.Checked = target.Child[1].item.saveLock;
+                textBulletNum2.Text = target.Child[1].item.bulletNum.ToString();
+                textBulletId2.Text = target.Child[1].item.bulletId.ToString();
+                chkDataVersion2.Checked = target.Child[1].item.dataVersion == 0;
                 //個数など外部属性
-                textCount2.Text = target.Value[1].count.ToString();
-                textAssignedHotkeySlot2_1.Text = target.Value[1].assignedHotkeySlot[0].ToString();
-                textAssignedHotkeySlot2_2.Text = target.Value[1].assignedHotkeySlot[1].ToString();
-                textAssignedHotkeySlot2_3.Text = target.Value[1].assignedHotkeySlot[2].ToString();
-                textAssignedEquipSlot2.Text = target.Value[1].assignedEquipSlot.ToString();
+                textCount2.Text = target.Child[1].count.ToString();
+                textAssignedHotkeySlot2_1.Text = target.Child[1].assignedHotkeySlot[0].ToString();
+                textAssignedHotkeySlot2_2.Text = target.Child[1].assignedHotkeySlot[1].ToString();
+                textAssignedHotkeySlot2_3.Text = target.Child[1].assignedHotkeySlot[2].ToString();
+                textAssignedEquipSlot2.Text = target.Child[1].assignedEquipSlot.ToString();
                 // コンボボックス連動
-                cboItem2.SelectedValue = target.Value[1].item.itemId;
-                cboEnchant2_1.SelectedValue = target.Value[1].item.enchantIds[0];
-                cboEnchant2_2.SelectedValue = target.Value[1].item.enchantIds[1];
-                cboEnchant2_3.SelectedValue = target.Value[1].item.enchantIds[2];
-                cboEnchant2_4.SelectedValue = target.Value[1].item.enchantIds[3];
+                cboItem2.SelectedValue = target.Child[1].item.itemId;
+                cboEnchant2_1.SelectedValue = target.Child[1].item.enchantIds[0];
+                cboEnchant2_2.SelectedValue = target.Child[1].item.enchantIds[1];
+                cboEnchant2_3.SelectedValue = target.Child[1].item.enchantIds[2];
+                cboEnchant2_4.SelectedValue = target.Child[1].item.enchantIds[3];
             }
             else
             {
                 SetItemDetailInit(2);
             }
             //アイテム3(左下)--------------------------------------------------------------------
-            if (target.Value.Count() > 2)
+            if (target.Child.Count() > 2)
             {
                 //基本属性
-                textItemId3.Text = target.Value[2].item.itemId.ToString();
-                textItemLevel3.Text = target.Value[2].item.itemLevel.ToString();
-                textEnchantIds3_1.Text = target.Value[2].item.enchantIds[0].ToString();
-                textEnchantIds3_2.Text = target.Value[2].item.enchantIds[1].ToString();
-                textEnchantIds3_3.Text = target.Value[2].item.enchantIds[2].ToString();
-                textEnchantIds3_4.Text = target.Value[2].item.enchantIds[3].ToString();
-                textProficient3.Text = target.Value[2].item.proficient.ToString();
-                textPetID3.Text = target.Value[2].item.petID.ToString();
-                chkSaveLock3.Checked = target.Value[2].item.saveLock;
-                textBulletNum3.Text = target.Value[2].item.bulletNum.ToString();
-                textBulletId3.Text = target.Value[2].item.bulletId.ToString();
-                chkDataVersion3.Checked = target.Value[2].item.dataVersion == 0;
+                textItemId3.Text = target.Child[2].item.itemId.ToString();
+                textItemLevel3.Text = target.Child[2].item.itemLevel.ToString();
+                textEnchantIds3_1.Text = target.Child[2].item.enchantIds[0].ToString();
+                textEnchantIds3_2.Text = target.Child[2].item.enchantIds[1].ToString();
+                textEnchantIds3_3.Text = target.Child[2].item.enchantIds[2].ToString();
+                textEnchantIds3_4.Text = target.Child[2].item.enchantIds[3].ToString();
+                textProficient3.Text = target.Child[2].item.proficient.ToString();
+                textPetID3.Text = target.Child[2].item.petID.ToString();
+                chkSaveLock3.Checked = target.Child[2].item.saveLock;
+                textBulletNum3.Text = target.Child[2].item.bulletNum.ToString();
+                textBulletId3.Text = target.Child[2].item.bulletId.ToString();
+                chkDataVersion3.Checked = target.Child[2].item.dataVersion == 0;
                 //個数など外部属性
-                textCount3.Text = target.Value[2].count.ToString();
-                textAssignedHotkeySlot3_1.Text = target.Value[2].assignedHotkeySlot[0].ToString();
-                textAssignedHotkeySlot3_2.Text = target.Value[2].assignedHotkeySlot[1].ToString();
-                textAssignedHotkeySlot3_3.Text = target.Value[2].assignedHotkeySlot[2].ToString();
-                textAssignedEquipSlot3.Text = target.Value[2].assignedEquipSlot.ToString();
+                textCount3.Text = target.Child[2].count.ToString();
+                textAssignedHotkeySlot3_1.Text = target.Child[2].assignedHotkeySlot[0].ToString();
+                textAssignedHotkeySlot3_2.Text = target.Child[2].assignedHotkeySlot[1].ToString();
+                textAssignedHotkeySlot3_3.Text = target.Child[2].assignedHotkeySlot[2].ToString();
+                textAssignedEquipSlot3.Text = target.Child[2].assignedEquipSlot.ToString();
                 // コンボボックス連動
-                cboItem3.SelectedValue = target.Value[2].item.itemId;
-                cboEnchant3_1.SelectedValue = target.Value[2].item.enchantIds[0];
-                cboEnchant3_2.SelectedValue = target.Value[2].item.enchantIds[1];
-                cboEnchant3_3.SelectedValue = target.Value[2].item.enchantIds[2];
-                cboEnchant3_4.SelectedValue = target.Value[2].item.enchantIds[3];
+                cboItem3.SelectedValue = target.Child[2].item.itemId;
+                cboEnchant3_1.SelectedValue = target.Child[2].item.enchantIds[0];
+                cboEnchant3_2.SelectedValue = target.Child[2].item.enchantIds[1];
+                cboEnchant3_3.SelectedValue = target.Child[2].item.enchantIds[2];
+                cboEnchant3_4.SelectedValue = target.Child[2].item.enchantIds[3];
             }
             else
             {
                 SetItemDetailInit(3);
             }
             //アイテム3(左下)--------------------------------------------------------------------
-            if (target.Value.Count() > 3)
+            if (target.Child.Count() > 3)
             {
                 //基本属性
-                textItemId4.Text = target.Value[3].item.itemId.ToString();
-                textItemLevel4.Text = target.Value[3].item.itemLevel.ToString();
-                textEnchantIds4_1.Text = target.Value[3].item.enchantIds[0].ToString();
-                textEnchantIds4_2.Text = target.Value[3].item.enchantIds[1].ToString();
-                textEnchantIds4_3.Text = target.Value[3].item.enchantIds[2].ToString();
-                textEnchantIds4_4.Text = target.Value[3].item.enchantIds[3].ToString();
-                textProficient4.Text = target.Value[3].item.proficient.ToString();
-                textPetID4.Text = target.Value[3].item.petID.ToString();
-                chkSaveLock4.Checked = target.Value[3].item.saveLock;
-                textBulletNum4.Text = target.Value[3].item.bulletNum.ToString();
-                textBulletId4.Text = target.Value[3].item.bulletId.ToString();
-                chkDataVersion3.Checked = target.Value[3].item.dataVersion == 0;
+                textItemId4.Text = target.Child[3].item.itemId.ToString();
+                textItemLevel4.Text = target.Child[3].item.itemLevel.ToString();
+                textEnchantIds4_1.Text = target.Child[3].item.enchantIds[0].ToString();
+                textEnchantIds4_2.Text = target.Child[3].item.enchantIds[1].ToString();
+                textEnchantIds4_3.Text = target.Child[3].item.enchantIds[2].ToString();
+                textEnchantIds4_4.Text = target.Child[3].item.enchantIds[3].ToString();
+                textProficient4.Text = target.Child[3].item.proficient.ToString();
+                textPetID4.Text = target.Child[3].item.petID.ToString();
+                chkSaveLock4.Checked = target.Child[3].item.saveLock;
+                textBulletNum4.Text = target.Child[3].item.bulletNum.ToString();
+                textBulletId4.Text = target.Child[3].item.bulletId.ToString();
+                chkDataVersion3.Checked = target.Child[3].item.dataVersion == 0;
                 //個数など外部属性
-                textCount4.Text = target.Value[3].count.ToString();
-                textAssignedHotkeySlot4_1.Text = target.Value[3].assignedHotkeySlot[0].ToString();
-                textAssignedHotkeySlot4_2.Text = target.Value[3].assignedHotkeySlot[1].ToString();
-                textAssignedHotkeySlot4_3.Text = target.Value[3].assignedHotkeySlot[2].ToString();
-                textAssignedEquipSlot4.Text = target.Value[3].assignedEquipSlot.ToString();
+                textCount4.Text = target.Child[3].count.ToString();
+                textAssignedHotkeySlot4_1.Text = target.Child[3].assignedHotkeySlot[0].ToString();
+                textAssignedHotkeySlot4_2.Text = target.Child[3].assignedHotkeySlot[1].ToString();
+                textAssignedHotkeySlot4_3.Text = target.Child[3].assignedHotkeySlot[2].ToString();
+                textAssignedEquipSlot4.Text = target.Child[3].assignedEquipSlot.ToString();
                 // コンボボックス連動
-                cboItem4.SelectedValue = target.Value[3].item.itemId;
-                cboEnchant4_1.SelectedValue = target.Value[3].item.enchantIds[0];
-                cboEnchant4_2.SelectedValue = target.Value[3].item.enchantIds[1];
-                cboEnchant4_3.SelectedValue = target.Value[3].item.enchantIds[2];
-                cboEnchant4_4.SelectedValue = target.Value[3].item.enchantIds[3];
+                cboItem4.SelectedValue = target.Child[3].item.itemId;
+                cboEnchant4_1.SelectedValue = target.Child[3].item.enchantIds[0];
+                cboEnchant4_2.SelectedValue = target.Child[3].item.enchantIds[1];
+                cboEnchant4_3.SelectedValue = target.Child[3].item.enchantIds[2];
+                cboEnchant4_4.SelectedValue = target.Child[3].item.enchantIds[3];
             }
             else
             {
@@ -496,6 +496,11 @@ namespace CraftpiaViewSaveData
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
+            if (CPInventorySaveData == null)
+            {
+                MessageBox.Show("セーブデータがセットされていません。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             if (MessageBox.Show("本当にリセットしますか？(画面状態を最後にドラッグした時の状態に戻します)", "警告", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
             {
                 //リセット
@@ -505,6 +510,11 @@ namespace CraftpiaViewSaveData
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            if (CPInventorySaveData == null)
+            {
+                MessageBox.Show("セーブデータがセットされていません。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             if (MessageBox.Show("セーブデータを上書きします。本当によろしいですか？", "警告", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
             {
                 //セーブ処理開始
@@ -524,6 +534,21 @@ namespace CraftpiaViewSaveData
             try
             {
                 string jsonStr = ConvertCraftpiaParams.CPTreeToJsonStr(CPInventorySaveData);
+
+                //テスト 生成データと一致するかどうかdiff確認中--
+                string originalstr = originalData[2].value;
+
+                for (int i = 0; i < jsonStr.Count(); i++)
+                {
+                    if (jsonStr[i] != originalstr[i])
+                    {
+                        MessageBox.Show(i.ToString());
+                        return false;
+                    }
+                }
+
+                return true;
+                //--TODO--
                 originalData.Where(p => p.id == PPSave_ID_InGame).First().value = jsonStr;
                 if (!CrudDb.Update(dbPath, originalData))
                     return false;

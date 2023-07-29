@@ -22,12 +22,13 @@ namespace CraftpiaViewSaveData.CPTree
         public override string ToString()
         {
             string ret = "";
-            ret += "\"item\":{";
+            ret += "{";
             ret += "\"itemId\":" + itemId.ToString() + ",";
+            ret += "\"itemLevel\":" + itemLevel.ToString() + ",";
             ret += "\"enchantIds\":[" + enchantIds[0].ToString() + "," + enchantIds[1].ToString() + "," + enchantIds[2].ToString() + "," + enchantIds[3].ToString() + "],";
             ret += "\"proficient\":" + proficient.ToString() + ",";
             ret += "\"petID\":" + petID.ToString() + ",";
-            ret += "\"saveLock\":" + saveLock.ToString() + ",";
+            ret += "\"saveLock\":" + (saveLock ? "true" : "false") + ",";
             ret += "\"bulletNum\":" + bulletNum.ToString() + ",";
             ret += "\"bulletId\":" + bulletId.ToString() + ",";
             ret += "\"dataVersion\":" + dataVersion.ToString();
