@@ -41,7 +41,9 @@ namespace CraftpiaViewSaveData
                 ItemEtc = etc;
             }
         }
-
+        /// <summary>
+        /// イニシャライズ
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -49,6 +51,7 @@ namespace CraftpiaViewSaveData
             ItemComboBoxSet();
         }
 
+        //コンボボックス設定（エンチャント）
         void EnchantComboBoxSet()
         {
             List<ComboBoxItemSet> clist = new List<ComboBoxItemSet>();
@@ -76,6 +79,7 @@ namespace CraftpiaViewSaveData
             setCboBox(cboEnchant4_3, clist);
             setCboBox(cboEnchant4_4, clist);
         }
+        //コンボボックス設定（アイテム）
         void ItemComboBoxSet()
         {
             List<ComboBoxItemSet> clist = new List<ComboBoxItemSet>();
@@ -127,6 +131,7 @@ namespace CraftpiaViewSaveData
         }
         #endregion
 
+        //アイテム上限数（解放も込み）を視覚的にわかるようにする
         private void setDispView()
         {
             int page_limit = CPInventorySaveData.paramsList[selectType.ToString()].Value.Count();
@@ -214,17 +219,17 @@ namespace CraftpiaViewSaveData
             //アイテム属性タブ遷移
             if (selectType.ToString() == itemListName.petChestList.ToString())
             {
-                MessageBox.Show("petChestListは設定不可です。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ペットチェストは現在設定不可です。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             //アイテム上限数（解放も込み）を視覚的にわかるようにする
             setDispView();
-            setItemDetailToDisp(selectType.ToString(), 1);
+            setItemDetailToDisp(selectType.ToString(), 0);
         }
         private void label1_Click(object sender, EventArgs e)
         {
             //アイテム選択
-            setItemDetailToDisp(selectType.ToString(), 1);
+            setItemDetailToDisp(selectType.ToString(), 0);
         }
 
         private void panel_ItemNo_Click(object sender, EventArgs e)
@@ -240,6 +245,11 @@ namespace CraftpiaViewSaveData
             setItemDetailToDisp(selectType.ToString(), itemIndex);
         }
 
+        /// <summary>
+        /// アイテムデータ　→　画面
+        /// </summary>
+        /// <param name="categoryName">属性名</param>
+        /// <param name="itemindex">アイテムNo（左上１行目から１，２，・・・）</param>
         void setItemDetailToDisp(string categoryName, int itemindex)
         {
             if (CPInventorySaveData == null)
@@ -381,6 +391,10 @@ namespace CraftpiaViewSaveData
             }
         }
 
+        /// <summary>
+        /// 入れ子アイテムがない場合、入れ子ページを初期化する
+        /// </summary>
+        /// <param name="no">入れ子No(2,3,4)</param>
         void SetItemDetailInit(int no)
         {
             if (no ==2)

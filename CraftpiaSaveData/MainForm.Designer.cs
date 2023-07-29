@@ -2460,9 +2460,9 @@
             this.label21.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label21.Location = new System.Drawing.Point(9, 417);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(221, 16);
+            this.label21.Size = new System.Drawing.Size(257, 16);
             this.label21.TabIndex = 50;
-            this.label21.Text = "ショトカ装備位置(ページ1/2/3)";
+            this.label21.Text = "ショートカット装備位置(ページ1/2/3)";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label22
