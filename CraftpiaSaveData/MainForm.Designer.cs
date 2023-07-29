@@ -1102,24 +1102,24 @@
             this.label19.Text = "装備位置";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textAssignedHotkeySlot2
+            // textAssignedHotkeySlot1_2
             // 
             this.textAssignedHotkeySlot1_2.Location = new System.Drawing.Point(302, 417);
-            this.textAssignedHotkeySlot1_2.Name = "textAssignedHotkeySlot2";
+            this.textAssignedHotkeySlot1_2.Name = "textAssignedHotkeySlot1_2";
             this.textAssignedHotkeySlot1_2.Size = new System.Drawing.Size(26, 19);
             this.textAssignedHotkeySlot1_2.TabIndex = 53;
             // 
-            // textAssignedHotkeySlot3
+            // textAssignedHotkeySlot1_3
             // 
             this.textAssignedHotkeySlot1_3.Location = new System.Drawing.Point(334, 417);
-            this.textAssignedHotkeySlot1_3.Name = "textAssignedHotkeySlot3";
+            this.textAssignedHotkeySlot1_3.Name = "textAssignedHotkeySlot1_3";
             this.textAssignedHotkeySlot1_3.Size = new System.Drawing.Size(26, 19);
             this.textAssignedHotkeySlot1_3.TabIndex = 52;
             // 
-            // textAssignedHotkeySlot1
+            // textAssignedHotkeySlot1_1
             // 
             this.textAssignedHotkeySlot1_1.Location = new System.Drawing.Point(270, 417);
-            this.textAssignedHotkeySlot1_1.Name = "textAssignedHotkeySlot1";
+            this.textAssignedHotkeySlot1_1.Name = "textAssignedHotkeySlot1_1";
             this.textAssignedHotkeySlot1_1.Size = new System.Drawing.Size(26, 19);
             this.textAssignedHotkeySlot1_1.TabIndex = 51;
             // 
@@ -2579,14 +2579,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1768, 558);
+            this.ClientSize = new System.Drawing.Size(1222, 558);
             this.Controls.Add(this.tabcontrol2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelItemNo);
             this.Controls.Add(this.tabControl1);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Craftpia SaveData CheckTool クラフトピア セーブデータ確認ツール";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
