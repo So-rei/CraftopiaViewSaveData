@@ -533,23 +533,20 @@ namespace CraftpiaViewSaveData
         {
             try
             {
-                string jsonStr = ConvertCraftpiaParams.CPTreeToJsonStr(CPInventorySaveData);
+                string jsonStr = ConvertCraftpiaParams.ConcatOtherParams(originalData[2].value, CPInventorySaveData);
 
-                //テスト 生成データと一致するかどうかdiff確認中--
-                string originalstr = originalData[2].value;
+                ////テスト 生成データと一致するかどうかdiff確認中--
+                //string originalstr = originalData[2].value;
+                //for (int i = 30000; i < jsonStr.Count(); i++)
+                //{
+                //    if (jsonStr[i] != originalstr[i])
+                //    {
+                //        MessageBox.Show(i.ToString());
+                //        return false;
+                //    }
+                //}
 
-                for (int i = 0; i < jsonStr.Count(); i++)
-                {
-                    if (jsonStr[i] != originalstr[i])
-                    {
-                        MessageBox.Show(i.ToString());
-                        return false;
-                    }
-                }
-
-                return true;
-                //--TODO--
-                originalData.Where(p => p.id == PPSave_ID_InGame).First().value = jsonStr;
+                originalData[2].value = jsonStr;
                 if (!CrudDb.Update(dbPath, originalData))
                     return false;
 
