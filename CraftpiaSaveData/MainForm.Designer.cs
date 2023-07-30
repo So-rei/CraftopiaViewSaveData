@@ -833,11 +833,13 @@
             // 
             // cboItem1
             // 
+            this.cboItem1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboItem1.FormattingEnabled = true;
             this.cboItem1.Location = new System.Drawing.Point(99, 3);
             this.cboItem1.Name = "cboItem1";
             this.cboItem1.Size = new System.Drawing.Size(163, 20);
             this.cboItem1.TabIndex = 15;
+            this.cboItem1.SelectedIndexChanged += new System.EventHandler(this.cboItem1_SelectedIndexChanged);
             // 
             // textItemId1
             // 
@@ -1030,35 +1032,43 @@
             // 
             // cboEnchant1_1
             // 
+            this.cboEnchant1_1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEnchant1_1.FormattingEnabled = true;
             this.cboEnchant1_1.Location = new System.Drawing.Point(99, 72);
             this.cboEnchant1_1.Name = "cboEnchant1_1";
             this.cboEnchant1_1.Size = new System.Drawing.Size(163, 20);
             this.cboEnchant1_1.TabIndex = 44;
+            this.cboEnchant1_1.SelectedIndexChanged += new System.EventHandler(this.cboEnchants_SelectedIndexChanged);
             // 
             // cboEnchant1_2
             // 
+            this.cboEnchant1_2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEnchant1_2.FormattingEnabled = true;
             this.cboEnchant1_2.Location = new System.Drawing.Point(99, 107);
             this.cboEnchant1_2.Name = "cboEnchant1_2";
             this.cboEnchant1_2.Size = new System.Drawing.Size(163, 20);
             this.cboEnchant1_2.TabIndex = 45;
+            this.cboEnchant1_2.SelectedIndexChanged += new System.EventHandler(this.cboEnchants_SelectedIndexChanged);
             // 
             // cboEnchant1_3
             // 
+            this.cboEnchant1_3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEnchant1_3.FormattingEnabled = true;
             this.cboEnchant1_3.Location = new System.Drawing.Point(99, 147);
             this.cboEnchant1_3.Name = "cboEnchant1_3";
             this.cboEnchant1_3.Size = new System.Drawing.Size(163, 20);
             this.cboEnchant1_3.TabIndex = 46;
+            this.cboEnchant1_3.SelectedIndexChanged += new System.EventHandler(this.cboEnchants_SelectedIndexChanged);
             // 
             // cboEnchant1_4
             // 
+            this.cboEnchant1_4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEnchant1_4.FormattingEnabled = true;
             this.cboEnchant1_4.Location = new System.Drawing.Point(99, 185);
             this.cboEnchant1_4.Name = "cboEnchant1_4";
             this.cboEnchant1_4.Size = new System.Drawing.Size(163, 20);
             this.cboEnchant1_4.TabIndex = 47;
+            this.cboEnchant1_4.SelectedIndexChanged += new System.EventHandler(this.cboEnchants_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -1153,9 +1163,9 @@
             this.label18.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label18.Location = new System.Drawing.Point(9, 417);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(221, 16);
+            this.label18.Size = new System.Drawing.Size(257, 16);
             this.label18.TabIndex = 50;
-            this.label18.Text = "ショトカ装備位置(ページ1/2/3)";
+            this.label18.Text = "ショートカット装備位置(ページ1/2/3)";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label17
@@ -1606,9 +1616,9 @@
             this.label57.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label57.Location = new System.Drawing.Point(9, 417);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(221, 16);
+            this.label57.Size = new System.Drawing.Size(257, 16);
             this.label57.TabIndex = 50;
-            this.label57.Text = "ショトカ装備位置(ページ1/2/3)";
+            this.label57.Text = "ショートカット装備位置(ページ1/2/3)";
             this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label58
@@ -1631,35 +1641,43 @@
             // 
             // cboEnchant2_4
             // 
+            this.cboEnchant2_4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEnchant2_4.FormattingEnabled = true;
             this.cboEnchant2_4.Location = new System.Drawing.Point(99, 185);
             this.cboEnchant2_4.Name = "cboEnchant2_4";
             this.cboEnchant2_4.Size = new System.Drawing.Size(163, 20);
             this.cboEnchant2_4.TabIndex = 47;
+            this.cboEnchant2_4.SelectedIndexChanged += new System.EventHandler(this.cboEnchants_SelectedIndexChanged);
             // 
             // cboEnchant2_3
             // 
+            this.cboEnchant2_3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEnchant2_3.FormattingEnabled = true;
             this.cboEnchant2_3.Location = new System.Drawing.Point(99, 147);
             this.cboEnchant2_3.Name = "cboEnchant2_3";
             this.cboEnchant2_3.Size = new System.Drawing.Size(163, 20);
             this.cboEnchant2_3.TabIndex = 46;
+            this.cboEnchant2_3.SelectedIndexChanged += new System.EventHandler(this.cboEnchants_SelectedIndexChanged);
             // 
             // cboEnchant2_2
             // 
+            this.cboEnchant2_2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEnchant2_2.FormattingEnabled = true;
             this.cboEnchant2_2.Location = new System.Drawing.Point(99, 107);
             this.cboEnchant2_2.Name = "cboEnchant2_2";
             this.cboEnchant2_2.Size = new System.Drawing.Size(163, 20);
             this.cboEnchant2_2.TabIndex = 45;
+            this.cboEnchant2_2.SelectedIndexChanged += new System.EventHandler(this.cboEnchants_SelectedIndexChanged);
             // 
             // cboEnchant2_1
             // 
+            this.cboEnchant2_1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEnchant2_1.FormattingEnabled = true;
             this.cboEnchant2_1.Location = new System.Drawing.Point(99, 72);
             this.cboEnchant2_1.Name = "cboEnchant2_1";
             this.cboEnchant2_1.Size = new System.Drawing.Size(163, 20);
             this.cboEnchant2_1.TabIndex = 44;
+            this.cboEnchant2_1.SelectedIndexChanged += new System.EventHandler(this.cboEnchants_SelectedIndexChanged);
             // 
             // label59
             // 
@@ -1855,12 +1873,14 @@
             // 
             // cboItem2
             // 
+            this.cboItem2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboItem2.Enabled = false;
             this.cboItem2.FormattingEnabled = true;
             this.cboItem2.Location = new System.Drawing.Point(99, 3);
             this.cboItem2.Name = "cboItem2";
             this.cboItem2.Size = new System.Drawing.Size(163, 20);
             this.cboItem2.TabIndex = 15;
+            this.cboItem2.SelectedIndexChanged += new System.EventHandler(this.cboItem1_SelectedIndexChanged);
             // 
             // label68
             // 
@@ -2034,9 +2054,9 @@
             this.label39.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label39.Location = new System.Drawing.Point(9, 417);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(221, 16);
+            this.label39.Size = new System.Drawing.Size(257, 16);
             this.label39.TabIndex = 50;
-            this.label39.Text = "ショトカ装備位置(ページ1/2/3)";
+            this.label39.Text = "ショートカット装備位置(ページ1/2/3)";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label40
@@ -2059,35 +2079,43 @@
             // 
             // cboEnchant3_4
             // 
+            this.cboEnchant3_4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEnchant3_4.FormattingEnabled = true;
             this.cboEnchant3_4.Location = new System.Drawing.Point(99, 185);
             this.cboEnchant3_4.Name = "cboEnchant3_4";
             this.cboEnchant3_4.Size = new System.Drawing.Size(163, 20);
             this.cboEnchant3_4.TabIndex = 47;
+            this.cboEnchant3_4.SelectedIndexChanged += new System.EventHandler(this.cboEnchants_SelectedIndexChanged);
             // 
             // cboEnchant3_3
             // 
+            this.cboEnchant3_3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEnchant3_3.FormattingEnabled = true;
             this.cboEnchant3_3.Location = new System.Drawing.Point(99, 147);
             this.cboEnchant3_3.Name = "cboEnchant3_3";
             this.cboEnchant3_3.Size = new System.Drawing.Size(163, 20);
             this.cboEnchant3_3.TabIndex = 46;
+            this.cboEnchant3_3.SelectedIndexChanged += new System.EventHandler(this.cboEnchants_SelectedIndexChanged);
             // 
             // cboEnchant3_2
             // 
+            this.cboEnchant3_2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEnchant3_2.FormattingEnabled = true;
             this.cboEnchant3_2.Location = new System.Drawing.Point(99, 107);
             this.cboEnchant3_2.Name = "cboEnchant3_2";
             this.cboEnchant3_2.Size = new System.Drawing.Size(163, 20);
             this.cboEnchant3_2.TabIndex = 45;
+            this.cboEnchant3_2.SelectedIndexChanged += new System.EventHandler(this.cboEnchants_SelectedIndexChanged);
             // 
             // cboEnchant3_1
             // 
+            this.cboEnchant3_1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEnchant3_1.FormattingEnabled = true;
             this.cboEnchant3_1.Location = new System.Drawing.Point(99, 72);
             this.cboEnchant3_1.Name = "cboEnchant3_1";
             this.cboEnchant3_1.Size = new System.Drawing.Size(163, 20);
             this.cboEnchant3_1.TabIndex = 44;
+            this.cboEnchant3_1.SelectedIndexChanged += new System.EventHandler(this.cboEnchants_SelectedIndexChanged);
             // 
             // label41
             // 
@@ -2283,12 +2311,14 @@
             // 
             // cboItem3
             // 
+            this.cboItem3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboItem3.Enabled = false;
             this.cboItem3.FormattingEnabled = true;
             this.cboItem3.Location = new System.Drawing.Point(99, 3);
             this.cboItem3.Name = "cboItem3";
             this.cboItem3.Size = new System.Drawing.Size(163, 20);
             this.cboItem3.TabIndex = 15;
+            this.cboItem3.SelectedIndexChanged += new System.EventHandler(this.cboItem1_SelectedIndexChanged);
             // 
             // label50
             // 
@@ -2487,35 +2517,43 @@
             // 
             // cboEnchant4_4
             // 
+            this.cboEnchant4_4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEnchant4_4.FormattingEnabled = true;
             this.cboEnchant4_4.Location = new System.Drawing.Point(99, 185);
             this.cboEnchant4_4.Name = "cboEnchant4_4";
             this.cboEnchant4_4.Size = new System.Drawing.Size(163, 20);
             this.cboEnchant4_4.TabIndex = 47;
+            this.cboEnchant4_4.SelectedIndexChanged += new System.EventHandler(this.cboEnchants_SelectedIndexChanged);
             // 
             // cboEnchant4_3
             // 
+            this.cboEnchant4_3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEnchant4_3.FormattingEnabled = true;
             this.cboEnchant4_3.Location = new System.Drawing.Point(99, 147);
             this.cboEnchant4_3.Name = "cboEnchant4_3";
             this.cboEnchant4_3.Size = new System.Drawing.Size(163, 20);
             this.cboEnchant4_3.TabIndex = 46;
+            this.cboEnchant4_3.SelectedIndexChanged += new System.EventHandler(this.cboEnchants_SelectedIndexChanged);
             // 
             // cboEnchant4_2
             // 
+            this.cboEnchant4_2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEnchant4_2.FormattingEnabled = true;
             this.cboEnchant4_2.Location = new System.Drawing.Point(99, 107);
             this.cboEnchant4_2.Name = "cboEnchant4_2";
             this.cboEnchant4_2.Size = new System.Drawing.Size(163, 20);
             this.cboEnchant4_2.TabIndex = 45;
+            this.cboEnchant4_2.SelectedIndexChanged += new System.EventHandler(this.cboEnchants_SelectedIndexChanged);
             // 
             // cboEnchant4_1
             // 
+            this.cboEnchant4_1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEnchant4_1.FormattingEnabled = true;
             this.cboEnchant4_1.Location = new System.Drawing.Point(99, 72);
             this.cboEnchant4_1.Name = "cboEnchant4_1";
             this.cboEnchant4_1.Size = new System.Drawing.Size(163, 20);
             this.cboEnchant4_1.TabIndex = 44;
+            this.cboEnchant4_1.SelectedIndexChanged += new System.EventHandler(this.cboEnchants_SelectedIndexChanged);
             // 
             // label23
             // 
@@ -2711,12 +2749,14 @@
             // 
             // cboItem4
             // 
+            this.cboItem4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboItem4.Enabled = false;
             this.cboItem4.FormattingEnabled = true;
             this.cboItem4.Location = new System.Drawing.Point(99, 3);
             this.cboItem4.Name = "cboItem4";
             this.cboItem4.Size = new System.Drawing.Size(163, 20);
             this.cboItem4.TabIndex = 15;
+            this.cboItem4.SelectedIndexChanged += new System.EventHandler(this.cboItem1_SelectedIndexChanged);
             // 
             // label32
             // 

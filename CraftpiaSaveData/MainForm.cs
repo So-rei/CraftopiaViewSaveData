@@ -32,23 +32,10 @@ namespace CraftpiaViewSaveData
         _CPInventorySaveData CPInventorySaveDataBackUp;
         _CPInventorySaveData CPInventorySaveData;
 
-        itemListName selectType { get { return (itemListName)tabControl1.SelectedIndex; } }
+        itemListName bfSelectType { get; set; }
         int selectPanelNo { get; set; }
 
         int itemPageNo { get { return tabcontrol2.SelectedIndex; } }
-
-        public class ComboBoxItemSet
-        {
-            public int ItemValue { get; set; }
-            public String ItemDisp { get; set; }
-            public String ItemEtc { get; set; }
-            public ComboBoxItemSet(string id, string name, string etc = "")
-            {
-                ItemValue = Convert.ToInt32(id);
-                ItemDisp = id + " : " + name;
-                ItemEtc = etc;
-            }
-        }
 
         //面倒なのでコントロール配列にする
         TextBox[] textItemIds;
@@ -66,6 +53,22 @@ namespace CraftpiaViewSaveData
         ComboBox[] cboItems;
         ComboBox[][] cboEnchants;
         Panel[] itemPanels;
+
+        //ロード中フラグ
+        public bool isLoading { get; private set; } = true;
+
+        public class ComboBoxItemSet
+        {
+            public int ItemValue { get; set; }
+            public String ItemDisp { get; set; }
+            public String ItemEtc { get; set; }
+            public ComboBoxItemSet(string id, string name, string etc = "")
+            {
+                ItemValue = Convert.ToInt32(id);
+                ItemDisp = id + " : " + name;
+                ItemEtc = etc;
+            }
+        }
         #endregion
 
         #region 初期処理
@@ -75,10 +78,14 @@ namespace CraftpiaViewSaveData
         /// </summary>
         public MainForm()
         {
+            isLoading = true;
+            
             InitializeComponent();
             EnchantComboBoxSet();
             ItemComboBoxSet();
             SetControlArray();
+
+            isLoading = false;
         }
 
         //コンボボックス設定（エンチャント）
@@ -186,7 +193,7 @@ namespace CraftpiaViewSaveData
             //アイテム上限数（解放も込み）を視覚的にわかるようにする
             setDispView();
             //1ページ1番目をロード
-            setItemDetailToDisp(selectType.ToString(), 0);
+            setItemDetailToDisp(bfSelectType.ToString(), 0);
 #if DEBUGX
             HiddenViewString();
 #endif
@@ -195,7 +202,7 @@ namespace CraftpiaViewSaveData
         //アイテム上限数（解放も込み）を視覚的にわかるようにする
         private void setDispView()
         {
-            int page_limit = CPInventorySaveData.paramsList[selectType.ToString()].Child.Count();
+            int page_limit = CPInventorySaveData.paramsList[bfSelectType.ToString()].Child.Count();
             Color colOK = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             Color colNG = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             for (int i = 0; i < itemPanels.Count(); i++)
@@ -240,27 +247,33 @@ namespace CraftpiaViewSaveData
         #region "アイテム詳細関係"
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //直前の内容を保存する
+            SaveItems(bfSelectType);
+            //場所更新
+            bfSelectType = (itemListName)tabControl1.SelectedIndex;
+
             //アイテム属性タブ遷移
-            if (selectType.ToString() == itemListName.petChestList.ToString())
+            if (bfSelectType.ToString() == itemListName.petChestList.ToString())
             {
                 MessageBox.Show("ペットチェストは現在設定不可です。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            //直前の内容を保存する
-            SaveItems();
+
             //アイテム上限数（解放も込み）を視覚的にわかるようにする
             setDispView();
             //初期位置（左上１個目）を選択
-            setItemDetailToDisp(selectType.ToString(), 0);
+            setItemDetailToDisp(bfSelectType.ToString(), 0);
         }
         private void label1_Click(object sender, EventArgs e)
         {
             //アイテム選択
-            setItemDetailToDisp(selectType.ToString(), 0);
+            setItemDetailToDisp(bfSelectType.ToString(), 0);
         }
 
         private void panel_ItemNo_Click(object sender, EventArgs e)
         {
+            if (isLoading) return;
+
             //アイテム選択1-40
             //c#にはLike文が無いので面倒
             var PanelArray1 = panelItemNo.Controls.OfType<Panel>()
@@ -270,9 +283,11 @@ namespace CraftpiaViewSaveData
             var itemIndex = Convert.ToInt32(new string((((Panel)sender).Name).Skip(3).ToArray())) - 1;
 
             //直前の内容を保存する
-            SaveItems();
+            SaveItems(bfSelectType);
+
             //選択Noのアイテムを選択
-            setItemDetailToDisp(selectType.ToString(), itemIndex);
+            setItemDetailToDisp(bfSelectType.ToString(), itemIndex);
+
         }
         #endregion
 
@@ -307,6 +322,7 @@ namespace CraftpiaViewSaveData
                     SetItemDetailInit(i);
             }
         }
+
         /// <summary>
         /// 入れ子アイテムデータをセットする
         /// </summary>
@@ -375,6 +391,35 @@ namespace CraftpiaViewSaveData
             cboEnchants[no][2].SelectedValue = "0";
             cboEnchants[no][3].SelectedValue = "0";
         }
+
+
+        /// <summary>
+        /// コンボボックスの対応
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cboItem1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isLoading) return;
+
+            int no = itemPageNo;
+            if (cboItems[no].SelectedValue != null) 
+                textItemIds[no].Text = cboItems[no].SelectedValue.ToString();
+        }
+        /// <summary>
+        /// コンボボックスの対応
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cboEnchants_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isLoading) return;
+
+            int no = itemPageNo;
+            var enchantNo = Convert.ToInt32(new string((((ComboBox)sender).Name).Skip("cboEnchant*_".Length).ToArray())) - 1;
+            if (cboEnchants[no][enchantNo].SelectedValue != null) 
+                textEnchantIds[no][enchantNo].Text = cboEnchants[no][enchantNo].SelectedValue.ToString();
+        }
         #endregion
 
         #region 保存関係
@@ -403,7 +448,7 @@ namespace CraftpiaViewSaveData
             if (MessageBox.Show("セーブデータを上書きします。本当によろしいですか？", "警告", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
             {
                 //直前の内容を保存する
-                SaveItems();
+                SaveItems(bfSelectType);
                 //ファイルにセーブ処理開始
                 if (!SetItemDetailToFile())
                 {
@@ -418,18 +463,25 @@ namespace CraftpiaViewSaveData
             }
         }
 
-        private void SaveItems()
+        private void SaveItems(itemListName saveSelectType)
         {
             //未ロード
             if (CPInventorySaveData == null)
                 return;
 
             //アイテム所持数未開放
-            if (CPInventorySaveData.paramsList[selectType.ToString()].Child.Count() <= selectPanelNo)
+            if (CPInventorySaveData.paramsList[saveSelectType.ToString()].Child.Count() <= selectPanelNo)
                 return;
 
-            var target = CPInventorySaveData.paramsList[selectType.ToString()].Child[selectPanelNo];
+            var target = CPInventorySaveData.paramsList[saveSelectType.ToString()].Child[selectPanelNo];
             int no = itemPageNo;
+
+            //アイテム入れ子の枠外（追加もできると思うけど今はキャンセルする
+            if (target.Child.Count() <= no)
+            {
+                MessageBox.Show("アイテム枠のツリー('田'構造)を追加しようとしています。未実装", "警告", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             //基本属性
             if (int.TryParse(textItemIds[no].Text, out int _itemid1))
@@ -460,12 +512,15 @@ namespace CraftpiaViewSaveData
             //個数など外部属性
             if (int.TryParse(textCounts[no].Text, out int _count1))
                 target.Child[no].count = _count1;
-            if (int.TryParse(textAssignedHotkeySlots[no][0].Text, out int _assignedhotkeyslot1_1))
-                target.Child[no].assignedHotkeySlot[0] = _assignedhotkeyslot1_1;
-            if (int.TryParse(textAssignedHotkeySlots[no][1].Text, out int _assignedhotkeyslot1_2))
-                target.Child[no].assignedHotkeySlot[1] = _assignedhotkeyslot1_2;
-            if (int.TryParse(textAssignedHotkeySlots[no][2].Text, out int _assignedhotkeyslot1_3))
-                target.Child[no].assignedHotkeySlot[2] = _assignedhotkeyslot1_3;
+            if (target.Child[no].assignedHotkeySlot != null)
+            {
+                if (int.TryParse(textAssignedHotkeySlots[no][0].Text, out int _assignedhotkeyslot1_1))
+                    target.Child[no].assignedHotkeySlot[0] = _assignedhotkeyslot1_1;
+                if (int.TryParse(textAssignedHotkeySlots[no][1].Text, out int _assignedhotkeyslot1_2))
+                    target.Child[no].assignedHotkeySlot[1] = _assignedhotkeyslot1_2;
+                if (int.TryParse(textAssignedHotkeySlots[no][2].Text, out int _assignedhotkeyslot1_3))
+                    target.Child[no].assignedHotkeySlot[2] = _assignedhotkeyslot1_3;
+            }
             if (int.TryParse(textAssignedEquipSlots[no].Text, out int _assignedEquipSlot))
                 target.Child[no].assignedEquipSlot = _assignedEquipSlot;
         }
