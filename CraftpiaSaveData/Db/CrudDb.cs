@@ -66,10 +66,16 @@ namespace CraftpiaViewSaveData
                         {
                             // データの挿入
                             command.CommandText = @" UPDATE " + CommonConst.CraftpiaTableName + " SET " +
-                                                   " value = " + row.value +
-                                                   " WHERE " + "id = " + row.id + ";";
+                                                   " value = '" + row.value + "'" +
+                                                   " WHERE " + "id = '" + row.id + "';";
 
-                            command.ExecuteNonQuery();
+                            var result = command.ExecuteNonQuery();
+                            
+                            if (result != 1)
+                            {
+                                Console.WriteLine("データが更新できませんでした。");
+                                return false;
+                            }
                         }
                     }
                     con.Close();

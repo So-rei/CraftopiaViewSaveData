@@ -35,7 +35,7 @@ namespace CraftpiaViewSaveData
         itemListName selectType { get { return (itemListName)tabControl1.SelectedIndex; } }
         int selectPanelNo { get; set; }
 
-        int itemPageNo { get { return tabcontrol2.SelectedIndex + 1; } }
+        int itemPageNo { get { return tabcontrol2.SelectedIndex; } }
 
         public class ComboBoxItemSet
         {
@@ -49,6 +49,23 @@ namespace CraftpiaViewSaveData
                 ItemEtc = etc;
             }
         }
+
+        //面倒なのでコントロール配列にする
+        TextBox[] textItemIds;
+        TextBox[] textItemLevels;
+        TextBox[][] textEnchantIds;
+        TextBox[] textProficients;
+        TextBox[] textPetIDs;
+        CheckBox[] chkSaveLocks;
+        TextBox[] textBulletNums;
+        TextBox[] textBulletIds;
+        CheckBox[] chkDataVersions;
+        TextBox[] textCounts;
+        TextBox[][] textAssignedHotkeySlots;
+        TextBox[] textAssignedEquipSlots;
+        ComboBox[] cboItems;
+        ComboBox[][] cboEnchants;
+        Panel[] itemPanels;
         #endregion
 
         #region 初期処理
@@ -61,10 +78,11 @@ namespace CraftpiaViewSaveData
             InitializeComponent();
             EnchantComboBoxSet();
             ItemComboBoxSet();
+            SetControlArray();
         }
 
         //コンボボックス設定（エンチャント）
-        void EnchantComboBoxSet()
+        private void EnchantComboBoxSet()
         {
             List<ComboBoxItemSet> clist = new List<ComboBoxItemSet>();
 
@@ -92,7 +110,7 @@ namespace CraftpiaViewSaveData
             setCboBox(cboEnchant4_4, clist);
         }
         //コンボボックス設定（アイテム）
-        void ItemComboBoxSet()
+        private void ItemComboBoxSet()
         {
             List<ComboBoxItemSet> clist = new List<ComboBoxItemSet>();
 
@@ -107,15 +125,43 @@ namespace CraftpiaViewSaveData
             setCboBox(cboItem3, clist);
             setCboBox(cboItem4, clist);
         }
-        void setCboBox(ComboBox cbo, List<ComboBoxItemSet> source)
+        private void setCboBox(ComboBox cbo, List<ComboBoxItemSet> source)
         {
             cbo.DataSource = new List<ComboBoxItemSet>(source);
             cbo.DisplayMember = "ItemDisp";
             cbo.ValueMember = "ItemValue";
         }
+        private void SetControlArray()
+        {
+            textItemIds = new TextBox[] { textItemId1, textItemId2, textItemId3, textItemId4 };
+            textItemLevels = new TextBox[] { textItemLevel1, textItemLevel2, textItemLevel3, textItemLevel4 };
+            textEnchantIds = new TextBox[][] { new []{ textEnchantIds1_1, textEnchantIds1_2, textEnchantIds1_3, textEnchantIds1_4 },
+             new []{ textEnchantIds2_1, textEnchantIds2_2, textEnchantIds2_3, textEnchantIds2_4 },
+             new []{ textEnchantIds3_1, textEnchantIds3_2, textEnchantIds3_3, textEnchantIds3_4 },
+             new []{ textEnchantIds4_1, textEnchantIds4_2, textEnchantIds4_3, textEnchantIds4_4 }};
+            textProficients = new TextBox[] { textProficient1, textProficient2, textProficient3, textProficient4 };
+            textPetIDs = new TextBox[] { textPetID1, textPetID2, textPetID3, textPetID4 };
+            chkSaveLocks = new CheckBox[] { chkSaveLock1, chkSaveLock2, chkSaveLock3, chkSaveLock4 };
+            textBulletNums = new TextBox[] { textBulletNum1, textBulletNum2, textBulletNum3, textBulletNum4 };
+            textBulletIds = new TextBox[] { textBulletId1, textBulletId2, textBulletId3, textBulletId4 };
+            chkDataVersions = new CheckBox[] { chkDataVersion1, chkDataVersion2, chkDataVersion3, chkDataVersion4 };
+            textCounts = new TextBox[] { textCount1, textCount2, textCount3, textCount4 };
+            textAssignedHotkeySlots = new TextBox[][] { new[] { textAssignedHotkeySlot1_1, textAssignedHotkeySlot1_2, textAssignedHotkeySlot1_3 } ,
+             new[] { textAssignedHotkeySlot2_1, textAssignedHotkeySlot2_2, textAssignedHotkeySlot2_3 },
+             new[] { textAssignedHotkeySlot3_1, textAssignedHotkeySlot3_2, textAssignedHotkeySlot3_3 },
+             new[] { textAssignedHotkeySlot4_1, textAssignedHotkeySlot4_2, textAssignedHotkeySlot4_3 }};
+            textAssignedEquipSlots = new TextBox[] { textAssignedEquipSlot1, textAssignedEquipSlot2, textAssignedEquipSlot3, textAssignedEquipSlot4 };
+            cboItems = new ComboBox[] { cboItem1, cboItem2, cboItem3, cboItem4 };
+            cboEnchants = new ComboBox[][] { new ComboBox[] { cboEnchant1_1, cboEnchant1_2, cboEnchant1_3, cboEnchant1_4 },
+            new ComboBox[] { cboEnchant2_1, cboEnchant2_2, cboEnchant2_3, cboEnchant2_4 },
+            new ComboBox[] { cboEnchant3_1, cboEnchant3_2, cboEnchant3_3, cboEnchant3_4 },
+            new ComboBox[] { cboEnchant4_1, cboEnchant4_2, cboEnchant4_3, cboEnchant4_4 }};
+            itemPanels = new Panel[] { p1_1, p1_2, p1_3, p1_4, p1_5, p1_6, p1_7, p1_8, p1_9, p1_10, p1_11, p1_12, p1_13, p1_14, p1_15, p1_16, p1_17, p1_18, p1_19, p1_20,
+                p1_21, p1_22, p1_23, p1_24, p1_25, p1_26, p1_27, p1_28, p1_29, p1_30, p1_31, p1_32, p1_33, p1_34, p1_35, p1_36, p1_37, p1_38, p1_39, p1_40 };
+        }
         #endregion
 
-        #region "データ取得関係"
+        #region "セーブデータ取得関係"
         private void panel1_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
@@ -145,7 +191,6 @@ namespace CraftpiaViewSaveData
             HiddenViewString();
 #endif
         }
-        #endregion
 
         //アイテム上限数（解放も込み）を視覚的にわかるようにする
         private void setDispView()
@@ -153,46 +198,8 @@ namespace CraftpiaViewSaveData
             int page_limit = CPInventorySaveData.paramsList[selectType.ToString()].Child.Count();
             Color colOK = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             Color colNG = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            p1_1.BackColor = page_limit > 0 ? colOK : colNG;
-            p1_2.BackColor = page_limit > 1 ? colOK : colNG;
-            p1_3.BackColor = page_limit > 2 ? colOK : colNG;
-            p1_4.BackColor = page_limit > 3 ? colOK : colNG;
-            p1_5.BackColor = page_limit > 4 ? colOK : colNG;
-            p1_6.BackColor = page_limit > 5 ? colOK : colNG;
-            p1_7.BackColor = page_limit > 6 ? colOK : colNG;
-            p1_8.BackColor = page_limit > 7 ? colOK : colNG;
-            p1_9.BackColor = page_limit > 8 ? colOK : colNG;
-            p1_10.BackColor = page_limit > 9 ? colOK : colNG;
-            p1_11.BackColor = page_limit > 10 ? colOK : colNG;
-            p1_12.BackColor = page_limit > 11 ? colOK : colNG;
-            p1_13.BackColor = page_limit > 12 ? colOK : colNG;
-            p1_14.BackColor = page_limit > 13 ? colOK : colNG;
-            p1_15.BackColor = page_limit > 14 ? colOK : colNG;
-            p1_16.BackColor = page_limit > 15 ? colOK : colNG;
-            p1_17.BackColor = page_limit > 16 ? colOK : colNG;
-            p1_18.BackColor = page_limit > 17 ? colOK : colNG;
-            p1_19.BackColor = page_limit > 18 ? colOK : colNG;
-            p1_20.BackColor = page_limit > 19 ? colOK : colNG;
-            p1_21.BackColor = page_limit > 20 ? colOK : colNG;
-            p1_22.BackColor = page_limit > 21 ? colOK : colNG;
-            p1_23.BackColor = page_limit > 22 ? colOK : colNG;
-            p1_24.BackColor = page_limit > 23 ? colOK : colNG;
-            p1_25.BackColor = page_limit > 24 ? colOK : colNG;
-            p1_26.BackColor = page_limit > 25 ? colOK : colNG;
-            p1_27.BackColor = page_limit > 26 ? colOK : colNG;
-            p1_28.BackColor = page_limit > 27 ? colOK : colNG;
-            p1_29.BackColor = page_limit > 28 ? colOK : colNG;
-            p1_30.BackColor = page_limit > 29 ? colOK : colNG;
-            p1_31.BackColor = page_limit > 30 ? colOK : colNG;
-            p1_32.BackColor = page_limit > 31 ? colOK : colNG;
-            p1_33.BackColor = page_limit > 32 ? colOK : colNG;
-            p1_34.BackColor = page_limit > 33 ? colOK : colNG;
-            p1_35.BackColor = page_limit > 34 ? colOK : colNG;
-            p1_36.BackColor = page_limit > 35 ? colOK : colNG;
-            p1_37.BackColor = page_limit > 36 ? colOK : colNG;
-            p1_38.BackColor = page_limit > 37 ? colOK : colNG;
-            p1_39.BackColor = page_limit > 38 ? colOK : colNG;
-            p1_40.BackColor = page_limit > 39 ? colOK : colNG;
+            for (int i = 0; i < itemPanels.Count(); i++)
+                itemPanels[i].BackColor = page_limit > i ? colOK : colNG;
         }
 #if DEBUGX
         //画面で確認用
@@ -228,6 +235,7 @@ namespace CraftpiaViewSaveData
             }
         }
 #endif
+        #endregion
 
         #region "アイテム詳細関係"
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -238,8 +246,11 @@ namespace CraftpiaViewSaveData
                 MessageBox.Show("ペットチェストは現在設定不可です。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            //直前の内容を保存する
+            SaveItems();
             //アイテム上限数（解放も込み）を視覚的にわかるようにする
             setDispView();
+            //初期位置（左上１個目）を選択
             setItemDetailToDisp(selectType.ToString(), 0);
         }
         private void label1_Click(object sender, EventArgs e)
@@ -258,9 +269,13 @@ namespace CraftpiaViewSaveData
 
             var itemIndex = Convert.ToInt32(new string((((Panel)sender).Name).Skip(3).ToArray())) - 1;
 
+            //直前の内容を保存する
+            SaveItems();
+            //選択Noのアイテムを選択
             setItemDetailToDisp(selectType.ToString(), itemIndex);
         }
         #endregion
+
         #region "個別アイテム関係"
 
         /// <summary>
@@ -276,138 +291,56 @@ namespace CraftpiaViewSaveData
                 MessageBox.Show("セーブデータがセットされていません。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            
+
             //アイテム所持数未開放
             if (CPInventorySaveData.paramsList[categoryName].Child.Count() <= selectPanelNo)
                 return;
 
             var target = CPInventorySaveData.paramsList[categoryName].Child[selectPanelNo];
 
-            //アイテム1(左上)--------------------------------------------------------------------
+            //アイテム1(左上),アイテム2(右上),アイテム3(左下),アイテム3(左下)----------------------------------
+            for (int i = 0; i < 4; i++)
+            {
+                if (target.Child.Count() > i)
+                    SetItemDetail(i, target);
+                else
+                    SetItemDetailInit(i);
+            }
+        }
+        /// <summary>
+        /// 入れ子アイテムデータをセットする
+        /// </summary>
+        /// <param name="no">入れ子No</param>
+        void SetItemDetail(int no, CPItemInBox setData)
+        {
             //基本属性
-            textItemId1.Text = target.Child[0].item.itemId.ToString();
-            textItemLevel1.Text = target.Child[0].item.itemLevel.ToString();
-            textEnchantIds1_1.Text = target.Child[0].item.enchantIds[0].ToString();
-            textEnchantIds1_2.Text = target.Child[0].item.enchantIds[1].ToString();
-            textEnchantIds1_3.Text = target.Child[0].item.enchantIds[2].ToString();
-            textEnchantIds1_4.Text = target.Child[0].item.enchantIds[3].ToString();
-            textProficient1.Text = target.Child[0].item.proficient.ToString();
-            textPetID1.Text = target.Child[0].item.petID.ToString();
-            chkSaveLock1.Checked = target.Child[0].item.saveLock;
-            textBulletNum1.Text = target.Child[0].item.bulletNum.ToString();
-            textBulletId1.Text = target.Child[0].item.bulletId.ToString();
-            chkDataVersion1.Checked = target.Child[0].item.dataVersion == 0;
+            textItemIds[no].Text = setData.Child[no].item.itemId.ToString();
+            textItemLevels[no].Text = setData.Child[no].item.itemLevel.ToString();
+            textEnchantIds[no][0].Text = setData.Child[no].item.enchantIds[0].ToString();
+            textEnchantIds[no][1].Text = setData.Child[no].item.enchantIds[1].ToString();
+            textEnchantIds[no][2].Text = setData.Child[no].item.enchantIds[2].ToString();
+            textEnchantIds[no][3].Text = setData.Child[no].item.enchantIds[3].ToString();
+            textProficients[no].Text = setData.Child[no].item.proficient.ToString();
+            textPetIDs[no].Text = setData.Child[no].item.petID.ToString();
+            chkSaveLocks[no].Checked = setData.Child[no].item.saveLock;
+            textBulletNums[no].Text = setData.Child[no].item.bulletNum.ToString();
+            textBulletIds[no].Text = setData.Child[no].item.bulletId.ToString();
+            chkDataVersions[no].Checked = setData.Child[no].item.dataVersion == 0;
             //個数など外部属性
-            textCount1.Text = target.Child[0].count.ToString();
-            textAssignedHotkeySlot1_1.Text = target.Child[0].assignedHotkeySlot[0].ToString();
-            textAssignedHotkeySlot1_2.Text = target.Child[0].assignedHotkeySlot[1].ToString();
-            textAssignedHotkeySlot1_3.Text = target.Child[0].assignedHotkeySlot[2].ToString();
-            textAssignedEquipSlot1.Text = target.Child[0].assignedEquipSlot.ToString();
+            textCounts[no].Text = setData.Child[no].count.ToString();
+            if (setData.Child[no].assignedHotkeySlot != null)
+            {
+                textAssignedHotkeySlots[no][0].Text = setData.Child[no].assignedHotkeySlot[0].ToString();
+                textAssignedHotkeySlots[no][1].Text = setData.Child[no].assignedHotkeySlot[1].ToString();
+                textAssignedHotkeySlots[no][2].Text = setData.Child[no].assignedHotkeySlot[2].ToString();
+            }
+            textAssignedEquipSlots[no].Text = setData.Child[no].assignedEquipSlot.ToString();
             // コンボボックス連動
-            cboItem1.SelectedValue = target.Child[0].item.itemId;
-            cboEnchant1_1.SelectedValue = target.Child[0].item.enchantIds[0];
-            cboEnchant1_2.SelectedValue = target.Child[0].item.enchantIds[1];
-            cboEnchant1_3.SelectedValue = target.Child[0].item.enchantIds[2];
-            cboEnchant1_4.SelectedValue = target.Child[0].item.enchantIds[3];
-            //アイテム2(右上)--------------------------------------------------------------------
-            if (target.Child.Count() > 1)
-            {
-                //基本属性
-                textItemId2.Text = target.Child[1].item.itemId.ToString();
-                textItemLevel2.Text = target.Child[1].item.itemLevel.ToString();
-                textEnchantIds2_1.Text = target.Child[1].item.enchantIds[0].ToString();
-                textEnchantIds2_2.Text = target.Child[1].item.enchantIds[1].ToString();
-                textEnchantIds2_3.Text = target.Child[1].item.enchantIds[2].ToString();
-                textEnchantIds2_4.Text = target.Child[1].item.enchantIds[3].ToString();
-                textProficient2.Text = target.Child[1].item.proficient.ToString();
-                textPetID2.Text = target.Child[1].item.petID.ToString();
-                chkSaveLock2.Checked = target.Child[1].item.saveLock;
-                textBulletNum2.Text = target.Child[1].item.bulletNum.ToString();
-                textBulletId2.Text = target.Child[1].item.bulletId.ToString();
-                chkDataVersion2.Checked = target.Child[1].item.dataVersion == 0;
-                //個数など外部属性
-                textCount2.Text = target.Child[1].count.ToString();
-                textAssignedHotkeySlot2_1.Text = target.Child[1].assignedHotkeySlot[0].ToString();
-                textAssignedHotkeySlot2_2.Text = target.Child[1].assignedHotkeySlot[1].ToString();
-                textAssignedHotkeySlot2_3.Text = target.Child[1].assignedHotkeySlot[2].ToString();
-                textAssignedEquipSlot2.Text = target.Child[1].assignedEquipSlot.ToString();
-                // コンボボックス連動
-                cboItem2.SelectedValue = target.Child[1].item.itemId;
-                cboEnchant2_1.SelectedValue = target.Child[1].item.enchantIds[0];
-                cboEnchant2_2.SelectedValue = target.Child[1].item.enchantIds[1];
-                cboEnchant2_3.SelectedValue = target.Child[1].item.enchantIds[2];
-                cboEnchant2_4.SelectedValue = target.Child[1].item.enchantIds[3];
-            }
-            else
-            {
-                SetItemDetailInit(2);
-            }
-            //アイテム3(左下)--------------------------------------------------------------------
-            if (target.Child.Count() > 2)
-            {
-                //基本属性
-                textItemId3.Text = target.Child[2].item.itemId.ToString();
-                textItemLevel3.Text = target.Child[2].item.itemLevel.ToString();
-                textEnchantIds3_1.Text = target.Child[2].item.enchantIds[0].ToString();
-                textEnchantIds3_2.Text = target.Child[2].item.enchantIds[1].ToString();
-                textEnchantIds3_3.Text = target.Child[2].item.enchantIds[2].ToString();
-                textEnchantIds3_4.Text = target.Child[2].item.enchantIds[3].ToString();
-                textProficient3.Text = target.Child[2].item.proficient.ToString();
-                textPetID3.Text = target.Child[2].item.petID.ToString();
-                chkSaveLock3.Checked = target.Child[2].item.saveLock;
-                textBulletNum3.Text = target.Child[2].item.bulletNum.ToString();
-                textBulletId3.Text = target.Child[2].item.bulletId.ToString();
-                chkDataVersion3.Checked = target.Child[2].item.dataVersion == 0;
-                //個数など外部属性
-                textCount3.Text = target.Child[2].count.ToString();
-                textAssignedHotkeySlot3_1.Text = target.Child[2].assignedHotkeySlot[0].ToString();
-                textAssignedHotkeySlot3_2.Text = target.Child[2].assignedHotkeySlot[1].ToString();
-                textAssignedHotkeySlot3_3.Text = target.Child[2].assignedHotkeySlot[2].ToString();
-                textAssignedEquipSlot3.Text = target.Child[2].assignedEquipSlot.ToString();
-                // コンボボックス連動
-                cboItem3.SelectedValue = target.Child[2].item.itemId;
-                cboEnchant3_1.SelectedValue = target.Child[2].item.enchantIds[0];
-                cboEnchant3_2.SelectedValue = target.Child[2].item.enchantIds[1];
-                cboEnchant3_3.SelectedValue = target.Child[2].item.enchantIds[2];
-                cboEnchant3_4.SelectedValue = target.Child[2].item.enchantIds[3];
-            }
-            else
-            {
-                SetItemDetailInit(3);
-            }
-            //アイテム3(左下)--------------------------------------------------------------------
-            if (target.Child.Count() > 3)
-            {
-                //基本属性
-                textItemId4.Text = target.Child[3].item.itemId.ToString();
-                textItemLevel4.Text = target.Child[3].item.itemLevel.ToString();
-                textEnchantIds4_1.Text = target.Child[3].item.enchantIds[0].ToString();
-                textEnchantIds4_2.Text = target.Child[3].item.enchantIds[1].ToString();
-                textEnchantIds4_3.Text = target.Child[3].item.enchantIds[2].ToString();
-                textEnchantIds4_4.Text = target.Child[3].item.enchantIds[3].ToString();
-                textProficient4.Text = target.Child[3].item.proficient.ToString();
-                textPetID4.Text = target.Child[3].item.petID.ToString();
-                chkSaveLock4.Checked = target.Child[3].item.saveLock;
-                textBulletNum4.Text = target.Child[3].item.bulletNum.ToString();
-                textBulletId4.Text = target.Child[3].item.bulletId.ToString();
-                chkDataVersion3.Checked = target.Child[3].item.dataVersion == 0;
-                //個数など外部属性
-                textCount4.Text = target.Child[3].count.ToString();
-                textAssignedHotkeySlot4_1.Text = target.Child[3].assignedHotkeySlot[0].ToString();
-                textAssignedHotkeySlot4_2.Text = target.Child[3].assignedHotkeySlot[1].ToString();
-                textAssignedHotkeySlot4_3.Text = target.Child[3].assignedHotkeySlot[2].ToString();
-                textAssignedEquipSlot4.Text = target.Child[3].assignedEquipSlot.ToString();
-                // コンボボックス連動
-                cboItem4.SelectedValue = target.Child[3].item.itemId;
-                cboEnchant4_1.SelectedValue = target.Child[3].item.enchantIds[0];
-                cboEnchant4_2.SelectedValue = target.Child[3].item.enchantIds[1];
-                cboEnchant4_3.SelectedValue = target.Child[3].item.enchantIds[2];
-                cboEnchant4_4.SelectedValue = target.Child[3].item.enchantIds[3];
-            }
-            else
-            {
-                SetItemDetailInit(4);
-            }
+            cboItems[no].SelectedValue = setData.Child[no].item.itemId;
+            cboEnchants[no][0].SelectedValue = setData.Child[no].item.enchantIds[0];
+            cboEnchants[no][1].SelectedValue = setData.Child[no].item.enchantIds[1];
+            cboEnchants[no][2].SelectedValue = setData.Child[no].item.enchantIds[2];
+            cboEnchants[no][3].SelectedValue = setData.Child[no].item.enchantIds[3];
         }
 
         /// <summary>
@@ -416,90 +349,31 @@ namespace CraftpiaViewSaveData
         /// <param name="no">入れ子No(2,3,4)</param>
         void SetItemDetailInit(int no)
         {
-            if (no == 2)
-            {
-                //基本属性
-                textItemId2.Text = textItemId1.Text;
-                textItemLevel2.Text = "0";
-                textEnchantIds2_1.Text = "0";
-                textEnchantIds2_2.Text = "0";
-                textEnchantIds2_3.Text = "0";
-                textEnchantIds2_4.Text = "0";
-                textProficient2.Text = "0";
-                textPetID2.Text = "65535";
-                chkSaveLock2.Checked = chkSaveLock1.Checked;
-                textBulletNum2.Text = "0";
-                textBulletId2.Text = "0";
-                chkDataVersion2.Checked = chkDataVersion1.Checked;
-                //個数など外部属性
-                textCount2.Text = "0";
-                textAssignedHotkeySlot2_1.Text = "0";
-                textAssignedHotkeySlot2_2.Text = "0";
-                textAssignedHotkeySlot2_3.Text = "0";
-                textAssignedEquipSlot2.Text = "0";
-                // コンボボックス連動
-                cboItem2.SelectedValue = "0";
-                cboEnchant2_1.SelectedValue = "0";
-                cboEnchant2_2.SelectedValue = "0";
-                cboEnchant2_3.SelectedValue = "0";
-                cboEnchant2_4.SelectedValue = "0";
-            }
-            if (no == 3)
-            {
-                //基本属性
-                textItemId3.Text = textItemId1.Text;
-                textItemLevel3.Text = "0";
-                textEnchantIds3_1.Text = "0";
-                textEnchantIds3_2.Text = "0";
-                textEnchantIds3_3.Text = "0";
-                textEnchantIds3_4.Text = "0";
-                textProficient3.Text = "0";
-                textPetID3.Text = "65535";
-                chkSaveLock3.Checked = chkSaveLock1.Checked;
-                textBulletNum3.Text = "0";
-                textBulletId3.Text = "0";
-                chkDataVersion3.Checked = chkDataVersion1.Checked;
-                //個数など外部属性
-                textCount3.Text = "0";
-                textAssignedHotkeySlot3_1.Text = "0";
-                textAssignedHotkeySlot3_2.Text = "0";
-                textAssignedHotkeySlot3_3.Text = "0";
-                textAssignedEquipSlot3.Text = "0";
-                // コンボボックス連動
-                cboItem3.SelectedValue = "0";
-                cboEnchant3_1.SelectedValue = "0";
-                cboEnchant3_2.SelectedValue = "0";
-                cboEnchant3_3.SelectedValue = "0";
-                cboEnchant3_4.SelectedValue = "0";
-            }
-            if (no == 4)
-            {
-                //基本属性
-                textItemId4.Text = textItemId1.Text;
-                textItemLevel4.Text = "0";
-                textEnchantIds4_1.Text = "0";
-                textEnchantIds4_2.Text = "0";
-                textEnchantIds4_3.Text = "0";
-                textEnchantIds4_4.Text = "0";
-                textProficient4.Text = "0";
-                textPetID4.Text = "65535";
-                chkSaveLock4.Checked = chkSaveLock1.Checked;
-                textBulletNum4.Text = "0";
-                textBulletId4.Text = "0";
-                chkDataVersion4.Checked = chkDataVersion1.Checked;
-                //個数など外部属性
-                textCount4.Text = "0";
-                textAssignedHotkeySlot4_1.Text = "0";
-                textAssignedHotkeySlot4_2.Text = "0";
-                textAssignedHotkeySlot4_3.Text = "0";
-                textAssignedEquipSlot4.Text = "0";
-                // コンボボックス連動
-                cboItem4.SelectedValue = "0";
-                cboEnchant4_1.SelectedValue = "0";
-                cboEnchant4_2.SelectedValue = "0";
-                cboEnchant4_3.SelectedValue = "0";
-                cboEnchant4_4.SelectedValue = "0";
-            }
+            //基本属性
+            textItemIds[no].Text = textItemId1.Text;
+            textItemLevels[no].Text = "0";
+            textEnchantIds[no][0].Text = "0";
+            textEnchantIds[no][1].Text = "0";
+            textEnchantIds[no][2].Text = "0";
+            textEnchantIds[no][3].Text = "0";
+            textProficients[no].Text = "0";
+            textPetIDs[no].Text = "65535";
+            chkSaveLocks[no].Checked = chkSaveLock1.Checked;
+            textBulletNums[no].Text = "0";
+            textBulletIds[no].Text = "0";
+            chkDataVersions[no].Checked = chkDataVersion1.Checked;
+            //個数など外部属性
+            textCounts[no].Text = "0";
+            textAssignedHotkeySlots[no][0].Text = "0";
+            textAssignedHotkeySlots[no][1].Text = "0";
+            textAssignedHotkeySlots[no][2].Text = "0";
+            textAssignedEquipSlots[no].Text = "0";
+            // コンボボックス連動
+            cboItems[no].SelectedValue = "0";
+            cboEnchants[no][0].SelectedValue = "0";
+            cboEnchants[no][1].SelectedValue = "0";
+            cboEnchants[no][2].SelectedValue = "0";
+            cboEnchants[no][3].SelectedValue = "0";
         }
         #endregion
 
@@ -530,11 +404,17 @@ namespace CraftpiaViewSaveData
             {
                 //直前の内容を保存する
                 SaveItems();
-                //セーブ処理開始
+                //ファイルにセーブ処理開始
                 if (!SetItemDetailToFile())
                 {
                     MessageBox.Show("セーブに失敗しました。");
+                    return;
                 }
+
+
+
+
+                MessageBox.Show("セーブ成功");
             }
         }
 
@@ -549,50 +429,47 @@ namespace CraftpiaViewSaveData
                 return;
 
             var target = CPInventorySaveData.paramsList[selectType.ToString()].Child[selectPanelNo];
+            int no = itemPageNo;
 
-            if (itemPageNo == 1)
-            {
-                //アイテム1(左上)--------------------------------------------------------------------
-                //基本属性
-                if (int.TryParse(textItemId1.Text, out int _itemid1))
-                    target.Child[0].item.itemId = _itemid1;
-                if (int.TryParse(textItemLevel1.Text, out int _itemlevel1))
-                    target.Child[0].item.itemLevel = _itemlevel1;
+            //基本属性
+            if (int.TryParse(textItemIds[no].Text, out int _itemid1))
+                target.Child[no].item.itemId = _itemid1;
+            if (int.TryParse(textItemLevels[no].Text, out int _itemlevel1))
+                target.Child[no].item.itemLevel = _itemlevel1;
 
-                if (int.TryParse(textEnchantIds1_1.Text, out int _enchantids1_1))
-                    target.Child[0].item.enchantIds[0] = _enchantids1_1;
-                if (int.TryParse(textEnchantIds1_1.Text, out int _enchantids1_2))
-                    target.Child[0].item.enchantIds[1] = _enchantids1_1;
-                if (int.TryParse(textEnchantIds1_1.Text, out int _enchantids1_3))
-                    target.Child[0].item.enchantIds[2] = _enchantids1_1;
-                if (int.TryParse(textEnchantIds1_1.Text, out int _enchantids1_4))
-                    target.Child[0].item.enchantIds[3] = _enchantids1_1;
-                if (int.TryParse(textProficient1.Text, out int _proficient1))
-                    target.Child[0].item.proficient = _proficient1;
+            if (int.TryParse(textEnchantIds[no][0].Text, out int _enchantids1_1))
+                target.Child[no].item.enchantIds[0] = _enchantids1_1;
+            if (int.TryParse(textEnchantIds[no][1].Text, out int _enchantids1_2))
+                target.Child[no].item.enchantIds[1] = _enchantids1_2;
+            if (int.TryParse(textEnchantIds[no][2].Text, out int _enchantids1_3))
+                target.Child[no].item.enchantIds[2] = _enchantids1_3;
+            if (int.TryParse(textEnchantIds[no][3].Text, out int _enchantids1_4))
+                target.Child[no].item.enchantIds[3] = _enchantids1_4;
+            if (int.TryParse(textProficients[no].Text, out int _proficient1))
+                target.Child[no].item.proficient = _proficient1;
 
-                if (int.TryParse(textPetID1.Text, out int _petid1))
-                    target.Child[0].item.petID = _petid1;
-                target.Child[0].item.saveLock = chkSaveLock1.Checked;
-                if (int.TryParse(textBulletNum1.Text, out int _bulletnum1))
-                    target.Child[0].item.bulletNum = _bulletnum1;
-                if (int.TryParse(textBulletId1.Text, out int _bulletId))
-                    target.Child[0].item.bulletId = _proficient1;
-                target.Child[0].item.dataVersion = chkDataVersion1.Checked ? 0 : 1;
+            if (int.TryParse(textPetIDs[no].Text, out int _petid1))
+                target.Child[no].item.petID = _petid1;
+            target.Child[no].item.saveLock = chkSaveLocks[no].Checked;
+            if (int.TryParse(textBulletNums[no].Text, out int _bulletnum1))
+                target.Child[no].item.bulletNum = _bulletnum1;
+            if (int.TryParse(textBulletIds[no].Text, out int _bulletId))
+                target.Child[no].item.bulletId = _bulletId;
+            target.Child[no].item.dataVersion = chkDataVersion1.Checked ? 0 : 1;
 
-                //個数など外部属性
-                if (int.TryParse(textCount1.Text, out int _count1))
-                    target.Child[0].count = _count1;
-                if (int.TryParse(textAssignedHotkeySlot1_1.Text, out int _assignedhotkeyslot1_1))
-                    target.Child[0].assignedHotkeySlot[0] = _assignedhotkeyslot1_1;
-                if (int.TryParse(textAssignedHotkeySlot1_2.Text, out int _assignedhotkeyslot1_2))
-                    target.Child[0].assignedHotkeySlot[1] = _assignedhotkeyslot1_1;
-                if (int.TryParse(textAssignedHotkeySlot1_3.Text, out int _assignedhotkeyslot1_3))
-                    target.Child[0].assignedHotkeySlot[2] = _assignedhotkeyslot1_1;
-                if (int.TryParse(textAssignedEquipSlot1.Text, out int _assignedEquipSlot))
-                    target.Child[0].assignedEquipSlot = _assignedEquipSlot;
-            }
+            //個数など外部属性
+            if (int.TryParse(textCounts[no].Text, out int _count1))
+                target.Child[no].count = _count1;
+            if (int.TryParse(textAssignedHotkeySlots[no][0].Text, out int _assignedhotkeyslot1_1))
+                target.Child[no].assignedHotkeySlot[0] = _assignedhotkeyslot1_1;
+            if (int.TryParse(textAssignedHotkeySlots[no][1].Text, out int _assignedhotkeyslot1_2))
+                target.Child[no].assignedHotkeySlot[1] = _assignedhotkeyslot1_2;
+            if (int.TryParse(textAssignedHotkeySlots[no][2].Text, out int _assignedhotkeyslot1_3))
+                target.Child[no].assignedHotkeySlot[2] = _assignedhotkeyslot1_3;
+            if (int.TryParse(textAssignedEquipSlots[no].Text, out int _assignedEquipSlot))
+                target.Child[no].assignedEquipSlot = _assignedEquipSlot;
         }
-        
+
         /// <summary>
         /// セーブ処理
         /// </summary>
