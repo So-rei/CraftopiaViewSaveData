@@ -25,6 +25,7 @@ namespace CraftpiaViewSaveData
 {
     public partial class MainForm : Form
     {
+        #region 共通関数、クラス
         string dbPath { get; set; }
         List<ClassDb> originalData;
         CraftpiaParams convertData;
@@ -32,6 +33,10 @@ namespace CraftpiaViewSaveData
         _CPInventorySaveData CPInventorySaveData;
 
         itemListName selectType { get { return (itemListName)tabControl1.SelectedIndex; } }
+        int selectPanelNo { get; set; }
+
+        int itemPageNo { get { return tabcontrol2.SelectedIndex + 1; } }
+
         public class ComboBoxItemSet
         {
             public int ItemValue { get; set; }
@@ -44,6 +49,10 @@ namespace CraftpiaViewSaveData
                 ItemEtc = etc;
             }
         }
+        #endregion
+
+        #region 初期処理
+
         /// <summary>
         /// イニシャライズ
         /// </summary>
@@ -104,6 +113,7 @@ namespace CraftpiaViewSaveData
             cbo.DisplayMember = "ItemDisp";
             cbo.ValueMember = "ItemValue";
         }
+        #endregion
 
         #region "データ取得関係"
         private void panel1_DragEnter(object sender, DragEventArgs e)
@@ -257,9 +267,10 @@ namespace CraftpiaViewSaveData
         /// アイテムデータ　→　画面
         /// </summary>
         /// <param name="categoryName">属性名</param>
-        /// <param name="itemindex">アイテムNo（左上１行目から１，２，・・・）</param>
-        void setItemDetailToDisp(string categoryName, int itemindex)
+        /// <param name="itemIndex">アイテムNo（左上１行目から１，２，・・・）</param>
+        void setItemDetailToDisp(string categoryName, int itemIndex)
         {
+            selectPanelNo = itemIndex;
             if (CPInventorySaveData == null)
             {
                 MessageBox.Show("セーブデータがセットされていません。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -267,10 +278,10 @@ namespace CraftpiaViewSaveData
             }
             
             //アイテム所持数未開放
-            if (CPInventorySaveData.paramsList[categoryName].Child.Count() <= itemindex)
+            if (CPInventorySaveData.paramsList[categoryName].Child.Count() <= selectPanelNo)
                 return;
 
-            var target = CPInventorySaveData.paramsList[categoryName].Child[itemindex];
+            var target = CPInventorySaveData.paramsList[categoryName].Child[selectPanelNo];
 
             //アイテム1(左上)--------------------------------------------------------------------
             //基本属性
@@ -405,7 +416,7 @@ namespace CraftpiaViewSaveData
         /// <param name="no">入れ子No(2,3,4)</param>
         void SetItemDetailInit(int no)
         {
-            if (no ==2)
+            if (no == 2)
             {
                 //基本属性
                 textItemId2.Text = textItemId1.Text;
@@ -517,11 +528,68 @@ namespace CraftpiaViewSaveData
             }
             if (MessageBox.Show("セーブデータを上書きします。本当によろしいですか？", "警告", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
             {
+                //直前の内容を保存する
+                SaveItems();
                 //セーブ処理開始
                 if (!SetItemDetailToFile())
                 {
                     MessageBox.Show("セーブに失敗しました。");
                 }
+            }
+        }
+
+        private void SaveItems()
+        {
+            //未ロード
+            if (CPInventorySaveData == null)
+                return;
+
+            //アイテム所持数未開放
+            if (CPInventorySaveData.paramsList[selectType.ToString()].Child.Count() <= selectPanelNo)
+                return;
+
+            var target = CPInventorySaveData.paramsList[selectType.ToString()].Child[selectPanelNo];
+
+            if (itemPageNo == 1)
+            {
+                //アイテム1(左上)--------------------------------------------------------------------
+                //基本属性
+                if (int.TryParse(textItemId1.Text, out int _itemid1))
+                    target.Child[0].item.itemId = _itemid1;
+                if (int.TryParse(textItemLevel1.Text, out int _itemlevel1))
+                    target.Child[0].item.itemLevel = _itemlevel1;
+
+                if (int.TryParse(textEnchantIds1_1.Text, out int _enchantids1_1))
+                    target.Child[0].item.enchantIds[0] = _enchantids1_1;
+                if (int.TryParse(textEnchantIds1_1.Text, out int _enchantids1_2))
+                    target.Child[0].item.enchantIds[1] = _enchantids1_1;
+                if (int.TryParse(textEnchantIds1_1.Text, out int _enchantids1_3))
+                    target.Child[0].item.enchantIds[2] = _enchantids1_1;
+                if (int.TryParse(textEnchantIds1_1.Text, out int _enchantids1_4))
+                    target.Child[0].item.enchantIds[3] = _enchantids1_1;
+                if (int.TryParse(textProficient1.Text, out int _proficient1))
+                    target.Child[0].item.proficient = _proficient1;
+
+                if (int.TryParse(textPetID1.Text, out int _petid1))
+                    target.Child[0].item.petID = _petid1;
+                target.Child[0].item.saveLock = chkSaveLock1.Checked;
+                if (int.TryParse(textBulletNum1.Text, out int _bulletnum1))
+                    target.Child[0].item.bulletNum = _bulletnum1;
+                if (int.TryParse(textBulletId1.Text, out int _bulletId))
+                    target.Child[0].item.bulletId = _proficient1;
+                target.Child[0].item.dataVersion = chkDataVersion1.Checked ? 0 : 1;
+
+                //個数など外部属性
+                if (int.TryParse(textCount1.Text, out int _count1))
+                    target.Child[0].count = _count1;
+                if (int.TryParse(textAssignedHotkeySlot1_1.Text, out int _assignedhotkeyslot1_1))
+                    target.Child[0].assignedHotkeySlot[0] = _assignedhotkeyslot1_1;
+                if (int.TryParse(textAssignedHotkeySlot1_2.Text, out int _assignedhotkeyslot1_2))
+                    target.Child[0].assignedHotkeySlot[1] = _assignedhotkeyslot1_1;
+                if (int.TryParse(textAssignedHotkeySlot1_3.Text, out int _assignedhotkeyslot1_3))
+                    target.Child[0].assignedHotkeySlot[2] = _assignedhotkeyslot1_1;
+                if (int.TryParse(textAssignedEquipSlot1.Text, out int _assignedEquipSlot))
+                    target.Child[0].assignedEquipSlot = _assignedEquipSlot;
             }
         }
         
