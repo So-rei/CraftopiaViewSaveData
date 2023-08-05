@@ -140,7 +140,9 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(ProjectDir)\Setting\EnchantParams.txt" $(TargetDir) /Y
-xcopy "$(ProjectDir)\Setting\ItemParams.txt" $(TargetDir) /Y</PostBuildEvent>
+xcopy "$(ProjectDir)\Setting\ItemParams.txt" $(TargetDir) /Y
+
+powershell compress-archive $(TargetDir) $(SolutionDir)\CraftpiaViewSaveData1.0.zip</PostBuildEvent>
   </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
