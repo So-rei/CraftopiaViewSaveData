@@ -173,7 +173,7 @@ namespace CraftpiaViewSaveData.NestParams
                     foreach (var enchants in cc)
                     {
                         var enchant = new CPEnchant(enchants.x, Convert.ToInt32(enchants.value));
-                        ret.enchantList.Add(enchant);
+                        ret.enchantList.Child.Add(enchant);
                     }
 
                     continue;
@@ -276,7 +276,8 @@ namespace CraftpiaViewSaveData.NestParams
             sb.Append(((CPXList<CPItemInBox>)(cpTree.paramsList[itemListName.personalChestList.ToString()])).ToString() + ",");
             sb.Append(((CPXList<CPItemInBox>)(cpTree.paramsList[itemListName.petChestList.ToString()])).ToString() + ",");
 
-            int idx3 = bf.IndexOf("enchantFragmentList");
+            sb.Append(((CPXList<CPEnchant>)(cpTree.enchantList)).ToString() + "},");
+            int idx3 = bf.IndexOf("skillSaveDatas");
             sb.Append(bf.Substring(idx3 - 1));
 
             return sb.ToString();

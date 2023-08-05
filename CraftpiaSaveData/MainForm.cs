@@ -263,13 +263,13 @@ namespace CraftpiaViewSaveData
         #region エンチャ関係
         private void dgvLoadEnchant()
         {
-            int enchantCount = CPInventorySaveData.enchantList.Count();
+            int enchantCount = CPInventorySaveData.enchantList.Child.Count();
             for (int i = 0; i < enchantCount; i++)
             {
-                if (enchantComboBoxParams.TryGetValue(CPInventorySaveData.enchantList[i].id.ToString(), out string v))
-                    CPInventorySaveData.enchantList[i].enchantName = v;
+                if (enchantComboBoxParams.TryGetValue(CPInventorySaveData.enchantList.Child[i].id.ToString(), out string v))
+                    CPInventorySaveData.enchantList.Child[i].enchantName = v;
             }
-            BindingList<CPEnchant> ds = new BindingList<CPEnchant>(CPInventorySaveData.enchantList);            
+            BindingList<CPEnchant> ds = new BindingList<CPEnchant>(CPInventorySaveData.enchantList.Child);            
             dgvEnchant.DataSource = ds;
         }
 
@@ -566,16 +566,18 @@ namespace CraftpiaViewSaveData
             {
                 string jsonStr = ConvertCraftpiaParams.ConcatOtherParams(originalData[2].value, CPInventorySaveData);
 
-                ////テスト 生成データと一致するかどうかdiff確認中--
-                //string originalstr = originalData[2].value;
-                //for (int i = 30000; i < jsonStr.Count(); i++)
-                //{
-                //    if (jsonStr[i] != originalstr[i])
-                //    {
-                //        MessageBox.Show(i.ToString());
-                //        return false;
-                //    }
-                //}
+#if TEST
+                //テスト 生成データと一致するかどうかdiff確認--
+                string originalstr = originalData[2].value;
+                for (int i = 30000; i < jsonStr.Count(); i += 100)
+                {
+                    if (jsonStr.Substring(i, Math.Min(jsonStr.Count() - i, 100)) != originalstr.Substring(i, Math.Min(jsonStr.Count() - i, 100)))
+                    {
+                        MessageBox.Show(i.ToString());
+                        return false;
+                    }
+                }
+#endif
 
                 originalData[2].value = jsonStr;
                 if (!CrudDb.Update(dbPath, originalData))
@@ -589,6 +591,6 @@ namespace CraftpiaViewSaveData
                 return false;
             }
         }
-        #endregion
+#endregion
     }
 }

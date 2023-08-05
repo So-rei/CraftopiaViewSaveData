@@ -8,22 +8,27 @@ namespace CraftpiaViewSaveData.CPTree
 {
     public class CPXList<T> where T : class
     {
-        public List<T> Child { get; set; } = new List<T>();
+        public virtual List<T> Child { get; set; } = new List<T>();     //中身入れ子<T>        
+        public string ListName { get; set; }                    //json内部名
+        public bool isArray { get; set; }                       //配列かどうか
 
-        public string ListName { get; set; }
-
-        public CPXList(string _listname = "") 
+        public CPXList(string _listname = "", bool _isArray = false) 
         {
             ListName = _listname;
+            isArray = _isArray;
         }
 
-        public override string ToString()
-        {
-            string ret = "\""+ ListName + "\":[";
-            foreach (T item in Child)
-                ret += "{" + item.ToString() + "},";
+        public override string ToString() => ToStr();
 
-            return ret.TrimEnd(',') + "]";
+        public virtual string ToStr()
+        {
+            string ret = "\"" + ListName + "\":[";
+            if (isArray)
+                ret += string.Join(",", Child.Select(p => p.ToString()).ToArray());
+            else
+                ret += string.Join(",", Child.Select(p => "{" + p.ToString() + "}").ToArray());
+
+            return ret + "]";
         }
     }
 }

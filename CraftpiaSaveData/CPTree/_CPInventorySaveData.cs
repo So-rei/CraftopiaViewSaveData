@@ -11,7 +11,7 @@ namespace CraftpiaViewSaveData.CPTree
         /// CPXList -> ItemInBox -> ItemInBoxValue -> Item
         public Dictionary<string, CPXList<CPItemInBox>> paramsList;
         /// CPXList -> "enchantFragmentList"
-        public List<CPEnchant> enchantList;
+        public CPXList<CPEnchant> enchantList;
 
         /// <summary>
         /// コンストラクタ
@@ -23,7 +23,7 @@ namespace CraftpiaViewSaveData.CPTree
             {
                 paramsList.Add(s, new CPXList<CPItemInBox>(s));
             }
-            enchantList = new List<CPEnchant>();
+            enchantList = new CPXList<CPEnchant>(CommonConst.enchantFragmentList, true);
         }
 
         /// <summary>

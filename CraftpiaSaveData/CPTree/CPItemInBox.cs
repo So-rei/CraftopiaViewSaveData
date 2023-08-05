@@ -11,7 +11,7 @@ namespace CraftpiaViewSaveData.CPTree
     /// </summary>
     public class CPItemInBox : CPXList<CPItemInBoxValue>
     {
-        public List<CPItemInBoxValue> Child { get; set; } = new List<CPItemInBoxValue>();
+        public override List<CPItemInBoxValue> Child { get; set; } = new List<CPItemInBoxValue>();
         //public string ListName { get; private set; }
 
         public CPItemInBox()
@@ -19,6 +19,6 @@ namespace CraftpiaViewSaveData.CPTree
             ListName = "itemInBox";
         }
 
-        //public override string ToString()
+        public override string ToString() => base.ToStr();
     }
 }
