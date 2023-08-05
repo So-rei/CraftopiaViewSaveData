@@ -35,7 +35,7 @@ namespace CraftpiaViewSaveData
         _CPInventorySaveData CPInventorySaveData;
 
         //コンボボックスの値（初回ロード時設定）
-        Dictionary<string, string> enchantComboBoxParams;
+        Dictionary<string, ClsResource> enchantComboBoxParams;
 
         /// <summary>
         /// 今開いているアイテム種類タブ
@@ -92,7 +92,7 @@ namespace CraftpiaViewSaveData
         public MainForm()
         {
             isLoading = true;
-            
+
             InitializeComponent();
             EnchantComboBoxSet();
             ItemComboBoxSet();
@@ -109,7 +109,7 @@ namespace CraftpiaViewSaveData
             enchantComboBoxParams = GetResourceFile.GetFile("EnchantParams.txt");
             foreach (var d in enchantComboBoxParams)
             {
-                clist.Add(new ComboBoxItemSet(d.Key, d.Value));
+                clist.Add(new ComboBoxItemSet(d.Key, d.Value.value, d.Value.param));
             }
 
             setCboBox(cboEnchant1_1, clist);
@@ -137,7 +137,7 @@ namespace CraftpiaViewSaveData
             var itemParams = GetResourceFile.GetFile("ItemParams.txt");
             foreach (var d in itemParams)
             {
-                clist.Add(new ComboBoxItemSet(d.Key, d.Value));
+                clist.Add(new ComboBoxItemSet(d.Key, d.Value.value, d.Value.param));
             }
 
             setCboBox(cboItem1, clist);
@@ -266,10 +266,13 @@ namespace CraftpiaViewSaveData
             int enchantCount = CPInventorySaveData.enchantList.Child.Count();
             for (int i = 0; i < enchantCount; i++)
             {
-                if (enchantComboBoxParams.TryGetValue(CPInventorySaveData.enchantList.Child[i].id.ToString(), out string v))
-                    CPInventorySaveData.enchantList.Child[i].enchantName = v;
+                if (enchantComboBoxParams.TryGetValue(CPInventorySaveData.enchantList.Child[i].id.ToString(), out ClsResource v))
+                {
+                    CPInventorySaveData.enchantList.Child[i].enchantName = v.value;
+                    CPInventorySaveData.enchantList.Child[i].enchantEffect = v.param;
+                }
             }
-            BindingList<CPEnchant> ds = new BindingList<CPEnchant>(CPInventorySaveData.enchantList.Child);            
+            BindingList<CPEnchant> ds = new BindingList<CPEnchant>(CPInventorySaveData.enchantList.Child);
             dgvEnchant.DataSource = ds;
         }
 
@@ -434,7 +437,7 @@ namespace CraftpiaViewSaveData
             if (isLoading) return;
 
             int no = itemPageNo;
-            if (cboItems[no].SelectedValue != null) 
+            if (cboItems[no].SelectedValue != null)
                 textItemIds[no].Text = cboItems[no].SelectedValue.ToString();
         }
         /// <summary>
@@ -448,7 +451,7 @@ namespace CraftpiaViewSaveData
 
             int no = itemPageNo;
             var enchantNo = Convert.ToInt32(new string((((ComboBox)sender).Name).Skip("cboEnchant*_".Length).ToArray())) - 1;
-            if (cboEnchants[no][enchantNo].SelectedValue != null) 
+            if (cboEnchants[no][enchantNo].SelectedValue != null)
                 textEnchantIds[no][enchantNo].Text = cboEnchants[no][enchantNo].SelectedValue.ToString();
         }
         #endregion
@@ -465,7 +468,7 @@ namespace CraftpiaViewSaveData
             if (MessageBox.Show("本当にリセットしますか？(画面状態を最後にドラッグした時の状態に戻します)", "警告", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
             {
                 //リセット
-                CPInventorySaveData = CPInventorySaveDataBackUp;
+                CPInventorySaveData = ConvertCraftpiaParams.CraftpiaParamsToCPTree(convertData);
             }
         }
 
@@ -591,6 +594,6 @@ namespace CraftpiaViewSaveData
                 return false;
             }
         }
-#endregion
+        #endregion
     }
 }

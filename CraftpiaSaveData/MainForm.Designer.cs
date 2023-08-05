@@ -80,7 +80,6 @@
             this.p1_3 = new System.Windows.Forms.Panel();
             this.p1_9 = new System.Windows.Forms.Panel();
             this.p1_2 = new System.Windows.Forms.Panel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -288,7 +287,9 @@
             this.dgvEnchant = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enchantName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enchantEffect = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.p1_1.SuspendLayout();
@@ -765,10 +766,6 @@
             this.p1_2.TabIndex = 4;
             this.p1_2.Click += new System.EventHandler(this.panel_ItemNo_Click);
             // 
-            // toolTip1
-            // 
-            this.toolTip1.ToolTipTitle = "PPsave\\Player\\****.dbとなっているファイルです";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -860,6 +857,7 @@
             this.textItemLevel1.Name = "textItemLevel1";
             this.textItemLevel1.Size = new System.Drawing.Size(58, 19);
             this.textItemLevel1.TabIndex = 22;
+            this.toolTip1.SetToolTip(this.textItemLevel1, "装備の場合0～255? 捕獲Lvの場合1～255");
             // 
             // label9
             // 
@@ -973,6 +971,7 @@
             this.chkDataVersion1.Size = new System.Drawing.Size(48, 16);
             this.chkDataVersion1.TabIndex = 35;
             this.chkDataVersion1.Text = "遺産";
+            this.toolTip1.SetToolTip(this.chkDataVersion1, "レガシーからの持ち込みアイテムの場合チェック有");
             this.chkDataVersion1.UseVisualStyleBackColor = true;
             // 
             // lblProficient
@@ -1023,6 +1022,7 @@
             this.chkSaveLock1.Size = new System.Drawing.Size(94, 16);
             this.chkSaveLock1.TabIndex = 42;
             this.chkSaveLock1.Text = "鍵付きアイテム";
+            this.toolTip1.SetToolTip(this.chkSaveLock1, "大切なアイテムロックをかけているばあいチェック有");
             this.chkSaveLock1.UseVisualStyleBackColor = true;
             // 
             // label15
@@ -1130,6 +1130,7 @@
             this.textAssignedEquipSlot1.Name = "textAssignedEquipSlot1";
             this.textAssignedEquipSlot1.Size = new System.Drawing.Size(26, 19);
             this.textAssignedEquipSlot1.TabIndex = 55;
+            this.toolTip1.SetToolTip(this.textAssignedEquipSlot1, "装備位置。8箇所あるので1~8のはず");
             // 
             // label19
             // 
@@ -1191,6 +1192,7 @@
             this.textCount1.Name = "textCount1";
             this.textCount1.Size = new System.Drawing.Size(58, 19);
             this.textCount1.TabIndex = 48;
+            this.toolTip1.SetToolTip(this.textCount1, "個数。1～100。0だと存在しないデータとして扱われます。\r\n");
             // 
             // tabControl1
             // 
@@ -1207,6 +1209,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(645, 240);
             this.tabControl1.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.tabControl1, "インベントリの各種カテゴリ");
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
@@ -1513,7 +1516,7 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(547, 487);
+            this.tabPage9.Size = new System.Drawing.Size(498, 487);
             this.tabPage9.TabIndex = 0;
             this.tabPage9.Text = "アイテム1(左上)";
             // 
@@ -1962,7 +1965,7 @@
             this.tabPage11.Controls.Add(this.panel12);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(547, 487);
+            this.tabPage11.Size = new System.Drawing.Size(498, 487);
             this.tabPage11.TabIndex = 2;
             this.tabPage11.Text = "アイテム3(左下)";
             // 
@@ -2837,7 +2840,7 @@
             this.buttonSave.BackColor = System.Drawing.Color.Yellow;
             this.buttonSave.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonSave.ForeColor = System.Drawing.Color.Red;
-            this.buttonSave.Location = new System.Drawing.Point(1313, 550);
+            this.buttonSave.Location = new System.Drawing.Point(1436, 552);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(140, 45);
             this.buttonSave.TabIndex = 22;
@@ -2850,7 +2853,7 @@
             this.buttonReset.BackColor = System.Drawing.SystemColors.Control;
             this.buttonReset.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonReset.ForeColor = System.Drawing.Color.Black;
-            this.buttonReset.Location = new System.Drawing.Point(951, 551);
+            this.buttonReset.Location = new System.Drawing.Point(1254, 553);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(140, 45);
             this.buttonReset.TabIndex = 23;
@@ -2877,37 +2880,54 @@
             this.dgvEnchant.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.enchantName,
+            this.enchantEffect,
             this.value});
             this.dgvEnchant.Location = new System.Drawing.Point(1175, 58);
             this.dgvEnchant.Name = "dgvEnchant";
             this.dgvEnchant.RowHeadersVisible = false;
             this.dgvEnchant.RowTemplate.Height = 21;
-            this.dgvEnchant.Size = new System.Drawing.Size(278, 488);
+            this.dgvEnchant.Size = new System.Drawing.Size(401, 488);
             this.dgvEnchant.TabIndex = 25;
             // 
             // ID
             // 
             this.ID.DataPropertyName = "id";
+            this.ID.FillWeight = 34.04482F;
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // enchantName
             // 
             this.enchantName.DataPropertyName = "enchantName";
+            this.enchantName.FillWeight = 148.3073F;
             this.enchantName.HeaderText = "エンチャ名";
             this.enchantName.Name = "enchantName";
+            this.enchantName.ReadOnly = true;
+            this.enchantName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // enchantEffect
+            // 
+            this.enchantEffect.DataPropertyName = "enchantEffect";
+            this.enchantEffect.HeaderText = "エンチャント効果";
+            this.enchantEffect.Name = "enchantEffect";
+            this.enchantEffect.ReadOnly = true;
+            this.enchantEffect.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // value
             // 
             this.value.DataPropertyName = "value";
+            this.value.FillWeight = 35.36526F;
             this.value.HeaderText = "個数";
             this.value.Name = "value";
+            this.value.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1460, 608);
+            this.ClientSize = new System.Drawing.Size(1588, 608);
             this.Controls.Add(this.dgvEnchant);
             this.Controls.Add(this.label74);
             this.Controls.Add(this.buttonReset);
@@ -2991,7 +3011,6 @@
         private System.Windows.Forms.Panel p1_28;
         private System.Windows.Forms.Panel p1_29;
         private System.Windows.Forms.Panel p1_30;
-        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.DataGridViewTextBoxColumn 属性名;
         private System.Windows.Forms.DataGridViewTextBoxColumn 項目名;
         private System.Windows.Forms.DataGridViewTextBoxColumn 項目名all;
@@ -3215,7 +3234,9 @@
         private System.Windows.Forms.DataGridView dgvEnchant;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn enchantName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn enchantEffect;
         private System.Windows.Forms.DataGridViewTextBoxColumn value;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

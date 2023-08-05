@@ -34,7 +34,7 @@ namespace CraftpiaViewSaveData.CPTree
             paramsList = new Dictionary<string, CPXList<CPItemInBox>>();
             foreach (var d in sc.paramsList)
             {
-                paramsList.Add(d.Key, (CPXList<CPItemInBox>)(d.Value));
+                paramsList.Add(d.Key, d.Value);
             }
             enchantList = sc.enchantList;
         }

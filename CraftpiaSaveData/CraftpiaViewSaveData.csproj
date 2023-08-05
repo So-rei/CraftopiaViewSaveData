@@ -87,6 +87,7 @@
     <Compile Include="CPTree\CPItemInBox.cs" />
     <Compile Include="CPTree\CPEnchant.cs" />
     <Compile Include="CPTree\_CPInventorySaveData.cs" />
+    <Compile Include="Files\ClsResource.cs" />
     <Compile Include="Files\GetResourceFile.cs" />
     <Compile Include="CPTree\CPItem.cs" />
     <Compile Include="CPTree\CPXList.cs" />

@@ -172,7 +172,7 @@ namespace CraftpiaViewSaveData.NestParams
                 {
                     foreach (var enchants in cc)
                     {
-                        var enchant = new CPEnchant(enchants.x, Convert.ToInt32(enchants.value));
+                        var enchant = new CPEnchant(enchants.x - 1, Convert.ToInt32(enchants.value)); //indexは0番始まり
                         ret.enchantList.Child.Add(enchant);
                     }
 

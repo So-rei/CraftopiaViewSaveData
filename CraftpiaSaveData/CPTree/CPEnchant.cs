@@ -15,12 +15,15 @@ namespace CraftpiaViewSaveData.CPTree
         public int value { get; set; }
         [DisplayName("エンチャント名")]
         public string enchantName { get; set; }
+        [DisplayName("エンチャント効果")]
+        public string enchantEffect { get; set; }
 
         public CPEnchant(int _id, int _value)
         {
             id = _id;
             value = _value;
             enchantName = "";
+            enchantEffect = "";
         }
 
         public override string ToString()
