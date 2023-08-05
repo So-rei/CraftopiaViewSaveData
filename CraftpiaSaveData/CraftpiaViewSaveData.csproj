@@ -84,12 +84,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CPTree\CPItemInBox.cs" />
+    <Compile Include="CPTree\CPEnchant.cs" />
     <Compile Include="CPTree\_CPInventorySaveData.cs" />
     <Compile Include="Files\GetResourceFile.cs" />
     <Compile Include="CPTree\CPItem.cs" />
     <Compile Include="CPTree\CPXList.cs" />
     <Compile Include="CPTree\CPItemInBoxValue.cs" />
-    <Compile Include="CPTree\CPItemInBox.cs" />
     <Compile Include="NestParams\ConvertCraftpiaParams.cs" />
     <Compile Include="Db\CrudDb.cs" />
     <Compile Include="Db\ClassDb.cs" />

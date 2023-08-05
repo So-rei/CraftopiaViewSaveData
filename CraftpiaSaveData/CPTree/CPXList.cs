@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace CraftpiaViewSaveData.CPTree
 {
-    public class CPXList
+    public class CPXList<T> where T : class
     {
-        public List<CPItemInBox> Child { get; set; } = new List<CPItemInBox>();
+        public List<T> Child { get; set; } = new List<T>();
 
-        public string ListName { get; private set; }
+        public string ListName { get; set; }
 
-        public CPXList(string _listname)
+        public CPXList(string _listname = "") 
         {
             ListName = _listname;
         }
@@ -20,13 +20,10 @@ namespace CraftpiaViewSaveData.CPTree
         public override string ToString()
         {
             string ret = "\""+ ListName + "\":[";
-            foreach (CPItemInBox item in Child)
-            {
+            foreach (T item in Child)
                 ret += "{" + item.ToString() + "},";
-            }
-            ret = ret.TrimEnd(',') + "]";
 
-            return ret;
+            return ret.TrimEnd(',') + "]";
         }
     }
 }

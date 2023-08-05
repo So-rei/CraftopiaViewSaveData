@@ -20,21 +20,34 @@ using CraftpiaViewSaveData.File;
 using CraftpiaViewSaveData.CPTree;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 
 namespace CraftpiaViewSaveData
 {
     public partial class MainForm : Form
     {
         #region 共通関数、クラス
+        //開いているセーブデータの値を保持する
         string dbPath { get; set; }
         List<ClassDb> originalData;
         CraftpiaParams convertData;
         _CPInventorySaveData CPInventorySaveDataBackUp;
         _CPInventorySaveData CPInventorySaveData;
 
-        itemListName bfSelectType { get; set; }
-        int selectPanelNo { get; set; }
+        //コンボボックスの値（初回ロード時設定）
+        Dictionary<string, string> enchantComboBoxParams;
 
+        /// <summary>
+        /// 今開いているアイテム種類タブ
+        /// </summary>
+        itemListName bfSelectType { get; set; }
+        /// <summary>
+        /// 今開いているパネルNo
+        /// </summary>
+        int selectPanelNo { get; set; }
+        /// <summary>
+        /// 今開いているページタブNo
+        /// </summary>
         int itemPageNo { get { return tabcontrol2.SelectedIndex; } }
 
         //面倒なのでコントロール配列にする
@@ -93,8 +106,8 @@ namespace CraftpiaViewSaveData
         {
             List<ComboBoxItemSet> clist = new List<ComboBoxItemSet>();
 
-            var enchantParams = GetResourceFile.GetFile("EnchantParams.txt");
-            foreach (var d in enchantParams)
+            enchantComboBoxParams = GetResourceFile.GetFile("EnchantParams.txt");
+            foreach (var d in enchantComboBoxParams)
             {
                 clist.Add(new ComboBoxItemSet(d.Key, d.Value));
             }
@@ -194,6 +207,9 @@ namespace CraftpiaViewSaveData
             setDispView();
             //1ページ1番目をロード
             setItemDetailToDisp(bfSelectType.ToString(), 0);
+
+            //エンチャントロード
+            dgvLoadEnchant();
 #if DEBUGX
             HiddenViewString();
 #endif
@@ -242,6 +258,21 @@ namespace CraftpiaViewSaveData
             }
         }
 #endif
+        #endregion
+
+        #region エンチャ関係
+        private void dgvLoadEnchant()
+        {
+            int enchantCount = CPInventorySaveData.enchantList.Count();
+            for (int i = 0; i < enchantCount; i++)
+            {
+                if (enchantComboBoxParams.TryGetValue(CPInventorySaveData.enchantList[i].id.ToString(), out string v))
+                    CPInventorySaveData.enchantList[i].enchantName = v;
+            }
+            BindingList<CPEnchant> ds = new BindingList<CPEnchant>(CPInventorySaveData.enchantList);            
+            dgvEnchant.DataSource = ds;
+        }
+
         #endregion
 
         #region "アイテム詳細関係"
@@ -485,7 +516,7 @@ namespace CraftpiaViewSaveData
 
             //基本属性
             if (int.TryParse(textItemIds[no].Text, out int _itemid1))
-                target.Child[no].item.itemId = _itemid1;
+                ((CPItemInBoxValue)target.Child[no]).item.itemId = _itemid1;
             if (int.TryParse(textItemLevels[no].Text, out int _itemlevel1))
                 target.Child[no].item.itemLevel = _itemlevel1;
 

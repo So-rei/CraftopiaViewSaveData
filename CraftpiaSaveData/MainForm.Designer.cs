@@ -284,6 +284,11 @@
             this.label37 = new System.Windows.Forms.Label();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonReset = new System.Windows.Forms.Button();
+            this.label74 = new System.Windows.Forms.Label();
+            this.dgvEnchant = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enchantName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.p1_1.SuspendLayout();
@@ -307,6 +312,7 @@
             this.panel12.SuspendLayout();
             this.tabPage12.SuspendLayout();
             this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEnchant)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -962,7 +968,7 @@
             // chkDataVersion1
             // 
             this.chkDataVersion1.AutoSize = true;
-            this.chkDataVersion1.Location = new System.Drawing.Point(367, 3);
+            this.chkDataVersion1.Location = new System.Drawing.Point(357, 3);
             this.chkDataVersion1.Name = "chkDataVersion1";
             this.chkDataVersion1.Size = new System.Drawing.Size(48, 16);
             this.chkDataVersion1.TabIndex = 35;
@@ -1012,7 +1018,7 @@
             // chkSaveLock1
             // 
             this.chkSaveLock1.AutoSize = true;
-            this.chkSaveLock1.Location = new System.Drawing.Point(367, 32);
+            this.chkSaveLock1.Location = new System.Drawing.Point(357, 32);
             this.chkSaveLock1.Name = "chkSaveLock1";
             this.chkSaveLock1.Size = new System.Drawing.Size(94, 16);
             this.chkSaveLock1.TabIndex = 42;
@@ -1497,7 +1503,7 @@
             this.tabcontrol2.Location = new System.Drawing.Point(667, 36);
             this.tabcontrol2.Name = "tabcontrol2";
             this.tabcontrol2.SelectedIndex = 0;
-            this.tabcontrol2.Size = new System.Drawing.Size(555, 513);
+            this.tabcontrol2.Size = new System.Drawing.Size(506, 513);
             this.tabcontrol2.TabIndex = 21;
             // 
             // tabPage9
@@ -1518,7 +1524,7 @@
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(547, 487);
+            this.tabPage10.Size = new System.Drawing.Size(498, 487);
             this.tabPage10.TabIndex = 1;
             this.tabPage10.Text = "アイテム2(右上)";
             // 
@@ -1693,7 +1699,7 @@
             // chkSaveLock2
             // 
             this.chkSaveLock2.AutoSize = true;
-            this.chkSaveLock2.Location = new System.Drawing.Point(367, 32);
+            this.chkSaveLock2.Location = new System.Drawing.Point(357, 32);
             this.chkSaveLock2.Name = "chkSaveLock2";
             this.chkSaveLock2.Size = new System.Drawing.Size(94, 16);
             this.chkSaveLock2.TabIndex = 42;
@@ -1744,7 +1750,7 @@
             // 
             this.chkDataVersion2.AutoSize = true;
             this.chkDataVersion2.Enabled = false;
-            this.chkDataVersion2.Location = new System.Drawing.Point(367, 3);
+            this.chkDataVersion2.Location = new System.Drawing.Point(357, 3);
             this.chkDataVersion2.Name = "chkDataVersion2";
             this.chkDataVersion2.Size = new System.Drawing.Size(48, 16);
             this.chkDataVersion2.TabIndex = 35;
@@ -2131,7 +2137,7 @@
             // chkSaveLock3
             // 
             this.chkSaveLock3.AutoSize = true;
-            this.chkSaveLock3.Location = new System.Drawing.Point(367, 32);
+            this.chkSaveLock3.Location = new System.Drawing.Point(357, 32);
             this.chkSaveLock3.Name = "chkSaveLock3";
             this.chkSaveLock3.Size = new System.Drawing.Size(94, 16);
             this.chkSaveLock3.TabIndex = 42;
@@ -2182,7 +2188,7 @@
             // 
             this.chkDataVersion3.AutoSize = true;
             this.chkDataVersion3.Enabled = false;
-            this.chkDataVersion3.Location = new System.Drawing.Point(367, 3);
+            this.chkDataVersion3.Location = new System.Drawing.Point(357, 3);
             this.chkDataVersion3.Name = "chkDataVersion3";
             this.chkDataVersion3.Size = new System.Drawing.Size(48, 16);
             this.chkDataVersion3.TabIndex = 35;
@@ -2394,7 +2400,7 @@
             this.tabPage12.Controls.Add(this.panel11);
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Size = new System.Drawing.Size(547, 487);
+            this.tabPage12.Size = new System.Drawing.Size(498, 487);
             this.tabPage12.TabIndex = 3;
             this.tabPage12.Text = "アイテム4(右下)";
             // 
@@ -2569,7 +2575,7 @@
             // chkSaveLock4
             // 
             this.chkSaveLock4.AutoSize = true;
-            this.chkSaveLock4.Location = new System.Drawing.Point(367, 32);
+            this.chkSaveLock4.Location = new System.Drawing.Point(357, 32);
             this.chkSaveLock4.Name = "chkSaveLock4";
             this.chkSaveLock4.Size = new System.Drawing.Size(94, 16);
             this.chkSaveLock4.TabIndex = 42;
@@ -2620,7 +2626,7 @@
             // 
             this.chkDataVersion4.AutoSize = true;
             this.chkDataVersion4.Enabled = false;
-            this.chkDataVersion4.Location = new System.Drawing.Point(367, 3);
+            this.chkDataVersion4.Location = new System.Drawing.Point(357, 3);
             this.chkDataVersion4.Name = "chkDataVersion4";
             this.chkDataVersion4.Size = new System.Drawing.Size(48, 16);
             this.chkDataVersion4.TabIndex = 35;
@@ -2831,7 +2837,7 @@
             this.buttonSave.BackColor = System.Drawing.Color.Yellow;
             this.buttonSave.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonSave.ForeColor = System.Drawing.Color.Red;
-            this.buttonSave.Location = new System.Drawing.Point(1078, 551);
+            this.buttonSave.Location = new System.Drawing.Point(1313, 550);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(140, 45);
             this.buttonSave.TabIndex = 22;
@@ -2844,7 +2850,7 @@
             this.buttonReset.BackColor = System.Drawing.SystemColors.Control;
             this.buttonReset.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonReset.ForeColor = System.Drawing.Color.Black;
-            this.buttonReset.Location = new System.Drawing.Point(671, 551);
+            this.buttonReset.Location = new System.Drawing.Point(951, 551);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(140, 45);
             this.buttonReset.TabIndex = 23;
@@ -2852,11 +2858,58 @@
             this.buttonReset.UseVisualStyleBackColor = false;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label74.Location = new System.Drawing.Point(1167, 12);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(109, 21);
+            this.label74.TabIndex = 24;
+            this.label74.Text = "エンチャント";
+            // 
+            // dgvEnchant
+            // 
+            this.dgvEnchant.AllowUserToAddRows = false;
+            this.dgvEnchant.AllowUserToDeleteRows = false;
+            this.dgvEnchant.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvEnchant.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEnchant.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.enchantName,
+            this.value});
+            this.dgvEnchant.Location = new System.Drawing.Point(1175, 58);
+            this.dgvEnchant.Name = "dgvEnchant";
+            this.dgvEnchant.RowHeadersVisible = false;
+            this.dgvEnchant.RowTemplate.Height = 21;
+            this.dgvEnchant.Size = new System.Drawing.Size(278, 488);
+            this.dgvEnchant.TabIndex = 25;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "id";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            // 
+            // enchantName
+            // 
+            this.enchantName.DataPropertyName = "enchantName";
+            this.enchantName.HeaderText = "エンチャ名";
+            this.enchantName.Name = "enchantName";
+            // 
+            // value
+            // 
+            this.value.DataPropertyName = "value";
+            this.value.HeaderText = "個数";
+            this.value.Name = "value";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1222, 608);
+            this.ClientSize = new System.Drawing.Size(1460, 608);
+            this.Controls.Add(this.dgvEnchant);
+            this.Controls.Add(this.label74);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.tabcontrol2);
@@ -2895,6 +2948,7 @@
             this.tabPage12.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEnchant)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3157,6 +3211,11 @@
         private System.Windows.Forms.Panel p1_31;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.DataGridView dgvEnchant;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn enchantName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn value;
     }
 }
 

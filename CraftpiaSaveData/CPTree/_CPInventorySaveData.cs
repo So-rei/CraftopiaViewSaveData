@@ -8,29 +8,35 @@ namespace CraftpiaViewSaveData.CPTree
 {
     public class _CPInventorySaveData
     {
-        public Dictionary<string, CPXList> paramsList;
+        /// CPXList -> ItemInBox -> ItemInBoxValue -> Item
+        public Dictionary<string, CPXList<CPItemInBox>> paramsList;
+        /// CPXList -> "enchantFragmentList"
+        public List<CPEnchant> enchantList;
 
         /// <summary>
         /// コンストラクタ
         /// </summary>
         public _CPInventorySaveData()
         {
-            paramsList = new Dictionary<string, CPXList>();
+            paramsList = new Dictionary<string, CPXList<CPItemInBox>>();
             foreach (string s in Enum.GetNames(typeof(CommonConst.itemListName)))
             {
-                paramsList.Add(s, new CPXList(s));
+                paramsList.Add(s, new CPXList<CPItemInBox>(s));
             }
+            enchantList = new List<CPEnchant>();
         }
+
         /// <summary>
         /// コピー用コンストラクタ
         /// </summary>
         public _CPInventorySaveData(_CPInventorySaveData sc)
         {
-            paramsList = new Dictionary<string, CPXList>();
+            paramsList = new Dictionary<string, CPXList<CPItemInBox>>();
             foreach (var d in sc.paramsList)
             {
-                paramsList.Add(d.Key, (CPXList)(d.Value));
+                paramsList.Add(d.Key, (CPXList<CPItemInBox>)(d.Value));
             }
+            enchantList = sc.enchantList;
         }
 
         public override string ToString()

@@ -164,9 +164,24 @@ namespace CraftpiaViewSaveData.NestParams
             var ret = new _CPInventorySaveData();
             foreach (var child in inventoryparams.innerParams)
             {
+                //情報がある場合、情報をクラスにセットしていく...
+                if (!child.TryGetChildParams(out var cc)) continue;
+
+                //エンチャント型
+                if (child.name == CommonConst.enchantFragmentList)
+                {
+                    foreach (var enchants in cc)
+                    {
+                        var enchant = new CPEnchant(enchants.x, Convert.ToInt32(enchants.value));
+                        ret.enchantList.Add(enchant);
+                    }
+
+                    continue;
+                }
+
+                //アイテム型
                 //表示したい●●List以外は飛ばす
                 if (!ret.paramsList.TryGetValue(child.name, out var cpx)) continue;
-                if (!child.TryGetChildParams(out var cc)) continue;
 
                 foreach (var items in cc)
                 {
@@ -234,16 +249,6 @@ namespace CraftpiaViewSaveData.NestParams
         }
 
         /// <summary>
-        /// 変更したデータをJson形式Stringに変更する
-        /// </summary>
-        /// <param name="cpTree">変更した_CPInventorySaveData</param>
-        /// <returns>Json形式String</returns>
-        public static string CPTreeToJsonStr(_CPInventorySaveData cpTree)
-        {
-            return cpTree.ToString();
-        }
-
-        /// <summary>
         /// importantListとpersonalChestListの間にunlockedPet,quickSlotSkill
         /// personalChestListの後にenchantFragmentList、skillSaveDatas、missionSaveDatas、mainMissionCleared、questSaveDatas、missionCategoryTookDatas、statisticalSaveDatas
         /// petSaveDatas,recipeUnlocked,licenseUnlocked,totalPlayTime,creativeTutorial,soulOrbPicked,soulOrbExchangeCount,equipMysetSaveDatas,lookMysetSaveDatas,skillMysetSaveDatas,mapFogDraw,visualTutorialSaveData,timelineSaveData
@@ -256,20 +261,20 @@ namespace CraftpiaViewSaveData.NestParams
             StringBuilder sb = new StringBuilder();
             sb.Append("{\"" + CommonConst.inventorySaveData + "\":{");
 
-            sb.Append(((CPXList)(cpTree.paramsList[itemListName.equipmentList.ToString()])).ToString() + ",");
-            sb.Append(((CPXList)(cpTree.paramsList[itemListName.buildingList.ToString()])).ToString() + ",");
-            sb.Append(((CPXList)(cpTree.paramsList[itemListName.consumptionList.ToString()])).ToString() + ",");
-            sb.Append(((CPXList)(cpTree.paramsList[itemListName.materialList.ToString()])).ToString() + ",");
-            sb.Append(((CPXList)(cpTree.paramsList[itemListName.petList.ToString()])).ToString() + ",");
-            sb.Append(((CPXList)(cpTree.paramsList[itemListName.importantList.ToString()])).ToString() + ",");
+            sb.Append(((CPXList<CPItemInBox>)(cpTree.paramsList[itemListName.equipmentList.ToString()])).ToString() + ",");
+            sb.Append(((CPXList<CPItemInBox>)(cpTree.paramsList[itemListName.buildingList.ToString()])).ToString() + ",");
+            sb.Append(((CPXList<CPItemInBox>)(cpTree.paramsList[itemListName.consumptionList.ToString()])).ToString() + ",");
+            sb.Append(((CPXList<CPItemInBox>)(cpTree.paramsList[itemListName.materialList.ToString()])).ToString() + ",");
+            sb.Append(((CPXList<CPItemInBox>)(cpTree.paramsList[itemListName.petList.ToString()])).ToString() + ",");
+            sb.Append(((CPXList<CPItemInBox>)(cpTree.paramsList[itemListName.importantList.ToString()])).ToString() + ",");
 
             int idx1 = bf.IndexOf("unlockedPet");
             int idx2 = bf.IndexOf(itemListName.personalChestList.ToString());
             string hazama = bf.Substring(idx1 - 1, idx2 - idx1);
             sb.Append(hazama);
 
-            sb.Append(((CPXList)(cpTree.paramsList[itemListName.personalChestList.ToString()])).ToString() + ",");
-            sb.Append(((CPXList)(cpTree.paramsList[itemListName.petChestList.ToString()])).ToString() + ",");
+            sb.Append(((CPXList<CPItemInBox>)(cpTree.paramsList[itemListName.personalChestList.ToString()])).ToString() + ",");
+            sb.Append(((CPXList<CPItemInBox>)(cpTree.paramsList[itemListName.petChestList.ToString()])).ToString() + ",");
 
             int idx3 = bf.IndexOf("enchantFragmentList");
             sb.Append(bf.Substring(idx3 - 1));

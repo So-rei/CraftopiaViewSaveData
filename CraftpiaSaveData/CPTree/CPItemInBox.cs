@@ -6,22 +6,19 @@ using System.Threading.Tasks;
 
 namespace CraftpiaViewSaveData.CPTree
 {
-    public class CPItemInBox
+    /// <summary>
+    /// CPXList -> ItemInBox -> ItemInBoxValue -> Item
+    /// </summary>
+    public class CPItemInBox : CPXList<CPItemInBoxValue>
     {
         public List<CPItemInBoxValue> Child { get; set; } = new List<CPItemInBoxValue>();
+        //public string ListName { get; private set; }
 
-        public override string ToString()
+        public CPItemInBox()
         {
-            string ret = "\"itemInBox\":[";
-            foreach (CPItemInBoxValue item in Child)
-            {
-                ret += "{" + item.ToString() + "},";
-            }
-            ret = ret.TrimEnd(',');
-
-            ret += "]";
-
-            return ret;
+            ListName = "itemInBox";
         }
+
+        //public override string ToString()
     }
 }
