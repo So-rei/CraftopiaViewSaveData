@@ -1,21 +1,21 @@
-# CraftpiaViewSaveData
+# CraftopiaViewSaveData
 
-Craftpiaのセーブデータ(アイテム、エンチャント)をexe上で確認できるツールです。
+Craftopiaのセーブデータ(アイテム、エンチャント)をexe上で確認できるツールです。
 
 シームレス版のみ対応。
 
 
 ## How To
-CraftpiaViewSaveData1.0.zipをダウンロードして保存してください。
+CraftopiaViewSaveData1.0.zipをダウンロードして保存してください。
 
-**CraftpiaViewSaveData.exe　が実行EXEです。**
+**CraftopiaViewSaveData.exe　が実行EXEです。**
 
 画面が出たらここにプレイヤーのセーブデータをドラッグ＆ドロップします。
 
 セーブデータは通常、C:\Users\{ユーザー名}\AppData\LocalLow\PocketPair\Craftopia\PPSave\Players\　にあります。
 
 
-![説明](https://github.com/So-rei/CraftpiaViewSaveData/blob/main/pic/sample1.jpg)
+![説明](https://github.com/So-rei/CraftopiaViewSaveData/blob/main/pic/sample1.jpg)
 
 **複数のプレイヤーデータがある場合、どのデータを扱っているかよく確認ください。**
 
