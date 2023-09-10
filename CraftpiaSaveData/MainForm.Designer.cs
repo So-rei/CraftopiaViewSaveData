@@ -1204,6 +1204,7 @@
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage8);
+            this.tabControl1.Enabled = false;
             this.tabControl1.Location = new System.Drawing.Point(12, 306);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -1503,6 +1504,7 @@
             this.tabcontrol2.Controls.Add(this.tabPage10);
             this.tabcontrol2.Controls.Add(this.tabPage11);
             this.tabcontrol2.Controls.Add(this.tabPage12);
+            this.tabcontrol2.Enabled = false;
             this.tabcontrol2.Location = new System.Drawing.Point(667, 36);
             this.tabcontrol2.Name = "tabcontrol2";
             this.tabcontrol2.SelectedIndex = 0;

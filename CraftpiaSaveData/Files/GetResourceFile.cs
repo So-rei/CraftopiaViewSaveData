@@ -25,8 +25,28 @@ namespace CraftpiaViewSaveData.File
                     var line = sr.ReadLine();
                     if (line == "" || line[0] == '#') continue;
 
-                    var sx = line.Split(',');
+                    var sx = line.Split(','); 
                     dic.Add(sx[0], new ClsResource(sx[0], sx.Count() > 1 ? sx[1] : "", sx.Count() > 2 ? sx[2] : ""));
+                }
+            }
+            return dic;
+        }
+        public static Dictionary<string, ClsResource> GetFileEnchant(string filename)
+        {
+            var dic = new Dictionary<string, ClsResource>();
+
+            var apppath = Directory.GetParent(Assembly.GetExecutingAssembly().Location).ToString() + "\\" + filename;
+            //"C:\test\1.txt"をShift-JISコードとして開く
+            using (System.IO.StreamReader sr = new System.IO.StreamReader(@apppath, System.Text.Encoding.GetEncoding("shift_jis")))
+            {
+                //内容を読み込む
+                while (sr.Peek() > -1)
+                {
+                    var line = sr.ReadLine();
+                    if (line == "" || line[0] == '#') continue;
+
+                    var sx = line.Split(',');
+                    dic.Add(sx[0], new ClsResource(sx[0], sx.Count() > 1 ? Convert.ToInt32(sx[1]) : -1, sx.Count() > 2 ? sx[2] : "", sx.Count() > 3 ? sx[3] : ""));
                 }
             }
             return dic;

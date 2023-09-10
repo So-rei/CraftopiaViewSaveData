@@ -13,11 +13,20 @@ namespace CraftpiaViewSaveData.File
     {
         public string id { get; set; }
         public string value { get; set; }
+        public int rank { get; set; }
         public string param { get; set; }
 
+        public ClsResource(string id, int rank, string value,string param)
+        {
+            this.id = id;
+            this.rank = rank;
+            this.value = value;
+            this.param = param;
+        }
         public ClsResource(string id, string value, string param)
         {
             this.id = id;
+            this.rank = -1;
             this.value = value;
             this.param = param;
         }

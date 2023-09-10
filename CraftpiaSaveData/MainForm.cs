@@ -74,12 +74,21 @@ namespace CraftpiaViewSaveData
         {
             public int ItemValue { get; set; }
             public String ItemDisp { get; set; }
-            public String ItemEtc { get; set; }
-            public ComboBoxItemSet(string id, string name, string etc = "")
+            public string[] ItemEtc { get; set; }
+
+            //コンボボックス初期化(エンチャント用)
+            public ComboBoxItemSet(string id, string name, int rank, params string[] etc)
+            {
+                ItemValue = Convert.ToInt32(id);
+                ItemDisp = id + " : " + "★" + rank + " : " + name + " : " + etc[0];
+                ItemEtc = etc.Skip(1).ToArray();
+            }
+            //コンボボックス初期化(アイテム用)
+            public ComboBoxItemSet(string id, string name, params string[] etc)
             {
                 ItemValue = Convert.ToInt32(id);
                 ItemDisp = id + " : " + name;
-                ItemEtc = etc;
+                ItemEtc = etc.ToArray();
             }
         }
         #endregion
@@ -106,10 +115,10 @@ namespace CraftpiaViewSaveData
         {
             List<ComboBoxItemSet> clist = new List<ComboBoxItemSet>();
 
-            enchantComboBoxParams = GetResourceFile.GetFile("EnchantParams.txt");
+            enchantComboBoxParams = GetResourceFile.GetFileEnchant("EnchantParams.txt");
             foreach (var d in enchantComboBoxParams)
             {
-                clist.Add(new ComboBoxItemSet(d.Key, d.Value.value, d.Value.param));
+                clist.Add(new ComboBoxItemSet(d.Key, d.Value.value, d.Value.rank, new string[] { d.Value.param }));
             }
 
             setCboBox(cboEnchant1_1, clist);
@@ -137,7 +146,7 @@ namespace CraftpiaViewSaveData
             var itemParams = GetResourceFile.GetFile("ItemParams.txt");
             foreach (var d in itemParams)
             {
-                clist.Add(new ComboBoxItemSet(d.Key, d.Value.value, d.Value.param));
+                clist.Add(new ComboBoxItemSet(d.Key, d.Value.value, new string[] { d.Value.param }));
             }
 
             setCboBox(cboItem1, clist);
@@ -151,6 +160,10 @@ namespace CraftpiaViewSaveData
             cbo.DisplayMember = "ItemDisp";
             cbo.ValueMember = "ItemValue";
         }
+
+        /// <summary>
+        /// コントロール配列のセット
+        /// </summary>
         private void SetControlArray()
         {
             textItemIds = new TextBox[] { textItemId1, textItemId2, textItemId3, textItemId4 };
@@ -213,6 +226,10 @@ namespace CraftpiaViewSaveData
 #if DEBUGX
             HiddenViewString();
 #endif
+
+            //ページアクティブ
+            this.tabControl1.Enabled = true;
+            this.tabcontrol2.Enabled = true;
         }
 
         //アイテム上限数（解放も込み）を視覚的にわかるようにする
